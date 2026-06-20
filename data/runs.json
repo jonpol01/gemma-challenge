@@ -18,6 +18,12 @@
   "valid": true
  },
  {
+  "run": "vllm-atomicadd-v1",
+  "tps": 490.6,
+  "ppl": 2.394,
+  "valid": true
+ },
+ {
   "run": "vllm-dixie-w128-v1",
   "tps": 420.2,
   "ppl": 1.989,
