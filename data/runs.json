@@ -1,82 +1,65 @@
 [
  {
-  "run": "vllm-mtp-v23",
-  "tps": 130.7,
-  "total_tps": 197.9,
-  "ppl": 2.546,
-  "valid": false,
-  "status": "completed",
-  "finished": "2026-06-18T10:41:39",
-  "job_id": "6a33c50aef9220ea67d98a9b"
- },
- {
-  "run": "vllm-mtp-w4a16-v23",
-  "tps": 224.0,
-  "total_tps": 339.2,
-  "ppl": 2.159,
-  "valid": true,
-  "status": "completed",
-  "finished": "2026-06-18T11:17:51",
-  "job_id": "6a33cf53ef9220ea67d98b44"
- },
- {
-  "run": "vllm-mtp-w4a16-k4",
-  "tps": 210.7,
-  "total_tps": 319.0,
-  "ppl": 2.159,
-  "valid": true,
-  "status": "completed",
-  "finished": "2026-06-18T14:33:09",
-  "job_id": "6a33fc3dd93ea2ddf7fa4998"
- },
- {
-  "run": "vllm-mtp-w4a16-k8",
-  "tps": 221.0,
-  "total_tps": 334.6,
-  "ppl": 2.159,
-  "valid": true,
-  "status": "completed",
-  "finished": "2026-06-18T15:00:13",
-  "job_id": "6a340258d93ea2ddf7fa4a95"
- },
- {
-  "run": "vllm-mtp-w4a16-k10",
-  "tps": 215.4,
-  "total_tps": 326.2,
-  "ppl": 2.159,
-  "valid": true,
-  "status": "completed",
-  "finished": "2026-06-18T15:01:01",
-  "job_id": "6a34025fef9220ea67d99472"
- },
- {
-  "run": "vllm-fa256-w4a16",
-  "tps": 223.8,
-  "total_tps": 338.8,
-  "ppl": 2.159,
-  "valid": true,
-  "status": "completed",
-  "finished": "2026-06-18T16:08:21",
-  "job_id": "6a3412a0d93ea2ddf7fa4b0b"
- },
- {
-  "run": "vllm-fa256-w4a16-v2",
-  "tps": 213.5,
-  "total_tps": 323.3,
-  "ppl": 2.159,
-  "valid": true,
-  "status": "completed",
-  "finished": "2026-06-18T16:21:17",
-  "job_id": "6a341649d93ea2ddf7fa4b18"
+  "run": "vllm-osoi5-pck04-v1",
+  "tps": 292.5,
+  "total_tps": 442.8,
+  "ppl": 2.619,
+  "valid": false
  },
  {
   "run": "vllm-osoi5-loaderpatch",
   "tps": 263.8,
   "total_tps": 399.4,
   "ppl": 4320634.612,
-  "valid": false,
-  "status": "completed",
-  "finished": "2026-06-20T08:14:57",
-  "job_id": "6a3646d4953ed90bfb945826"
+  "valid": false
+ },
+ {
+  "run": "vllm-mtp-w4a16-v23",
+  "tps": 224.0,
+  "total_tps": 339.2,
+  "ppl": 2.159,
+  "valid": true
+ },
+ {
+  "run": "vllm-fa256-w4a16",
+  "tps": 223.8,
+  "total_tps": 338.8,
+  "ppl": 2.159,
+  "valid": true
+ },
+ {
+  "run": "vllm-mtp-w4a16-k8",
+  "tps": 221.0,
+  "total_tps": 334.6,
+  "ppl": 2.159,
+  "valid": true
+ },
+ {
+  "run": "vllm-mtp-w4a16-k10",
+  "tps": 215.4,
+  "total_tps": 326.2,
+  "ppl": 2.159,
+  "valid": true
+ },
+ {
+  "run": "vllm-fa256-w4a16-v2",
+  "tps": 213.5,
+  "total_tps": 323.3,
+  "ppl": 2.159,
+  "valid": true
+ },
+ {
+  "run": "vllm-mtp-w4a16-k4",
+  "tps": 210.7,
+  "total_tps": 319.0,
+  "ppl": 2.159,
+  "valid": true
+ },
+ {
+  "run": "vllm-mtp-v23",
+  "tps": 130.7,
+  "total_tps": 197.9,
+  "ppl": 2.546,
+  "valid": false
  }
 ]

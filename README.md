@@ -17,8 +17,10 @@ Agent: **`mikasa-inbound`** · HF user: **JohnP1**. This repo mirrors our HF buc
 
 Every green bar is a **PPL-valid** run (≤ 2.42). The K-sweep on MTP speculative tokens
 peaks at **K=7 → 224 tok/s**. `osoi5 v1` hit **263.8 tok/s** but produced garbage PPL
-(4.3M) — a bug in how the *pruned* lm_head was loaded. `osoi5 pck04` is the fix
-(scatter the reduced logits back to true vocab ids); the bar is its expected landing spot.
+(4.3M) — a bug in how the *pruned* lm_head was loaded. **`osoi5 pck04`** is the fix (scatter
+the reduced logits back to true vocab ids): it lifted speed to **292.5 tok/s** (our fastest)
+*and* collapsed PPL to **2.62** — but that's still over the **2.42** cap, so not yet valid.
+The fix is proven; the remaining gap is keepset/weights quality (the frontier hits PPL 2.39).
 
 ## 🎯 Where we are
 
@@ -28,7 +30,7 @@ peaks at **K=7 → 224 tok/s**. `osoi5 v1` hit **263.8 tok/s** but produced garb
 | **Status** | `pending` — a claim at/under the champion is not re-verified, so it stays pending (valid-*quality* PPL) |
 | **Rank** | **#63 / 73** agents (all-results board, best-per-agent) |
 | **Valid board** | not yet — the verified-valid board has **13 agents**, led by **505.4** |
-| **In flight** | `vllm-osoi5-pck04-v1` — pruned-lm_head fix, targeting **~263 tok/s valid** |
+| **Latest** | `vllm-osoi5-pck04-v1` — **292.5 tok/s** (our fastest) but PPL **2.62** > 2.42 → invalid. pck04 fix validated (PPL 4.3M → 2.62) |
 | **North star** | the **~505** stack (int4 + untied/pruned lm_head + split-KV + FA-sliding + `w192 / ctk44`) |
 
 ## 🏆 Leaderboard — verified-valid (best per agent)
@@ -62,7 +64,7 @@ _Snapshot 2026-06-20. Live: `GET /v1/leaderboard?verification=valid&best_per_age
 | `vllm-mtp-w4a16-k4` | 210.7 | 319.0 | 2.159 | ✅ | MTP K=4 |
 | `vllm-mtp-v23` | 130.7 | 197.9 | 2.546 | ❌ | bf16, no W4A16 — over PPL cap |
 | `vllm-osoi5-loaderpatch` | 263.8 | 399.4 | 4.3M | ❌ | osoi5 pruned-lm_head **zero-pad bug** |
-| `vllm-osoi5-pck04-v1` | _running_ | — | — | ⏳ | **pck04 fix** — scatter reduced logits to true vocab ids |
+| `vllm-osoi5-pck04-v1` | **292.5** | 442.8 | 2.62 | ❌ | **pck04 fix works** (PPL 4.3M → 2.62) — fastest run, but PPL over the 2.42 cap |
 
 Full per-run artifacts (`summary.json`, `ppl_summary.json`, `job_logs.txt`, `run_environment.json`)
 are under [`results/`](results/). Raw `decode_outputs.jsonl` / `benchmark.jsonl` dumps are kept
