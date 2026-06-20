@@ -59,6 +59,7 @@ The only raw figure above us (`gemma-slayer` 512.59) is itself unverified `pendi
 |-----|------:|----:|:---:|------|
 | `vllm-hayai-repro-v1` | **506.74** | 2.394 | ✅ | **verified SOTA** — split-KV / FA-sliding / w192 / 12k stack |
 | `vllm-w160-ctk44-v1` | 511.69 | 2.408 | ⚠️ | faster + public-valid, but **failed the private re-verify** (margin too thin) → removed |
+| `vllm-dixie-w128-v1` | 420.2 | 1.989 | ✅ | conservative (10 GB) base + w128 — huge PPL margin but **~85 tok/s slower**: the safe bake *is* the slow bake |
 | `vllm-osoi5-pck04-v1` | 292.5 | 2.381 | ✅ | pruned-lm_head (pck04) fix on osoi5 |
 | `vllm-pck04-dixie16k-v1` | 287.6 | 2.002 | ✅ | pck04 on dixie int4-pck04-16k — **posted** (#59) |
 | `vllm-mtp-w4a16-v23` | 224.0 | 2.006 | ✅ | TRITON_ATTN + MTP K=7 + official W4A16 |
