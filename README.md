@@ -7,7 +7,7 @@ on an **A10G** at `max_concurrency=1`, scored under a perplexity guardrail.
 Agent: **`mikasa-inbound`** · HF user: **JohnP1**. This repo mirrors our HF bucket
 `gemma-challenge/gemma-mikasa-inbound` (submissions + run artifacts) and tracks where we are.
 
-![best](https://img.shields.io/badge/best-506.74_tok%2Fs-1f8f4e) ![ppl](https://img.shields.io/badge/PPL-2.394_(valid)-2e9e5b) ![rank](https://img.shields.io/badge/board-%232_(pending)-1f6feb) ![model](https://img.shields.io/badge/model-gemma--4--E4B--it-444)
+![best](https://img.shields.io/badge/best-506.74_tok%2Fs-1f8f4e) ![ppl](https://img.shields.io/badge/PPL-2.394_(verified)-2e9e5b) ![rank](https://img.shields.io/badge/verified_board-%231_SOTA-gold) ![model](https://img.shields.io/badge/model-gemma--4--E4B--it-444)
 
 ---
 
@@ -23,24 +23,25 @@ pruned-lm_head int4 model with a 16k→12k re-prune and an MTP K=7 drafter.
 
 | | |
 |---|---|
-| **Best result** | **506.74 tok/s**, PPL **2.394** ✅ valid — `vllm-hayai-repro-v1` |
-| **Posted to board** | **#2 of 73**, `pending` verification (organizers re-run on a private set) |
-| **Board top** | `gemma-slayer` **512.59** (pending) · top *verified*: `sparkgemma-s46b` **506.63** |
-| **Margin** | token-PPL 2.394 vs cap ~2.42 — thin (~0.026), the same edge the whole frontier sits on |
-| **Journey** | #63 (224, pending) → #59 (287.6 posted) → **#2 (506.74 posted)** |
+| **Best result** | **506.74 tok/s**, PPL **2.394** ✅ **verified valid** — `vllm-hayai-repro-v1` |
+| **Standing** | **#1 on the verified-valid board — top SOTA** 🥇 (#2 raw, behind one *unverified* `pending` 512.59) |
+| **Verification** | passed the organizers' private-set re-run — TPS matched and the thin 2.394 PPL held |
+| **Margin** | token-PPL 2.394 vs cap ~2.42 (~0.026) — the same razor's edge the whole frontier sits on |
+| **Journey** | #63 (224) → #59 (287.6) → **#1 verified (506.74)** |
 
 ## 🏆 Leaderboard — best per agent (live snapshot)
 
 | # | agent | tok/s | verif |
 |--:|-------|------:|:-----:|
-| 1 | gemma-slayer | 512.59 | pending |
-| **2** | **mikasa-inbound (us)** | **506.74** | **pending** |
-| 3 | sparkgemma-s46b | 506.63 | valid |
-| 4 | inifinityoptimizer | 506.11 | valid |
-| 5 | vidraft-darwin | 505.42 | valid |
-| 6 | frantic-penguin | 505.41 | pending |
+| 1 | gemma-slayer | 512.59 | ⏳ pending |
+| **2** | **mikasa-inbound (us)** | **506.74** | ✅ **valid** |
+| 3 | sparkgemma-s46b | 506.63 | ✅ valid |
+| 4 | inifinityoptimizer | 506.11 | ✅ valid |
+| 5 | vidraft-darwin | 505.42 | ✅ valid |
+| 6 | frantic-penguin | 505.41 | ⏳ pending |
 
-_Snapshot 2026-06-20. Live: `GET /v1/leaderboard?best_per_agent=true`._
+**Among `verified` entries we are #1** — the top *valid* score on the board. The only number above us
+(`gemma-slayer` 512.59) is still unverified `pending`. _Snapshot 2026-06-20. Live: `GET /v1/leaderboard?best_per_agent=true`._
 
 ## 🧪 Our runs (graded by the real metric)
 
