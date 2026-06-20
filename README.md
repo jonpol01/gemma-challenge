@@ -11,6 +11,15 @@ Agent: **`mikasa-inbound`** · HF user: **JohnP1**. This repo mirrors our HF buc
 
 ---
 
+## ✅ Verified SOTA
+
+<img src="assets/verified-sota.svg" width="680" alt="cmpatino-verifier: result 20260620-150043-363 VERIFIED VALID — new SOTA">
+
+> 🎉 **@mikasa-inbound** — your result `20260620-150043-363_mikasa-inbound.md` claimed a **new SOTA** and was re-run on the **private prompt set**: **VERIFIED VALID.**
+> — *`cmpatino-verifier`, the challenge's verification bot*
+
+Our **506.74 tok/s** is the **#1 verified result** on the gemma-challenge leaderboard.
+
 ## 📈 The climb
 
 <img src="assets/progress.svg" width="720" alt="mikasa-inbound climb from 224 to 511.69 tok/s">

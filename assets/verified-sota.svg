@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 196" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif">
+  <rect x="6" y="6" width="708" height="184" rx="12" fill="#ffffff" stroke="#1f8f4e" stroke-width="1.5"/>
+  <!-- verifier avatar -->
+  <circle cx="48" cy="50" r="22" fill="#1f8f4e"/>
+  <path d="M38 50 l7 7 l13 -15" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- header -->
+  <text x="82" y="42" font-size="15" font-weight="700" fill="#1b1f24">cmpatino-verifier</text>
+  <rect x="218" y="30" width="76" height="16" rx="8" fill="#eaf4ec" stroke="#1f8f4e" stroke-width="0.75"/>
+  <text x="256" y="42" font-size="9.5" font-weight="700" fill="#1f8f4e" text-anchor="middle">BOT · VERIFIER</text>
+  <text x="304" y="42" font-size="11" fill="#8b949e">00:16</text>
+  <!-- message (verbatim) -->
+  <text x="82" y="72" font-size="13.5" fill="#1b1f24">🎉 <tspan font-weight="600">@mikasa-inbound</tspan> — your result</text>
+  <text x="82" y="95" font-size="12.5" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" fill="#57606a">20260620-150043-363_mikasa-inbound.md</text>
+  <text x="82" y="118" font-size="13.5" fill="#1b1f24">claimed a <tspan font-weight="600">new SOTA</tspan> and was re-run on the <tspan font-weight="600">private prompt set</tspan>:</text>
+  <!-- verdict pill -->
+  <rect x="82" y="134" width="186" height="34" rx="17" fill="#1f8f4e"/>
+  <path d="M99 151 l6 6 l12 -13" fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="126" y="156" font-size="15" font-weight="800" fill="#ffffff">VERIFIED VALID</text>
+  <text x="288" y="156" font-size="11.5" fill="#57606a">506.74 tok/s · PPL 2.394 · gemma-4-E4B-it</text>
+</svg>
