@@ -1,59 +1,41 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif">
-  <rect x="0" y="0" width="880" height="500" rx="10" fill="#ffffff"/>
-  <text x="28" y="34" font-size="20" font-weight="700" fill="#1b1f24">gemma-challenge · mikasa-inbound — single-stream tok/s (A10G)</text>
-  <text x="28" y="54" font-size="12.5" fill="#57606a">google/gemma-4-E4B-it · max_concurrency=1 · PPL cap ≤ 2.42 · runs in chronological order</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 430" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif">
+  <rect x="0" y="0" width="720" height="430" rx="10" fill="#ffffff"/>
+  <text x="26" y="32" font-size="19" font-weight="700" fill="#1b1f24">mikasa-inbound — the climb (single-stream tok/s, A10G)</text>
+  <text x="26" y="51" font-size="12" fill="#57606a">google/gemma-4-E4B-it · valid = token-level PPL ≤ 2.42 · all bars below are VALID</text>
 
-  <!-- y gridlines + labels (y(v) = 410 - v*0.66) -->
-  <g stroke="#e4e8ee" stroke-width="1">
-    <line x1="80" y1="410" x2="836" y2="410"/><line x1="80" y1="344" x2="836" y2="344"/>
-    <line x1="80" y1="278" x2="836" y2="278"/><line x1="80" y1="212" x2="836" y2="212"/>
-    <line x1="80" y1="146" x2="836" y2="146"/><line x1="80" y1="80"  x2="836" y2="80"/>
+  <!-- gridlines y(v)=370-0.62v -->
+  <g stroke="#e7eaef" stroke-width="1">
+    <line x1="70" y1="370" x2="690" y2="370"/><line x1="70" y1="308" x2="690" y2="308"/>
+    <line x1="70" y1="246" x2="690" y2="246"/><line x1="70" y1="184" x2="690" y2="184"/>
+    <line x1="70" y1="122" x2="690" y2="122"/><line x1="70" y1="60" x2="690" y2="60"/>
   </g>
-  <g font-size="11" fill="#8b949e" text-anchor="end">
-    <text x="72" y="414">0</text><text x="72" y="348">100</text><text x="72" y="282">200</text>
-    <text x="72" y="216">300</text><text x="72" y="150">400</text><text x="72" y="84">500</text>
+  <g font-size="10.5" fill="#8b949e" text-anchor="end">
+    <text x="62" y="374">0</text><text x="62" y="312">100</text><text x="62" y="250">200</text>
+    <text x="62" y="188">300</text><text x="62" y="126">400</text><text x="62" y="64">500</text>
   </g>
-  <text x="22" y="250" font-size="12" fill="#57606a" transform="rotate(-90 22 250)" text-anchor="middle">output tok/s</text>
 
-  <!-- champion reference (505.4) -->
-  <line x1="80" y1="77" x2="836" y2="77" stroke="#8957e5" stroke-width="1.5" stroke-dasharray="6 4"/>
-  <text x="832" y="72" font-size="11.5" fill="#8957e5" text-anchor="end" font-weight="600">champion 505.4 (vidraft-darwin, valid)</text>
-  <!-- our best VALID (287.6) -->
-  <line x1="80" y1="220" x2="836" y2="220" stroke="#1f6feb" stroke-width="1" stroke-dasharray="3 3"/>
-  <text x="832" y="216" font-size="11" fill="#1f6feb" text-anchor="end">our best valid 287.6 ↑ (was 224)</text>
+  <!-- board-top reference (gemma-slayer 512.59) -->
+  <line x1="70" y1="52" x2="690" y2="52" stroke="#8957e5" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="686" y="47" font-size="11" fill="#8957e5" text-anchor="end" font-weight="600">board top 512.6 (gemma-slayer)</text>
 
-  <!-- bars: green=valid, red=invalid -->
+  <!-- bars (all valid → green; #2 highlighted) -->
   <g>
-    <rect x="95"  y="324" width="44" height="86"  fill="#d1413c"/><text x="117" y="318" font-size="10.5" fill="#1b1f24" text-anchor="middle">130.7</text>
-    <rect x="170" y="262" width="44" height="148" fill="#2e9e5b"/><text x="192" y="256" font-size="10.5" fill="#1b1f24" text-anchor="middle">224.0</text>
-    <rect x="245" y="271" width="44" height="139" fill="#2e9e5b"/><text x="267" y="265" font-size="10.5" fill="#1b1f24" text-anchor="middle">210.7</text>
-    <rect x="320" y="264" width="44" height="146" fill="#2e9e5b"/><text x="342" y="258" font-size="10.5" fill="#1b1f24" text-anchor="middle">221.0</text>
-    <rect x="395" y="268" width="44" height="142" fill="#2e9e5b"/><text x="417" y="262" font-size="10.5" fill="#1b1f24" text-anchor="middle">215.4</text>
-    <rect x="469" y="262" width="44" height="148" fill="#2e9e5b"/><text x="491" y="256" font-size="10.5" fill="#1b1f24" text-anchor="middle">223.8</text>
-    <rect x="544" y="269" width="44" height="141" fill="#2e9e5b"/><text x="566" y="263" font-size="10.5" fill="#1b1f24" text-anchor="middle">213.5</text>
-    <rect x="619" y="236" width="44" height="174" fill="#d1413c"/><text x="641" y="230" font-size="10.5" fill="#1b1f24" text-anchor="middle">263.8</text>
-    <rect x="694" y="217" width="44" height="193" fill="#d1413c"/><text x="716" y="211" font-size="10.5" fill="#1b1f24" text-anchor="middle">292.5</text>
-    <rect x="769" y="220" width="44" height="190" fill="#2e9e5b"/><text x="791" y="214" font-size="10.5" fill="#1b1f24" text-anchor="middle" font-weight="700">287.6★</text>
+    <rect x="102" y="231" width="92" height="139" fill="#2e9e5b"/>
+    <text x="148" y="225" font-size="13" font-weight="700" fill="#1b1f24" text-anchor="middle">224.0</text>
+    <rect x="257" y="192" width="92" height="178" fill="#2e9e5b"/>
+    <text x="303" y="186" font-size="13" font-weight="700" fill="#1b1f24" text-anchor="middle">287.6</text>
+    <rect x="412" y="189" width="92" height="181" fill="#2e9e5b"/>
+    <text x="458" y="183" font-size="13" font-weight="700" fill="#1b1f24" text-anchor="middle">292.5</text>
+    <rect x="567" y="56" width="92" height="314" fill="#1f8f4e" stroke="#0f5e30" stroke-width="2"/>
+    <text x="613" y="50" font-size="14" font-weight="700" fill="#0f5e30" text-anchor="middle">506.74</text>
   </g>
 
-  <!-- x labels (rotated) -->
-  <g font-size="10" fill="#57606a" text-anchor="end">
-    <text transform="rotate(-35 117 424)" x="117" y="424">mtp bf16</text>
-    <text transform="rotate(-35 192 424)" x="192" y="424">w4a16 K7</text>
-    <text transform="rotate(-35 267 424)" x="267" y="424">w4a16 K4</text>
-    <text transform="rotate(-35 342 424)" x="342" y="424">w4a16 K8</text>
-    <text transform="rotate(-35 417 424)" x="417" y="424">w4a16 K10</text>
-    <text transform="rotate(-35 491 424)" x="491" y="424">fa256 K7</text>
-    <text transform="rotate(-35 566 424)" x="566" y="424">fa256-v2</text>
-    <text transform="rotate(-35 641 424)" x="641" y="424">osoi5 v1</text>
-    <text transform="rotate(-35 716 424)" x="716" y="424">osoi5 pck04</text>
-    <text transform="rotate(-35 791 424)" x="791" y="424">dixie16k</text>
+  <!-- x labels -->
+  <g font-size="11" fill="#1b1f24" text-anchor="middle">
+    <text x="148" y="388" font-weight="600">224</text><text x="148" y="403" font-size="10" fill="#57606a">start (W4A16)</text>
+    <text x="303" y="388" font-weight="600">dixie16k</text><text x="303" y="403" font-size="10" fill="#57606a">posted #59</text>
+    <text x="458" y="388" font-weight="600">osoi5-pck04</text><text x="458" y="403" font-size="10" fill="#57606a">pruned-head fix</text>
+    <text x="613" y="388" font-weight="700" fill="#0f5e30">hayai #2 ★</text><text x="613" y="403" font-size="10" fill="#57606a">split-KV stack</text>
   </g>
-
-  <!-- legend -->
-  <g font-size="11.5" fill="#1b1f24">
-    <rect x="200" y="468" width="13" height="13" fill="#2e9e5b"/><text x="218" y="479">PPL valid (≤ 2.42)</text>
-    <rect x="360" y="468" width="13" height="13" fill="#d1413c"/><text x="378" y="479">PPL fail / invalid</text>
-    <text x="520" y="479" fill="#57606a">★ best valid · dixie int4-pck04-16k</text>
-  </g>
+  <text x="613" y="74" font-size="10.5" fill="#ffffff" text-anchor="middle" font-weight="700">we are here</text>
 </svg>
