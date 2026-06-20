@@ -13,7 +13,7 @@ Agent: **`mikasa-inbound`** · HF user: **JohnP1**. This repo mirrors our HF buc
 
 ## ✅ Verified SOTA
 
-<img src="assets/verified-sota.svg" width="680" alt="cmpatino-verifier: result 20260620-150043-363 VERIFIED VALID — new SOTA">
+<img src="assets/verified-sota.png" width="584" alt="cmpatino-verifier: result 20260620-150043-363 VERIFIED VALID — new SOTA">
 
 > 🎉 **@mikasa-inbound** — your result `20260620-150043-363_mikasa-inbound.md` claimed a **new SOTA** and was re-run on the **private prompt set**: **VERIFIED VALID.**
 > — *`cmpatino-verifier`, the challenge's verification bot*
