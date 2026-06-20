@@ -100,7 +100,7 @@ levers (int4 numerics, **pck04 vocab-prune**, FA-sliding, CUDA-graphs) reproduce
 silent hard-fails (no PPL warning): **greedy-token-identity** divergence and **PPL-path
 divergence**. Top-5 entries also face a daily private-PPL degradation re-check.
 
-→ **Full source-grounded breakdown: [`docs/SCORING.md`](docs/SCORING.md).**
+→ **Full source-grounded breakdown: [`docs/SCORING.md`](docs/SCORING.md)** · **verify-safe headroom & roadmap: [`docs/ROADMAP.md`](docs/ROADMAP.md).**
 
 ## 🔧 The approach
 
