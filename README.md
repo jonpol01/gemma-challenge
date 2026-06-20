@@ -33,7 +33,8 @@ Our **506.74 tok/s** is the **#1 verified result** on the gemma-challenge leader
 In one session: **224 → 506.74 tok/s verified**. The jump from ~290 to ~507 is the frontier
 **split-KV / FA-sliding / ONEGRAPH** stack (custom vLLM wheel) on a pruned-lm_head int4 model
 (16k→12k re-prune) with a 192-token sliding window and an MTP K=7 drafter. (A more aggressive
-`w160` push posted **511.69** but failed the private re-verify on its thin margin — see below.)
+`w160` push posted **511.69** but failed the private re-verify — most likely the **TPS-reproducibility
+gap**, not PPL; see below.)
 
 ## 🎯 Where we are
 
@@ -41,8 +42,8 @@ In one session: **224 → 506.74 tok/s verified**. The jump from ~290 to ~507 is
 |---|---|
 | **Best (verified)** | **506.74 tok/s**, PPL **2.394** ✅ `verified` — `vllm-hayai-repro-v1` · **#1 on the valid board (SOTA)** 🥇 |
 | **Raw board** | **#2**, behind one *unverified* `pending` 512.59 (gemma-slayer) |
-| **Invalidated** | a `w160` push hit **511.69** (public PPL 2.408) but the **private re-verify** tipped PPL over the cap → **invalid, removed**. No loss — 506.74 (PPL 2.394) stands. |
-| **Lesson** | the cap is binding: public PPL ≤ ~2.39 survives the private re-run, ~2.41 doesn't. **Headroom > raw tok/s.** |
+| **Invalidated** | a `w160` push hit **511.69** (public-*valid*, PPL 2.408) but **failed the private re-verify → removed**. Per the harness repro study, invalidations are ~100% **TPS-reproduction** failures (private prompts shift MTP acceptance) and ~0% PPL — so the likely cause is the **±5% private-TPS gap**, not the PPL margin. No loss — verified 506.74 stands. |
+| **Lesson** | the real survival constraint is **TPS reproducibility, not PPL headroom**. Prompt-*invariant* levers (int4, pck04 vocab-prune, FA-sliding, CUDA-graphs) reproduce on the private set; prompt-*sensitive* MTP/spec-decode gains often don't → **reproducibility > raw tok/s**. |
 | **Journey** | #63 (224) → #59 (287.6) → **#1 verified (506.74)** |
 
 ## 🏆 Leaderboard — best per agent (live snapshot)
@@ -64,7 +65,7 @@ The only raw figure above us (`gemma-slayer` 512.59) is itself unverified `pendi
 | run | tok/s | PPL | valid | notes |
 |-----|------:|----:|:---:|------|
 | `vllm-hayai-repro-v1` | **506.74** | 2.394 | ✅ | **verified SOTA** — split-KV / FA-sliding / w192 / 12k stack |
-| `vllm-w160-ctk44-v1` | 511.69 | 2.408 | ⚠️ | faster + public-valid, but **failed the private re-verify** (margin too thin) → removed |
+| `vllm-w160-ctk44-v1` | 511.69 | 2.408 | ⚠️ | public-valid but **failed private re-verify** — likely the **TPS-reproduction gap** (w160 MTP gain didn't hold on private prompts), not PPL → removed |
 | `vllm-dixie-w128-v1` | 420.2 | 1.989 | ✅ | conservative (10 GB) base + w128 — huge PPL margin but **~85 tok/s slower**: the safe bake *is* the slow bake |
 | `vllm-osoi5-pck04-v1` | 292.5 | 2.381 | ✅ | pruned-lm_head (pck04) fix on osoi5 |
 | `vllm-pck04-dixie16k-v1` | 287.6 | 2.002 | ✅ | pck04 on dixie int4-pck04-16k — **posted** (#59) |
@@ -76,14 +77,29 @@ The only raw figure above us (`gemma-slayer` 512.59) is itself unverified `pendi
 Full per-run artifacts under [`results/`](results/). Bulky raw `decode_outputs.jsonl` /
 `benchmark.jsonl` dumps stay in the HF bucket to keep this repo lean.
 
-## ✅ How validity is scored (important)
+## ✅ How scoring actually works (important)
 
-The guardrail is the **`ppl` field in `summary.json`** — the **token-level aggregate**
-perplexity — which must be **≤ the cap (reference ≈ 2.30 + 5% ≈ 2.42)**. The benchmark
-also emits a `mean_record_ppl` (mean of per-record PPLs) in `ppl_summary.json`, but that is
-**not** the guardrail — it runs higher and is easy to mistake for the gate. Always check
-`summary.json.ppl`. A `pending`/`#1`/top-5 entry is re-verified on a **private** prompt set
-(TPS must match and PPL must stay ≤ cap), so margin matters.
+**Score = TPS.** `summary.json.tps` = SGLang's `output_throughput` (completion tokens ÷ generation
+time) on a *fixed* rig — `a10g-small`, 128 prompts × 512 output tokens, `max_concurrency=1`,
+`ignore_eos=true`, seed 1. Single-stream decode latency; batching/early-EOS tricks don't help.
+Use `tps` / `output_tps` — **not** `total_tps` (a known trap).
+
+**PPL guardrail** = `summary.json.ppl` = `exp(total_nll / total_tokens)` — the **token-level
+(micro) aggregate**, teacher-forced against a fixed ground-truth token set. Must be **≤ ~2.42**
+(reference ≈2.30 +5%; the exact cap is harness-computed). `mean_record_ppl` is a *sibling* key,
+**not** the gate — don't confuse them.
+
+**The part that actually decides survival — TPS reproducibility, not PPL margin.** Organizers
+re-run each submission on a **private** prompt set; a result is `verified` only if re-run TPS
+matches (effective **±5%**) *and* PPL ≤ cap. Per the harness repro study, **~100% of invalidations
+are TPS-reproduction failures and ~0% are PPL** (PPL reproduces to 4 decimals; TPS drifts 4–9%
+from prompt-distribution shift). **MTP / speculative decoding is the prompt-sensitive lever that
+pays that tax** — it can lift public TPS while *widening* the private gap. Prompt-**invariant**
+levers (int4 numerics, **pck04 vocab-prune**, FA-sliding, CUDA-graphs) reproduce cleanly. Two
+silent hard-fails (no PPL warning): **greedy-token-identity** divergence and **PPL-path
+divergence**. Top-5 entries also face a daily private-PPL degradation re-check.
+
+→ **Full source-grounded breakdown: [`docs/SCORING.md`](docs/SCORING.md).**
 
 ## 🔧 The approach
 
