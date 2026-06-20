@@ -7,6 +7,13 @@
   "valid": false
  },
  {
+  "run": "vllm-pck04-dixie16k-v1",
+  "tps": 287.6,
+  "total_tps": 435.5,
+  "ppl": 2.151,
+  "valid": true
+ },
+ {
   "run": "vllm-osoi5-loaderpatch",
   "tps": 263.8,
   "total_tps": 399.4,
