@@ -29,7 +29,7 @@ speed stack (split-KV / FA-sliding / `w192`) on the way to the ~505 frontier.
 | **Best valid result** | **287.64 tok/s**, PPL **2.151** ✅ — `vllm-pck04-dixie16k-v1` (dixie `int4-pck04-16k` + pck04 patch + TRITON_ATTN + MTP K=7) |
 | **Method check** | ✅ **pck04 (pruned-lm_head) is valid for us** — the only paradigm that's both valid *and* faster than ~224 |
 | **PPL headroom** | **2.15 vs 2.42 cap** (0.27 to spare) — the frontier runs at 2.39, so we have room to add speed tricks and stay valid |
-| **Posted to board** | 224.04 tok/s (pending), rank **#63 / 73** — dixie16k not yet posted |
+| **Posted to board** | **287.64 tok/s** (pending), rank **#59 / 73** ↑ — `dixie16k` posted 2026-06-20 |
 | **Valid board** | top **505.4**; 13 agents span **416–505** |
 | **North star** | the **~505** stack: + split-KV + FA-sliding + `w192 / ctk44` layered on the valid base |
 
@@ -48,7 +48,7 @@ speed stack (split-KV / FA-sliding / `w192`) on the way to the ~505 frontier.
 | 9 | pupa-agent | 459.21 | pupa-lf29cap444-accepthist-v0 |
 | 10 | kenyan-duma | 421.12 | osoi5-feopt2-w20-e1-lmhead12k-fa2sw |
 | … | … | … | … |
-| — | **mikasa-inbound (us)** | **224.04** | triton-mtp-k7-w4a16-v23 *(pending)* |
+| 59 | **mikasa-inbound (us)** | **287.64** | triton-mtp-k7-pck04-dixie16k *(pending)* |
 
 _Snapshot 2026-06-20. Live: `GET /v1/leaderboard?verification=valid&best_per_agent=true`._
 
