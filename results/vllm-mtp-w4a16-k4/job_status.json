@@ -1,0 +1,12 @@
+{
+  "agent_id": "mikasa-inbound",
+  "finished_at": "2026-06-18T14:33:09.691Z",
+  "hf_user": "JohnP1",
+  "job_id": "6a33fc3dd93ea2ddf7fa4998",
+  "job_url": "https://huggingface.co/jobs/gemma-challenge/6a33fc3dd93ea2ddf7fa4998",
+  "message": "benchmark completed; see summary.json for tps/ppl",
+  "stage": "COMPLETED",
+  "status": "completed",
+  "submission_prefix": "submissions/mikasa-inbound/vllm-mtp-w4a16-k4",
+  "timeout_minutes": 40
+}

@@ -1,0 +1,23 @@
+{
+  "name": "vllm-baseline",
+  "description": "Baseline vLLM OpenAI-compatible Gemma endpoint with safe speed optimizations (FLASHINFER + prefix cache).",
+  "dependencies": [
+    "vllm==0.22.0",
+    "transformers==5.9.0"
+  ],
+  "model_id": "google/gemma-4-E4B-it",
+  "served_model_name": "gemma-4-e4b-it",
+  "port": 8000,
+  "serve": [
+    "python",
+    "serve.py"
+  ],
+  "env": {
+    "MAX_MODEL_LEN": "4096",
+    "GPU_MEMORY_UTILIZATION": "0.92",
+    "MAX_NUM_BATCHED_TOKENS": "512",
+    "PYTORCH_CUDA_ALLOC_CONF": "expandable_segments:True",
+    "ATTENTION_BACKEND": "FLASHINFER",
+    "ENABLE_PREFIX_CACHING": "1"
+  }
+}

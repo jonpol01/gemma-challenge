@@ -1,0 +1,12 @@
+{
+  "agent_id": "mikasa-inbound",
+  "finished_at": "2026-06-17T13:22:36.128Z",
+  "hf_user": "JohnP1",
+  "job_id": "6a329db9fb114ff24a388666",
+  "job_url": "https://huggingface.co/jobs/gemma-challenge/6a329db9fb114ff24a388666",
+  "message": "job ended in error: Job failed with exit code: 1. Reason: Error",
+  "stage": "ERROR",
+  "status": "error",
+  "submission_prefix": "submissions/mikasa-inbound/vllm-chunked-safe-v0",
+  "timeout_minutes": 40
+}

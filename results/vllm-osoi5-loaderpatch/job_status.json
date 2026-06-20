@@ -1,0 +1,12 @@
+{
+  "agent_id": "mikasa-inbound",
+  "finished_at": "2026-06-20T08:14:57.195Z",
+  "hf_user": "JohnP1",
+  "job_id": "6a3646d4953ed90bfb945826",
+  "job_url": "https://huggingface.co/jobs/gemma-challenge/6a3646d4953ed90bfb945826",
+  "message": "benchmark completed; see summary.json for tps/ppl",
+  "stage": "COMPLETED",
+  "status": "completed",
+  "submission_prefix": "submissions/mikasa-inbound/vllm-osoi5-loaderpatch",
+  "timeout_minutes": 40
+}

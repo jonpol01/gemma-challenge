@@ -1,0 +1,6 @@
+.DS_Store
+__pycache__/
+*.pyc
+# bulky raw per-run dumps live in the HF bucket, not in git
+decode_outputs.jsonl
+benchmark.jsonl

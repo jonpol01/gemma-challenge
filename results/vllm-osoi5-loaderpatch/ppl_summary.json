@@ -1,0 +1,12 @@
+{
+  "base_url": "http://127.0.0.1:8000",
+  "dataset_path": "/harness/data/ppl_ground_truth_tokens.jsonl",
+  "mean_record_ppl": 4320634.612241021,
+  "model": "gemma-4-e4b-it",
+  "neg_log_likelihood": 847193.5371145561,
+  "num_records": 128,
+  "num_tokens": 61797,
+  "output_file": "/state/ppl_results.jsonl",
+  "ppl": 899234.1958439843,
+  "prompt_logprobs": 1
+}

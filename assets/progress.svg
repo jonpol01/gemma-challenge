@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif">
+  <rect x="0" y="0" width="880" height="500" rx="10" fill="#ffffff"/>
+  <text x="28" y="34" font-size="20" font-weight="700" fill="#1b1f24">gemma-challenge · mikasa-inbound — single-stream tok/s (A10G)</text>
+  <text x="28" y="54" font-size="12.5" fill="#57606a">google/gemma-4-E4B-it · max_concurrency=1 · PPL cap ≤ 2.42 · runs in chronological order</text>
+
+  <!-- y gridlines + labels (y(v) = 410 - v*0.66) -->
+  <g stroke="#e4e8ee" stroke-width="1">
+    <line x1="80" y1="410" x2="828" y2="410"/>
+    <line x1="80" y1="344" x2="828" y2="344"/>
+    <line x1="80" y1="278" x2="828" y2="278"/>
+    <line x1="80" y1="212" x2="828" y2="212"/>
+    <line x1="80" y1="146" x2="828" y2="146"/>
+    <line x1="80" y1="80"  x2="828" y2="80"/>
+  </g>
+  <g font-size="11" fill="#8b949e" text-anchor="end">
+    <text x="72" y="414">0</text><text x="72" y="348">100</text><text x="72" y="282">200</text>
+    <text x="72" y="216">300</text><text x="72" y="150">400</text><text x="72" y="84">500</text>
+  </g>
+  <text x="22" y="250" font-size="12" fill="#57606a" transform="rotate(-90 22 250)" text-anchor="middle">output tok/s</text>
+
+  <!-- champion reference line (505.4) -->
+  <line x1="80" y1="77" x2="828" y2="77" stroke="#8957e5" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="824" y="72" font-size="11.5" fill="#8957e5" text-anchor="end" font-weight="600">champion 505.4 (vidraft-darwin, valid)</text>
+
+  <!-- our-best reference line (224) -->
+  <line x1="80" y1="262" x2="828" y2="262" stroke="#1f6feb" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="824" y="258" font-size="11" fill="#1f6feb" text-anchor="end">our best valid-quality 224.0</text>
+
+  <!-- bars: green=valid ppl, red=invalid ppl, amber dashed=pending/running -->
+  <g>
+    <!-- 0 mtp-v23 130.7 invalid -->
+    <rect x="97"  y="324" width="48" height="86"  fill="#d1413c"/>
+    <text x="121" y="318" font-size="11" fill="#1b1f24" text-anchor="middle" font-weight="600">130.7</text>
+    <!-- 1 mtp-w4a16-v23 224.0 valid BEST -->
+    <rect x="179" y="262" width="48" height="148" fill="#2e9e5b"/>
+    <text x="203" y="256" font-size="11" fill="#1b1f24" text-anchor="middle" font-weight="700">224.0★</text>
+    <!-- 2 k4 210.7 -->
+    <rect x="261" y="271" width="48" height="139" fill="#2e9e5b"/>
+    <text x="285" y="265" font-size="11" fill="#1b1f24" text-anchor="middle">210.7</text>
+    <!-- 3 k8 221.0 -->
+    <rect x="343" y="264" width="48" height="146" fill="#2e9e5b"/>
+    <text x="367" y="258" font-size="11" fill="#1b1f24" text-anchor="middle">221.0</text>
+    <!-- 4 k10 215.4 -->
+    <rect x="426" y="268" width="48" height="142" fill="#2e9e5b"/>
+    <text x="450" y="262" font-size="11" fill="#1b1f24" text-anchor="middle">215.4</text>
+    <!-- 5 fa256 223.8 -->
+    <rect x="508" y="262" width="48" height="148" fill="#2e9e5b"/>
+    <text x="532" y="256" font-size="11" fill="#1b1f24" text-anchor="middle">223.8</text>
+    <!-- 6 fa256-v2 213.5 -->
+    <rect x="590" y="269" width="48" height="141" fill="#2e9e5b"/>
+    <text x="614" y="263" font-size="11" fill="#1b1f24" text-anchor="middle">213.5</text>
+    <!-- 7 osoi5-loaderpatch 263.8 invalid (ppl 4.3M) -->
+    <rect x="672" y="236" width="48" height="174" fill="#d1413c"/>
+    <text x="696" y="230" font-size="11" fill="#1b1f24" text-anchor="middle" font-weight="600">263.8</text>
+    <!-- 8 osoi5-pck04-v1 pending/running ~263 -->
+    <rect x="754" y="236" width="48" height="174" fill="#f5b942" fill-opacity="0.45" stroke="#d29404" stroke-width="1.5" stroke-dasharray="5 3"/>
+    <text x="778" y="230" font-size="11" fill="#9a6a00" text-anchor="middle" font-weight="600">~263?</text>
+  </g>
+
+  <!-- x labels (rotated) -->
+  <g font-size="10.5" fill="#57606a" text-anchor="end">
+    <text transform="rotate(-35 121 424)" x="121" y="424">mtp-v23</text>
+    <text transform="rotate(-35 203 424)" x="203" y="424">mtp-w4a16 K7</text>
+    <text transform="rotate(-35 285 424)" x="285" y="424">w4a16 K4</text>
+    <text transform="rotate(-35 367 424)" x="367" y="424">w4a16 K8</text>
+    <text transform="rotate(-35 450 424)" x="450" y="424">w4a16 K10</text>
+    <text transform="rotate(-35 532 424)" x="532" y="424">fa256 K7</text>
+    <text transform="rotate(-35 614 424)" x="614" y="424">fa256-v2</text>
+    <text transform="rotate(-35 696 424)" x="696" y="424">osoi5 v1</text>
+    <text transform="rotate(-35 778 424)" x="778" y="424">osoi5 pck04</text>
+  </g>
+
+  <!-- legend -->
+  <g font-size="11.5" fill="#1b1f24">
+    <rect x="92"  y="468" width="13" height="13" fill="#2e9e5b"/><text x="110" y="479">PPL valid (≤2.42)</text>
+    <rect x="244" y="468" width="13" height="13" fill="#d1413c"/><text x="262" y="479">PPL fail / invalid</text>
+    <rect x="392" y="468" width="13" height="13" fill="#f5b942" fill-opacity="0.45" stroke="#d29404" stroke-dasharray="3 2"/><text x="410" y="479">pending / running</text>
+  </g>
+</svg>

@@ -1,0 +1,12 @@
+{
+  "agent_id": "mikasa-inbound",
+  "finished_at": "2026-06-18T17:49:28.581Z",
+  "hf_user": "JohnP1",
+  "job_id": "6a342e8e8d2e44beabb320ac",
+  "job_url": "https://huggingface.co/jobs/gemma-challenge/6a342e8e8d2e44beabb320ac",
+  "message": "job ended in error: Job failed with exit code: 1. Reason: Error",
+  "stage": "ERROR",
+  "status": "error",
+  "submission_prefix": "submissions/mikasa-inbound/vllm-osoi5-swap",
+  "timeout_minutes": 40
+}

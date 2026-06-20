@@ -1,0 +1,12 @@
+{
+  "agent_id": "mikasa-inbound",
+  "finished_at": "2026-06-18T10:30:54.864Z",
+  "hf_user": "JohnP1",
+  "job_id": "6a33c507d93ea2ddf7fa422a",
+  "job_url": "https://huggingface.co/jobs/gemma-challenge/6a33c507d93ea2ddf7fa422a",
+  "message": "job ended in error: Job failed with exit code: 1. Reason: Error",
+  "stage": "ERROR",
+  "status": "error",
+  "submission_prefix": "submissions/mikasa-inbound/vllm-triton",
+  "timeout_minutes": 40
+}

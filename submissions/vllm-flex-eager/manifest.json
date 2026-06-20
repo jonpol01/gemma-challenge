@@ -1,0 +1,24 @@
+{
+  "name": "vllm-flex-eager",
+  "description": "vLLM V1 Gemma \u2014 FLEX_ATTENTION backend + enforce_eager (PyTorch FlexAttention \u2014 supports any head dim; safe baseline).",
+  "dependencies": [
+    "vllm==0.22.0",
+    "transformers==5.9.0"
+  ],
+  "model_id": "google/gemma-4-E4B-it",
+  "served_model_name": "gemma-4-e4b-it",
+  "port": 8000,
+  "serve": [
+    "python",
+    "serve.py"
+  ],
+  "env": {
+    "MAX_MODEL_LEN": "4096",
+    "GPU_MEMORY_UTILIZATION": "0.90",
+    "MAX_NUM_BATCHED_TOKENS": "512",
+    "PYTORCH_CUDA_ALLOC_CONF": "expandable_segments:True",
+    "ENABLE_PREFIX_CACHING": "1",
+    "ATTENTION_BACKEND": "FLEX_ATTENTION",
+    "ENFORCE_EAGER": "1"
+  }
+}

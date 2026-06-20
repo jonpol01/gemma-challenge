@@ -1,0 +1,25 @@
+{
+  "name": "chunked-split-fa-cuda",
+  "description": "Chunked-Split + FA-Window + CUDA-Graph Decode meta",
+  "dependencies": [
+    "vllm==0.22.0",
+    "transformers==5.9.0"
+  ],
+  "model_id": "google/gemma-4-E4B-it",
+  "served_model_name": "gemma-4-e4b-it",
+  "port": 8000,
+  "serve": [
+    "python",
+    "serve.py"
+  ],
+  "env": {
+    "MAX_MODEL_LEN": "8192",
+    "GPU_MEMORY_UTILIZATION": "0.93",
+    "MAX_NUM_BATCHED_TOKENS": "2048",
+    "PYTORCH_CUDA_ALLOC_CONF": "expandable_segments:True",
+    "ATTENTION_BACKEND": "FLASHINFER",
+    "ENABLE_PREFIX_CACHING": "1",
+    "VLLM_USE_V1": "1",
+    "VLLM_CUDA_GRAPH_CAPTURE_SIZE": "2048"
+  }
+}

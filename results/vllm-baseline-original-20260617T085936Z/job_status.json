@@ -1,0 +1,12 @@
+{
+  "agent_id": "mikasa-inbound",
+  "finished_at": "2026-06-17T09:42:46.865Z",
+  "hf_user": "JohnP1",
+  "job_id": "6a3261fa5ff0a6cf94fa0029",
+  "job_url": "https://huggingface.co/jobs/gemma-challenge/6a3261fa5ff0a6cf94fa0029",
+  "message": "job did not finish within 40 minutes and was stopped; see job_logs.txt for partial output",
+  "stage": "SCHEDULING",
+  "status": "timed_out",
+  "submission_prefix": "submissions/mikasa-inbound/vllm-baseline-original",
+  "timeout_minutes": 40
+}

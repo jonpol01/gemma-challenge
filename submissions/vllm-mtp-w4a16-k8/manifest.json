@@ -1,0 +1,26 @@
+{
+  "name": "vllm-mtp-w4a16-k8",
+  "description": "vLLM 0.23.0 + TRITON_ATTN + W4A16 + MTP K=8. K-peak probe above the K=7 (224 tok/s) baseline.",
+  "dependencies": [
+    "vllm==0.23.0"
+  ],
+  "model_id": "google/gemma-4-E4B-it",
+  "served_model_name": "gemma-4-e4b-it",
+  "port": 8000,
+  "serve": [
+    "python",
+    "serve.py"
+  ],
+  "env": {
+    "MAX_MODEL_LEN": "4096",
+    "GPU_MEMORY_UTILIZATION": "0.90",
+    "MAX_NUM_BATCHED_TOKENS": "512",
+    "MAX_NUM_SEQS": "1",
+    "PYTORCH_CUDA_ALLOC_CONF": "expandable_segments:True",
+    "ATTENTION_BACKEND": "TRITON_ATTN",
+    "ENABLE_PREFIX_CACHING": "1",
+    "SPECULATIVE_CONFIG": "{\"method\": \"mtp\", \"model\": \"google/gemma-4-E4B-it-assistant\", \"num_speculative_tokens\": 8}",
+    "MODEL_ID": "google/gemma-4-E4B-it",
+    "SERVE_MODEL_OVERRIDE": "google/gemma-4-E4B-it-qat-w4a16-ct"
+  }
+}

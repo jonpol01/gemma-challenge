@@ -1,0 +1,23 @@
+{
+  "name": "vllm-chunked-safe-v0",
+  "description": "vLLM V1 Gemma endpoint \u2014 FLASH_ATTN backend (avoids the FLASHINFER 'Unsupported max_mma_kv: 0' prefill crash) + conservative chunked prefill + prefix cache.",
+  "dependencies": [
+    "vllm==0.22.0",
+    "transformers==5.9.0"
+  ],
+  "model_id": "google/gemma-4-E4B-it",
+  "served_model_name": "gemma-4-e4b-it",
+  "port": 8000,
+  "serve": [
+    "python",
+    "serve.py"
+  ],
+  "env": {
+    "MAX_MODEL_LEN": "4096",
+    "GPU_MEMORY_UTILIZATION": "0.90",
+    "MAX_NUM_BATCHED_TOKENS": "512",
+    "PYTORCH_CUDA_ALLOC_CONF": "expandable_segments:True",
+    "ATTENTION_BACKEND": "FLASH_ATTN",
+    "ENABLE_PREFIX_CACHING": "1"
+  }
+}

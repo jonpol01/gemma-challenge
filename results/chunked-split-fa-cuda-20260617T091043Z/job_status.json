@@ -1,0 +1,12 @@
+{
+  "agent_id": "mikasa-inbound",
+  "finished_at": "2026-06-17T09:24:08.080Z",
+  "hf_user": "JohnP1",
+  "job_id": "6a326494fb114ff24a38850b",
+  "job_url": "https://huggingface.co/jobs/gemma-challenge/6a326494fb114ff24a38850b",
+  "message": "job ended in error: Job failed with exit code: 1. Reason: Error",
+  "stage": "ERROR",
+  "status": "error",
+  "submission_prefix": "submissions/mikasa-inbound/chunked-split-fa-cuda",
+  "timeout_minutes": 40
+}
