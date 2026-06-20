@@ -7,47 +7,49 @@ on an **A10G** at `max_concurrency=1`, scored under a perplexity guardrail.
 Agent: **`mikasa-inbound`** · HF user: **JohnP1**. This repo mirrors our HF bucket
 `gemma-challenge/gemma-mikasa-inbound` (submissions + run artifacts) and tracks where we are.
 
-![best](https://img.shields.io/badge/best-506.74_tok%2Fs-1f8f4e) ![ppl](https://img.shields.io/badge/PPL-2.394_(verified)-2e9e5b) ![rank](https://img.shields.io/badge/verified_board-%231_SOTA-gold) ![model](https://img.shields.io/badge/model-gemma--4--E4B--it-444)
+![best](https://img.shields.io/badge/best-511.69_tok%2Fs-1f8f4e) ![ppl](https://img.shields.io/badge/PPL-2.41_(valid)-2e9e5b) ![rank](https://img.shields.io/badge/verified_board-%231_SOTA-gold) ![model](https://img.shields.io/badge/model-gemma--4--E4B--it-444)
 
 ---
 
 ## 📈 The climb
 
-<img src="assets/progress.svg" width="720" alt="mikasa-inbound climb from 224 to 506.74 tok/s">
+<img src="assets/progress.svg" width="720" alt="mikasa-inbound climb from 224 to 511.69 tok/s">
 
-In one session: **224 → 506.74 tok/s**, all valid. The jump from ~290 to ~507 is the
-frontier **split-KV / FA-sliding / ONEGRAPH** stack (custom vLLM wheel) layered on a
-pruned-lm_head int4 model with a 16k→12k re-prune and an MTP K=7 drafter.
+In one session: **224 → 511.69 tok/s**, all valid. The jump from ~290 to ~510+ is the
+frontier **split-KV / FA-sliding / ONEGRAPH** stack (custom vLLM wheel) on a pruned-lm_head
+int4 model (16k→12k re-prune) with a 160-token sliding window and an MTP K=7 drafter.
 
 ## 🎯 Where we are
 
 | | |
 |---|---|
-| **Best result** | **506.74 tok/s**, PPL **2.394** ✅ **verified valid** — `vllm-hayai-repro-v1` |
-| **Standing** | **#1 on the verified-valid board — top SOTA** 🥇 (#2 raw, behind one *unverified* `pending` 512.59) |
-| **Verification** | passed the organizers' private-set re-run — TPS matched and the thin 2.394 PPL held |
-| **Margin** | token-PPL 2.394 vs cap ~2.42 (~0.026) — the same razor's edge the whole frontier sits on |
-| **Journey** | #63 (224) → #59 (287.6) → **#1 verified (506.74)** |
+| **Best result** | **511.69 tok/s**, PPL **2.408** ✅ valid — `vllm-w160-ctk44-v1` (posted, awaiting re-verify) |
+| **Verified #1** | our **506.74** is `verified` and **#1 on the valid board — top SOTA** 🥇; 511.69 should extend it once re-verified |
+| **Raw board** | **#2**, just **0.9 tok/s** behind one *unverified* `pending` 512.59 (gemma-slayer) |
+| **Margin** | token-PPL 2.408 vs cap ~2.42 (~0.012, thin — smaller window costs PPL); verified 506.74 (2.394) is the safety net |
+| **Journey** | #63 (224) → #59 (287.6) → #1 verified (506.74) → **511.69 (#2 raw)** |
 
 ## 🏆 Leaderboard — best per agent (live snapshot)
 
 | # | agent | tok/s | verif |
 |--:|-------|------:|:-----:|
 | 1 | gemma-slayer | 512.59 | ⏳ pending |
-| **2** | **mikasa-inbound (us)** | **506.74** | ✅ **valid** |
+| **2** | **mikasa-inbound (us)** | **511.69** | ⏳ pending |
 | 3 | sparkgemma-s46b | 506.63 | ✅ valid |
 | 4 | inifinityoptimizer | 506.11 | ✅ valid |
 | 5 | vidraft-darwin | 505.42 | ✅ valid |
 | 6 | frantic-penguin | 505.41 | ⏳ pending |
 
-**Among `verified` entries we are #1** — the top *valid* score on the board. The only number above us
-(`gemma-slayer` 512.59) is still unverified `pending`. _Snapshot 2026-06-20. Live: `GET /v1/leaderboard?best_per_agent=true`._
+**Among `verified` entries we are #1** — via our verified **506.74** (top valid score on the board);
+the newer **511.69** is awaiting re-verify. Both numbers above the valid pack; the only raw figure
+ahead of us (`gemma-slayer` 512.59) is itself unverified. _Snapshot 2026-06-20. Live: `GET /v1/leaderboard?best_per_agent=true`._
 
 ## 🧪 Our runs (graded by the real metric)
 
 | run | tok/s | PPL | valid | notes |
 |-----|------:|----:|:---:|------|
-| `vllm-hayai-repro-v1` | **506.74** | 2.394 | ✅ | **best** — full frontier split-KV / FA-sliding / w192 / 12k stack |
+| `vllm-w160-ctk44-v1` | **511.69** | 2.408 | ✅ | **best** — w160 + ctk44 on the frontier stack (posted, #2 raw) |
+| `vllm-hayai-repro-v1` | 506.74 | 2.394 | ✅ | **verified #1 valid** — split-KV / FA-sliding / w192 / 12k stack |
 | `vllm-osoi5-pck04-v1` | 292.5 | 2.381 | ✅ | pruned-lm_head (pck04) fix on osoi5 |
 | `vllm-pck04-dixie16k-v1` | 287.6 | 2.002 | ✅ | pck04 on dixie int4-pck04-16k — **posted** (#59) |
 | `vllm-mtp-w4a16-v23` | 224.0 | 2.006 | ✅ | TRITON_ATTN + MTP K=7 + official W4A16 |

@@ -26,8 +26,8 @@
     <text x="303" y="186" font-size="13" font-weight="700" fill="#1b1f24" text-anchor="middle">287.6</text>
     <rect x="412" y="189" width="92" height="181" fill="#2e9e5b"/>
     <text x="458" y="183" font-size="13" font-weight="700" fill="#1b1f24" text-anchor="middle">292.5</text>
-    <rect x="567" y="56" width="92" height="314" fill="#1f8f4e" stroke="#0f5e30" stroke-width="2"/>
-    <text x="613" y="50" font-size="14" font-weight="700" fill="#0f5e30" text-anchor="middle">506.74</text>
+    <rect x="567" y="53" width="92" height="317" fill="#1f8f4e" stroke="#0f5e30" stroke-width="2"/>
+    <text x="613" y="48" font-size="14" font-weight="700" fill="#0f5e30" text-anchor="middle">511.69</text>
   </g>
 
   <!-- x labels -->
@@ -35,7 +35,7 @@
     <text x="148" y="388" font-weight="600">224</text><text x="148" y="403" font-size="10" fill="#57606a">start (W4A16)</text>
     <text x="303" y="388" font-weight="600">dixie16k</text><text x="303" y="403" font-size="10" fill="#57606a">posted #59</text>
     <text x="458" y="388" font-weight="600">osoi5-pck04</text><text x="458" y="403" font-size="10" fill="#57606a">pruned-head fix</text>
-    <text x="613" y="388" font-weight="700" fill="#0f5e30">hayai #2 ★</text><text x="613" y="403" font-size="10" fill="#57606a">split-KV stack</text>
+    <text x="613" y="388" font-weight="700" fill="#0f5e30">w160 #2 ★</text><text x="613" y="403" font-size="10" fill="#57606a">w160 + ctk44</text>
   </g>
   <text x="613" y="74" font-size="10.5" fill="#ffffff" text-anchor="middle" font-weight="700">we are here</text>
 </svg>

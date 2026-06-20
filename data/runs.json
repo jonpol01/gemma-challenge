@@ -1,78 +1,73 @@
 [
  {
+  "run": "vllm-w160-ctk44-v1",
+  "tps": 511.7,
+  "ppl": 2.408,
+  "valid": true
+ },
+ {
   "run": "vllm-hayai-repro-v1",
   "tps": 506.7,
-  "total_tps": 767.2,
   "ppl": 2.394,
   "valid": true
  },
  {
   "run": "vllm-osoi5-pck04-v1",
   "tps": 292.5,
-  "total_tps": 442.8,
   "ppl": 2.381,
   "valid": true
  },
  {
   "run": "vllm-pck04-dixie16k-v1",
   "tps": 287.6,
-  "total_tps": 435.5,
   "ppl": 2.002,
   "valid": true
  },
  {
   "run": "vllm-osoi5-loaderpatch",
   "tps": 263.8,
-  "total_tps": 399.4,
   "ppl": 899234.196,
   "valid": false
  },
  {
   "run": "vllm-mtp-w4a16-v23",
   "tps": 224.0,
-  "total_tps": 339.2,
   "ppl": 2.006,
   "valid": true
  },
  {
   "run": "vllm-fa256-w4a16",
   "tps": 223.8,
-  "total_tps": 338.8,
   "ppl": 2.005,
   "valid": true
  },
  {
   "run": "vllm-mtp-w4a16-k8",
   "tps": 221.0,
-  "total_tps": 334.6,
   "ppl": 2.006,
   "valid": true
  },
  {
   "run": "vllm-mtp-w4a16-k10",
   "tps": 215.4,
-  "total_tps": 326.2,
   "ppl": 2.006,
   "valid": true
  },
  {
   "run": "vllm-fa256-w4a16-v2",
   "tps": 213.5,
-  "total_tps": 323.3,
   "ppl": 2.006,
   "valid": true
  },
  {
   "run": "vllm-mtp-w4a16-k4",
   "tps": 210.7,
-  "total_tps": 319.0,
   "ppl": 2.006,
   "valid": true
  },
  {
   "run": "vllm-mtp-v23",
   "tps": 130.7,
-  "total_tps": 197.9,
   "ppl": 2.315,
   "valid": true
  }
