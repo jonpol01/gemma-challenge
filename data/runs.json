@@ -12,6 +12,12 @@
   "valid": true
  },
  {
+  "run": "vllm-w192-ctk44-k8-v1",
+  "tps": 493.9,
+  "ppl": 2.393,
+  "valid": true
+ },
+ {
   "run": "vllm-dixie-w128-v1",
   "tps": 420.2,
   "ppl": 1.989,

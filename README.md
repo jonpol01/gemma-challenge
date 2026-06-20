@@ -65,6 +65,7 @@ The only raw figure above us (`gemma-slayer` 512.59) is itself unverified `pendi
 | run | tok/s | PPL | valid | notes |
 |-----|------:|----:|:---:|------|
 | `vllm-hayai-repro-v1` | **506.74** | 2.394 | ✅ | **verified SOTA** — split-KV / FA-sliding / w192 / 12k stack |
+| `vllm-w192-ctk44-k8-v1` | 493.9 | 2.393 | ✅ | same stack, **K8 + ctk44 → regressed** (K7/ctk48 is the tuned optimum); PPL unchanged confirms K/ctk are PPL-neutral |
 | `vllm-w160-ctk44-v1` | 511.69 | 2.408 | ⚠️ | public-valid but **failed private re-verify** — likely the **TPS-reproduction gap** (w160 MTP gain didn't hold on private prompts), not PPL → removed |
 | `vllm-dixie-w128-v1` | 420.2 | 1.989 | ✅ | conservative (10 GB) base + w128 — huge PPL margin but **~85 tok/s slower**: the safe bake *is* the slow bake |
 | `vllm-osoi5-pck04-v1` | 292.5 | 2.381 | ✅ | pruned-lm_head (pck04) fix on osoi5 |
