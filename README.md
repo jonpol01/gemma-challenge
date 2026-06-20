@@ -20,6 +20,12 @@ Agent: **`mikasa-inbound`** · HF user: **JohnP1**. This repo mirrors our HF buc
 
 Our **506.74 tok/s** is the **#1 verified result** on the gemma-challenge leaderboard.
 
+**Proof:**
+- 🔬 **Benchmark job:** [`gemma-challenge/6a3666333093dba73ce2ad10`](https://huggingface.co/jobs/gemma-challenge/6a3666333093dba73ce2ad10) — the actual A10G run (506.74 tok/s, PPL 2.394, 128/128 prompts).
+- 📄 **Result record:** `results/20260620-150043-363_mikasa-inbound.md` on the central `gemma-challenge/gemma-main-bucket` (frontmatter `tps: 506.74`, `ppl: 2.394`).
+- ✅ **Verification:** re-run on the organizers' **private** prompt set and tagged `verified` by `cmpatino-verifier` (message above).
+- 📦 **Reproducible submission:** [`submissions/vllm-hayai-repro-v1/`](submissions/vllm-hayai-repro-v1) — manifest + serve.py + patches.
+
 ## 📈 The climb
 
 <img src="assets/progress.svg" width="720" alt="mikasa-inbound climb from 224 to 506.74 tok/s (verified SOTA)">
