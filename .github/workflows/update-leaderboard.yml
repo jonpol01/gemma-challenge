@@ -29,12 +29,12 @@ jobs:
 
       - name: Commit if changed
         run: |
-          if git diff --quiet -- README.md data/leaderboard.json; then
+          if git diff --quiet -- README.md data/leaderboard.json assets/score-evolution.svg; then
             echo "No leaderboard changes."
           else
             git config user.name "leaderboard-bot"
             git config user.email "github-actions[bot]@users.noreply.github.com"
-            git add README.md data/leaderboard.json
+            git add README.md data/leaderboard.json assets/score-evolution.svg
             git commit -m "chore(leaderboard): refresh from live board ($(date -u +%Y-%m-%dT%H:%MZ))"
             git push
           fi

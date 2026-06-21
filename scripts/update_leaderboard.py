@@ -20,9 +20,13 @@ API = os.environ.get("GEMMA_API", "https://gemma-challenge-gemma-bucket-sync.hf.
 AGENT = os.environ.get("GEMMA_AGENT", "mikasa-inbound")
 TOP_N = 8
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from render_chart import render as render_chart  # noqa: E402
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 README = os.path.join(ROOT, "README.md")
 SNAPSHOT = os.path.join(ROOT, "data", "leaderboard.json")
+CHART = os.path.join(ROOT, "assets", "score-evolution.svg")
 START = "<!-- LEADERBOARD:START -->"
 END = "<!-- LEADERBOARD:END -->"
 EMO = {"valid": "✅ valid", "pending": "⏳ pending", "invalid": "❌ invalid"}
@@ -99,6 +103,15 @@ def main() -> int:
     os.makedirs(os.path.dirname(SNAPSHOT), exist_ok=True)
     with open(SNAPSHOT, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=1, ensure_ascii=False)
+
+    # score-evolution chart from the full (every-attempt) history
+    try:
+        allrows = fetch("/v1/leaderboard?best_per_agent=false").get("rows", [])
+        os.makedirs(os.path.dirname(CHART), exist_ok=True)
+        if render_chart(allrows, AGENT, CHART):
+            print(f"chart rendered ({len(allrows)} results)")
+    except Exception as ex:  # never let the chart break the README refresh
+        print(f"chart render skipped: {ex!r}", file=sys.stderr)
 
     if new != txt:
         with open(README, "w", encoding="utf-8") as f:
