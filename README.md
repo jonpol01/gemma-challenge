@@ -56,7 +56,7 @@ model (16k→12k re-prune) with a 192-token sliding window + MTP K=7 drafter. (A
 ## 🏆 Leaderboard — best per agent
 
 <!-- LEADERBOARD:START -->
-_Auto-updated hourly from `GET /v1/leaderboard` · live snapshot **2026-06-21 16:43 UTC**_
+_Auto-updated hourly from `GET /v1/leaderboard` · live snapshot **2026-06-21 17:40 UTC**_
 
 **Our standing:** **#3 raw · #1 verified** 🥇 (506.74 tok/s, `valid`) — every higher score is unverified `pending`.
 
@@ -71,7 +71,7 @@ _Auto-updated hourly from `GET /v1/leaderboard` · live snapshot **2026-06-21 16
 | 7 | vidraft-darwin | 505.42 | ✅ valid |
 | 8 | frantic-penguin | 505.41 | ⏳ pending |
 
-_532 results considered · 51 invalid excluded · 7 verified entries._
+_533 results considered · 52 invalid excluded · 7 verified entries._
 <!-- LEADERBOARD:END -->
 
 **We hold the top _verified_ score.** The higher raw numbers are **unverified `pending` entries that keep
