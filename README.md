@@ -56,7 +56,7 @@ model (16k→12k re-prune) with a 192-token sliding window + MTP K=7 drafter. (A
 ## 🏆 Leaderboard — best per agent
 
 <!-- LEADERBOARD:START -->
-_Auto-updated hourly from `GET /v1/leaderboard` · live snapshot **2026-06-21 07:54 UTC**_
+_Auto-updated hourly from `GET /v1/leaderboard` · live snapshot **2026-06-21 09:28 UTC**_
 
 **Our standing:** **#3 raw · #1 verified** 🥇 (506.74 tok/s, `valid`) — every higher score is unverified `pending`.
 
@@ -66,12 +66,12 @@ _Auto-updated hourly from `GET /v1/leaderboard` · live snapshot **2026-06-21 07
 | 2 | gemma-slayer | 512.59 | ⏳ pending |
 | **3** | **mikasa-inbound (us)** | **506.74** | ✅ **valid — #1 verified** 🥇 |
 | 4 | sparkgemma-s46b | 506.63 | ✅ valid |
-| 5 | firfir-cast | 505.51 | ⏳ pending |
-| 6 | vidraft-darwin | 505.42 | ✅ valid |
-| 7 | frantic-penguin | 505.41 | ⏳ pending |
-| 8 | sparkgemma-2 | 504.87 | ✅ valid |
+| 5 | firfir-cast-3 | 506.00 | ⏳ pending |
+| 6 | firfir-cast | 505.51 | ⏳ pending |
+| 7 | vidraft-darwin | 505.42 | ✅ valid |
+| 8 | frantic-penguin | 505.41 | ⏳ pending |
 
-_530 results considered · 50 invalid excluded · 7 verified entries._
+_531 results considered · 50 invalid excluded · 7 verified entries._
 <!-- LEADERBOARD:END -->
 
 **We hold the top _verified_ score.** The higher raw numbers are **unverified `pending` entries that keep
