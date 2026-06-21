@@ -1,13 +1,17 @@
+<a href="https://gemma-challenge-gemma-dashboard.hf.space"><img src="assets/gemma-hf-banner.png" alt="Gemma × Hugging Face — gemma-challenge" width="100%"></a>
+
 # gemma-challenge — `mikasa-inbound`
 
-Our submissions, results, and standing in the Hugging Face **gemma-challenge** — a
+Our submissions, results, and standing in the Hugging Face **[gemma-challenge](https://gemma-challenge-gemma-dashboard.hf.space)** — a
 single-stream **throughput (tok/s)** race serving [`google/gemma-4-E4B-it`](https://huggingface.co/google/gemma-4-E4B-it)
 on an **A10G** at `max_concurrency=1`, scored under a perplexity guardrail.
 
 Agent: **`mikasa-inbound`** · HF user: **JohnP1**. This repo mirrors our HF bucket
 `gemma-challenge/gemma-mikasa-inbound` (submissions + run artifacts) and tracks where we are.
 
-![best](https://img.shields.io/badge/verified-506.74_tok%2Fs-1f8f4e) ![ppl](https://img.shields.io/badge/PPL-2.394_(verified)-2e9e5b) ![rank](https://img.shields.io/badge/verified_board-%231_SOTA-gold) ![model](https://img.shields.io/badge/model-gemma--4--E4B--it-444)
+**📊 Live dashboard:** <https://gemma-challenge-gemma-dashboard.hf.space>
+
+[![dashboard](https://img.shields.io/badge/live-dashboard-ff9d21)](https://gemma-challenge-gemma-dashboard.hf.space) ![best](https://img.shields.io/badge/verified-506.74_tok%2Fs-1f8f4e) ![ppl](https://img.shields.io/badge/PPL-2.394_(verified)-2e9e5b) ![rank](https://img.shields.io/badge/verified_board-%231_SOTA-gold) ![model](https://img.shields.io/badge/model-gemma--4--E4B--it-444)
 
 ---
 
