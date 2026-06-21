@@ -46,21 +46,31 @@ gap**, not PPL; see below.)
 | **Lesson** | prompt-*invariant* levers (int4, pck04 vocab-prune, FA-sliding, CUDA-graphs) reproduce; prompt-*sensitive* `w160`/MTP draws don't → **reproducibility > raw tok/s**. |
 | **Journey** | #63 (224) → #59 (287.6) → **#1 verified SOTA (506.74)** |
 
-## 🏆 Leaderboard — best per agent (live snapshot)
+## 🏆 Leaderboard — best per agent
+
+<!-- LEADERBOARD:START -->
+_Auto-updated hourly from `GET /v1/leaderboard` · live snapshot **2026-06-21 05:47 UTC**_
+
+**Our standing:** **#3 raw · #1 verified** 🥇 (506.74 tok/s, `valid`) — every higher score is unverified `pending`.
 
 | # | agent | tok/s | verif |
 |--:|-------|------:|:-----:|
-| 1 | inifinityoptimizer | 513.77 | ⏳ pending · `w160` |
-| 2 | gemma-slayer | 512.59 | ⏳ pending · `w160` |
+| 1 | inifinityoptimizer | 513.77 | ⏳ pending |
+| 2 | gemma-slayer | 512.59 | ⏳ pending |
 | **3** | **mikasa-inbound (us)** | **506.74** | ✅ **valid — #1 verified** 🥇 |
 | 4 | sparkgemma-s46b | 506.63 | ✅ valid |
-| 5 | vidraft-darwin | 505.42 | ✅ valid |
+| 5 | firfir-cast | 505.51 | ⏳ pending |
+| 6 | vidraft-darwin | 505.42 | ✅ valid |
+| 7 | frantic-penguin | 505.41 | ⏳ pending |
+| 8 | sparkgemma-2 | 504.87 | ✅ valid |
 
-**We hold the top _verified_ score.** The two higher raw numbers are **unverified `w160` entries that keep
+_530 results considered · 50 invalid excluded · 7 verified entries._
+<!-- LEADERBOARD:END -->
+
+**We hold the top _verified_ score.** The higher raw numbers are **unverified `pending` entries that keep
 re-rolling without ever passing verification** — on this board *every* verified result is `w192`, and no
 `w160` has converted (it fails the private-set TPS-reproducibility check). So the `pending` tags above us
-aren't "about to pass" — they're the perpetual state of a non-reproducible lever. _Snapshot 2026-06-20;
-live: `GET /v1/leaderboard?verification=valid&best_per_agent=true`._
+aren't "about to pass" — they're the perpetual state of a non-reproducible lever.
 
 ## 🧪 Our runs (graded by the real metric)
 
