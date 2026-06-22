@@ -860,12 +860,12 @@
   }
  ],
  "meta": {
-  "generated_at": "2026-06-22T14:09:32.979Z",
-  "results_considered": 549,
+  "generated_at": "2026-06-22T16:42:31.826Z",
+  "results_considered": 554,
   "excluded": {
-   "status_negative": 155,
+   "status_negative": 157,
    "malformed": 0,
-   "verification_invalid": 52
+   "verification_invalid": 54
   }
  }
 }
