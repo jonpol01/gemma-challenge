@@ -122,29 +122,30 @@ The body weight-GEMM is ~65% of decode, so closing **77% → ~90%** would be **~
 and a kernel swap is **prompt-invariant + greedy-identical → it survives the private gate.** This is the
 **first lever found that could beat 506 *and* hold on re-verify** — unlike the drafter (§2/§3.1).
 
-**ANSWERED (2026-06-23, free on the 3080 — same sm_86 arch as the A10G): yes.** A dedicated GEMV-tuned
-int4 kernel beats Marlin at M=1. torch's built-in **tinygemm** (`_weight_int4pack_mm`, the gpt-fast
-low-batch int4 GEMV; weight packed `u8[N, K//2]`) measured **faster than Marlin on every shape**, graphed:
+**TESTED (2026-06-23, free on the 3080) — and the lever does NOT pan out with the readily-available
+kernel.** A *correct*, raw A/B (torchao `tile_packed_to_4d` packing → raw `_weight_int4pack_mm`,
+**rel 0.0000 = numerically exact**) on the **real body shapes** shows tinygemm **slower than / tied with
+Marlin**, not faster:
 
-| body GEMM shape | Marlin | tinygemm | tiny/Marlin |
+| body GEMM shape | Marlin | tinygemm (correct) | result |
 |---|---|---|---|
-| 2560×10240 (gate/up) | 75% roof | **79%** | 0.95× |
-| 10240×2560 (down) | 66% | **71%** | 0.92× |
-| 2048×16384 | 78% | **86%** | 0.91× |
-| 4096×4096 | 53% | **74%** | 0.72× |
+| 10240×2560 (down) | 73% roof | 69% | **Marlin 4% faster** |
+| 2560×10240 (gate/up) | 76% | — | **Marlin better** (tiny failed shape check) |
+| 4096×4096 | 65% | 57% | **Marlin 15% faster** |
+| 2048×16384 | 78% | 86% | tiny 9% faster (*not* a gemma shape) |
 
-On the real body shapes tinygemm is **~5–8% faster** than Marlin (closing 4–8pp of the roofline gap;
-GemLite — the SOTA low-batch kernel — may close more, but needs a compiler so it's untested here). Body
-GEMM ≈65% of decode → a Marlin→tinygemm swap on the body is **~+3–5% overall ≈ +15–25 tok/s, gate-safe**
-(prompt-invariant + greedy-identical). **This is a *measured*, gate-safe path to clear 506.94 on the
-verified board — the first one found.**
+> ⚠️ **Correction (supersedes a wrong intermediate result):** an earlier run here claimed "tinygemm beats
+> Marlin ~5–8% → +15–25 tok/s." That was a **broken-packing artifact** — a hand-rolled nibble packing that
+> computed the *wrong values* but happened to run faster. With the **correct** torchao packing (numerically
+> exact), tinygemm does **not** beat Marlin on the shapes that matter.
 
-Caveats: raw-kernel microbench (timing validated; the *build* is integrating a tinygemm/GemLite GEMV into
-the vLLM serve path + a clean osoi5→tinygemm requant + a greedy-identity check); tinygemm is
-**bf16-activation** (our serve is fp16 — GemLite supports fp16, or convert activations); measured on the
-3080 (760 GB/s) but the *relative* win is an sm_86 architectural property → holds on the A10G. **A paid
-A10G job is now optional** — the 3080 settled the core question for free; an A10G run would only add
-GemLite + end-to-end serve numbers.
+**Net: the tinygemm kernel lever is dead.** The ~77% Marlin roofline gap is real but appears **largely
+intrinsic to int4-GEMV-at-M=1** (dequant + scale reads) — *not* a Marlin inefficiency a readily-available
+kernel captures; a legit optimized dedicated GEMV (tinygemm) couldn't beat it, which means **Marlin is
+closer to optimal for our shapes than the initial spike suggested.** The only remaining candidate is
+**GemLite** (fp16-native, more aggressive low-batch autotuning) — untested (needs a compiler → A10G) and
+now a *lower-confidence* bet. **No gate-safe kernel win is confirmed.** Lesson: validate kernel
+*correctness* (numerically exact) before trusting a timing A/B.
 
 ---
 
@@ -215,12 +216,11 @@ Everything below was graded and red-teamed to **dead**.
    a private-reverify gamble: a high-public/low-private result is the classic invalidation death mode,
    and our 506.74 is already verified and locked (it survives regardless). Net: roll to *observe*, but
    do **not** post a noise-high draw without accepting the re-verify risk.
-2. **Integrate a tinygemm/GemLite int4 GEMV for the body (§3.2) — the top lead, now CONFIRMED.** The
-   sm_86 spike *measured* tinygemm beating Marlin ~5–8% at M=1 on the real body shapes → **gate-safe
-   ~+15–25 tok/s** (prompt-invariant + greedy-identical) — the first measured path to clear 506.94 on
-   the verified board. Build = swap the body GEMV in the serve path + requant osoi5 to the tinygemm
-   format + greedy-identity check. (A paid A10G/GemLite run is *optional* — the 3080 confirmed the lever
-   for free; GemLite may add more headroom.)
+2. **Kernel lever (§3.2) — tinygemm tested DEAD; GemLite a low-confidence maybe.** The correct-packing
+   A/B showed tinygemm does **not** beat Marlin on our body shapes (the earlier "win" was a broken-packing
+   artifact). Marlin is near-optimal for these shapes at M=1. The only untested kernel is **GemLite**
+   (fp16, needs a compiler → a paid A10G job) — lower odds now; only worth a slot if specifically chasing
+   it. **No confirmed gate-safe kernel win.**
 3. **Acceptance-variance pre-gate (free, §4).** Decides whether the *drafter* bet (§3.1) is alive at all
    — but note the drafter rides the private gate, whereas the kernel lever (2) does not.
 4. **Variance re-roll (free, scratch-only — a long shot).** Per item 1 above; observe-only, don't post.
