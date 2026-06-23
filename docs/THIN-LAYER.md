@@ -37,7 +37,7 @@ Prompt-sensitive levers fail the private re-verify, so the layer includes **only
 | tcmalloc / orjson / DETOK_ENDONLY | ✅ have | host-side | serving/detok overhead |
 | **synthetic warmup bridge** (N=64, pre-JIT all kernels) | ✅ firfir's, repro'd verbatim (§2.1) | **synthetic prompts → identical public/private** | removes cold-JIT/autotune from the timed window (+ stability → verifies) |
 | **config: w188 + ctk49** | ✅ firfir's | ctk = pure compute knob; w188 verified | best current draw |
-| **host-overhead / D2H-sync elimination** | ⬜ **not built** | fixed per-step cost | the only unbuilt brick — see §3 |
+| **host-overhead / D2H-sync elimination** | ✅ **measured → dead (+0)** | fixed per-step cost | GPU already ~99% utilized; D2H hidden — see §3 |
 
 ### 2.1 Provenance — our 507.00 is firfir's stack, reproduced verbatim (a tie, not a beat)
 
@@ -61,13 +61,26 @@ substrate-change PPL-headroom prune (§4).
 sub-4-bit/quant changes (Ampere-blocked / PPL), drafter/PARD changes (gate-doomed), `w160` (busts
 private), Marlin atomic-add (slower), megakernel (slower at batch=1).
 
-## 3. The one unbuilt brick: host-overhead / D2H elimination
+## 3. The host-overhead / D2H brick — MEASURED, dead (+0)
 
-vLLM's per-step accept handoff still does a host-side `valid_counts.item()` D2H read (reduced but not
-eliminated by `DIXIE_FUSED_ACCEPT_PREP`). **nsys-gated:** profile an A10G serve run; if there's a
->5 µs *uncovered* host stall between graph replays attributable to it, patch it (constant-stride padded
-replay, with a greedy-identity check on the padding). Realistic gain ~+0–1 tok/s — most likely it's
-already hidden in the host scheduling gap. Do **not** build it blind; nsys first.
+We measured it instead of building blind, via the in-tree `STEPTIME=1` probe (`steptime_patch.py`) on a
+real A10G bench (2026-06-23, n≈30k steady-state steps):
+
+| record | GPU compute | host gap | call wall |
+|---|---|---|---|
+| `exec` (target verify + accept) | **6.471 ms** | 1.595 ms (p50) | 6.352 ms |
+| `draft` (propose K=7) | 1.416 ms | ~0 | 0.272 ms |
+
+Per decode iteration: GPU busy = `6.471 + 1.416 = 7.89 ms`; wall = `cpu + gap = 6.35 + 1.60 = 7.95 ms`
+→ **~0.06 ms idle ≈ 0.8% → GPU is ~99% utilized.** The host gap (which includes the `valid_counts.item()`
+D2H) is **overlapped with the drafter's GPU execution** — hidden, not exposed. Eliminating it recovers
+**<1% (≤~4 tok/s ceiling, realistically +0–1)** and would require deep, greedy-identity-fragile
+GPUModelRunner surgery. **Verdict: not worth building — the engine is already pipelined to the GPU
+bound.** (This confirms the research's prediction directly.)
+
+**Consequence: there is no remaining gate-safe brick.** The warmup pins the top, the D2H is already
+hidden, every other lever is falsified — the thin layer is complete, and ~507 is the A10G hardware
+ceiling for osoi5-int4 (decode is ~99% GPU-bound on int4 weight bandwidth).
 
 ## 4. Past the limit — the only real ceiling-raiser
 
@@ -81,6 +94,10 @@ lever that moves the bound instead of realizing it.
 
 ## 5. Honest EV
 
-- **Thin layer:** 506.74 → **~507–508 reliably + verified** (warmup ~+0.3, D2H ~+0–1, best config draw).
-  It pins the hardware-limited top of a saturated board. Not a breakthrough — *that's the ceiling.*
-- **Substrate change (§4):** the only path to a materially higher verified number; a real R&D build.
+- **Thin layer (COMPLETE):** 506.74 → **~507 reliably + verified** (warmup pins it; D2H measured dead at
+  +0; everything else falsified). The drawn 507.00 ([`vllm-warmup-w188-ctk49-v1`](../submissions)) equals
+  firfir's verified top — it pins the hardware-limited ceiling of a saturated board. The decode is ~99%
+  GPU-bound (§3), so there is **no remaining gate-safe lever on this substrate.** Not a breakthrough —
+  *that is the hardware ceiling.*
+- **Substrate change (§4):** the ONLY path to a materially higher verified number — reduce
+  bytes-read-per-token via a more PPL-efficient prune on the faithful base. A real, uncertain R&D build.
