@@ -8,7 +8,11 @@ actually works), [`docs/ROADMAP.md`](docs/ROADMAP.md) (forward-looking lever ana
 [`docs/RESEARCH-2026-06-23-speed-levers.md`](docs/RESEARCH-2026-06-23-speed-levers.md) (latest 32-lever
 adversarial sweep — board reframe, the one new gate-safe lever, the free pre-gate),
 [`docs/THIN-LAYER.md`](docs/THIN-LAYER.md) (the hardware-limit analysis + the gate-safe "thin frontier
-layer" composition + what's built vs unbuilt), [`README.md`](README.md) (public-facing standing).
+layer" composition + what's built vs unbuilt),
+[`docs/SUBSTRATE-CEILING.md`](docs/SUBSTRATE-CEILING.md) (monoculture-vs-hardware-limit study: ~506 is the
+int4-*substrate* ceiling with ~100–200 tok/s unused A10G bandwidth, but gemma-4-E4B's sub-4-bit PPL cliff
+(Q3≈919) makes it unreachable — so it's a PPL/architecture wall, not a silicon one),
+[`README.md`](README.md) (public-facing standing).
 
 ---
 
