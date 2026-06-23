@@ -82,15 +82,32 @@ bound.** (This confirms the research's prediction directly.)
 hidden, every other lever is falsified — the thin layer is complete, and ~507 is the A10G hardware
 ceiling for osoi5-int4 (decode is ~99% GPU-bound on int4 weight bandwidth).
 
-## 4. Past the limit — the only real ceiling-raiser
+## 4. Past the limit — substrate prune: SCOPED → also a wall
 
-The thin layer pins ~507–510. To go *materially* higher you must cut `bytes_read_per_token`, which means
-a **different substrate**: spend the **faithful QAT base's PPL headroom** (ppl ~1.978 vs the ~2.42 cap;
-osoi5 is maxed at 2.394) on a **more PPL-efficient prune** than osoi5's blunt 5-layer cut (KV-share-aware
-layer-drop, not arbitrary early layers — those bust the residual stream). If that prune reaches the cap at
-fewer effective bytes/token, the bandwidth math gives a genuinely higher ceiling — and because it's
-quant/prune numerics, it's **prompt-invariant → it verifies.** Uncertain payoff, multi-session; the only
-lever that moves the bound instead of realizing it.
+The idea was: cut `bytes_read_per_token` by spending the **faithful QAT base's PPL headroom** (ppl ~1.978
+vs the ~2.42 cap; osoi5 is maxed at 2.394) on a more PPL-efficient prune. **Scoped 2026-06-23 → not
+viable**, on two independent grounds:
+
+1. **Bandwidth math falls short.** The faithful base is 333.91 tps @ 42 layers. Reaching ~506 needs
+   pruning to **~24 layers (~18 drops)**. The 0.44 ppl headroom buys only **~5.5 drops** at osoi5's rate
+   (~0.079 ppl/layer) → 42→~37 → **~379 tps.** Far short of 506.
+2. **Layer-drop is broken by gemma-4 KV-sharing.** Two prior attempts (`bodyprune-speed1` drop {2,3,4};
+   `bodyprune-ld1` drop {27,31,35}) dropped just 3 layers and scored **ppl 28.67 and 5.14** (cap 2.42) —
+   and got *slower* (263, 221 tps vs 333.91), because the engine inserts KV-cache padding layers. The
+   layers are coupled (`num_kv_shared_layers=18`); you can't cleanly remove them.
+
+The prior session already mapped this: the sibling repo [`gemma-inmem-headprune`](https://github.com/jonpol01/gemma-inmem-headprune)
+README states the faithful stack "does not beat the field's collapsed-but-faster osoi5-37 stack (~506)"
+and records it as "a hard-won map of the wall."
+
+**So the substrate prune is closed too.** With config, quant, kernel, drafter, and substrate-prune all
+shown closed (each with measured evidence, not assertion), there is **no demonstrated throughput lever
+left** that beats ~506–507 on this PPL-gated board. The one axis where real room has *ever* appeared is
+measurement hygiene (firfir's warmup — adopted, §2.1), surfaced from the board, not from analysis.
+
+**Unverified long-shot (low confidence):** int4 **2:4 structured sparsity** (Ampere sm_86 sparse tensor
+cores ≈ half the weight bytes). Unknown ppl impact + unclear int4 kernel support; recorded so it isn't
+mistaken for "untried = promising." Bet against it.
 
 ## 5. Honest EV
 
