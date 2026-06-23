@@ -103,6 +103,33 @@ it's gated on the private re-verify like every other acceptance lever.**
 but it's a PARD-drafter **retrain** whose entire payoff rides on the private gate. It does **not**
 escape §2; it's decided by the same acceptance-variance pre-gate (§4). Run that before building anything.
 
+### 3.2 The kernel lever — RE-OPENED by the sm_86 spike (Marlin is *not* optimal at M=1)
+
+The same RTX-3080 spike also benchmarked the int4 weight-GEMM kernel — and **overturns the "custom
+kernels are dead / Marlin near-optimal" verdict in §5.** Measured on sm_86, in-graph (matching ONEGRAPH):
+
+| int4 GEMV @ M=1, graphed | bandwidth roofline (vs 676 GB/s copy-peak) |
+|---|---|
+| fp16 GEMV (cuBLAS) — the bar | **~85–94%** |
+| **Marlin W4A16** | **~74–77%** (510–530 GB/s on the MLP shapes) |
+
+Marlin sits **~13 points below** the bandwidth ceiling at M=1 — because it's a **GEMM/tensor-core**
+kernel running a **GEMV** (M=1), where the tensor cores are starved. (Eager Marlin shows a flat ~50 µs
+floor regardless of matrix size = launch overhead; ONEGRAPH removes it, leaving the ~77% in-graph
+number above as the real one.)
+
+The body weight-GEMM is ~65% of decode, so closing **77% → ~90%** would be **~+10% overall ≈ +50 tok/s**,
+and a kernel swap is **prompt-invariant + greedy-identical → it survives the private gate.** This is the
+**first lever found that could beat 506 *and* hold on re-verify** — unlike the drafter (§2/§3.1).
+
+**Open question (the only unproven step):** can a *GEMV-optimized* int4 kernel actually capture that gap?
+GemLite is purpose-built for exactly this (batch-1 W4A16 on Ampere), so the design implies yes — but it
+**couldn't be tested on the 3080** (no C compiler → Triton/GemLite can't build, no sudo to add one), and
+torch's tinygemm path hit a torch-version packing-API snag. **The definitive A/B belongs on the A10G** —
+the real target hardware *and* a working Triton toolchain (our stack already runs Triton kernels there).
+**Status: A10G GemLite-vs-Marlin M=1 benchmark = the open R&D item.** Gate-safe by construction; the only
+risk is the gap proves un-closable (Marlin already at the practical int4 M=1 ceiling).
+
 ---
 
 ## 4. The free go/no-go before ANY drafter R&D
@@ -139,9 +166,11 @@ Everything below was graded and red-teamed to **dead**.
   byte win; its headline 20–40% is vs *unoptimized* vLLM (no graphs/Marlin/FA-sliding) we already bank.
 - **Megakernel / Mirage-MPK (and AutoMegaKernel)** — batch-1 *slower* than a graph-captured vLLM loop;
   int4 path immature → regression, not gain.
-- **GemLite GEMV_RevSplitK**, **weight re-swizzle**, **hand-written lm_head split-K GEMV**,
-  **FlashInfer fused decode** — flat-to-negative at M=1. (The lm_head is **~1.5% of the token budget**
-  — deleting it *entirely* is ≤ +7 tok/s; not worth touching.)
+- **weight re-swizzle**, **hand-written lm_head split-K GEMV**, **FlashInfer fused decode** — flat-to-
+  negative at M=1. (The lm_head GEMV is small; the *body* GEMM is the prize — see §3.2.)
+- ⚠️ **GemLite / dedicated int4 GEMV — RE-OPENED, NOT dead (see §3.2).** The original "flat/negative at
+  M=1" grade was a prior; the 2026-06-23 sm_86 spike **measured Marlin at only ~77% roofline at M=1** — a
+  real ~13pp gap. Whether a GEMV-tuned kernel closes it is an **open A10G test**, not a settled dead end.
 
 **Quant**
 - **AWQ re-bake**, **official Gemma-4 QAT-INT4 ckpt**, **int4 g64 head + deeper row-prune** — pure
@@ -170,10 +199,14 @@ Everything below was graded and red-teamed to **dead**.
    a private-reverify gamble: a high-public/low-private result is the classic invalidation death mode,
    and our 506.74 is already verified and locked (it survives regardless). Net: roll to *observe*, but
    do **not** post a noise-high draw without accepting the re-verify risk.
-2. **Acceptance-variance pre-gate (free, §4).** Decides whether the drafter bet is alive at all.
-3. **Only if (2) clears: the parallel-draft *overhead* kernel spike (§3.1)** on the sm_86 box — the
-   only path to a real, gate-safe, beyond-noise verified gain.
+2. **A10G GemLite-vs-Marlin M=1 benchmark (§3.2) — now the top lead.** The sm_86 spike measured a real
+   ~13pp Marlin roofline gap at M=1; this confirms whether a GEMV-tuned int4 kernel closes it. If yes,
+   it's a **gate-safe ~+50 tok/s** (prompt-invariant + greedy-identical) — the best shot at beating 506
+   on the verified board. Small R&D job; the only kernel lever with measured headroom behind it.
+3. **Acceptance-variance pre-gate (free, §4).** Decides whether the *drafter* bet (§3.1) is alive at all
+   — but note the drafter rides the private gate, whereas the kernel lever (2) does not.
+4. **Variance re-roll (free, scratch-only — a long shot).** Per item 1 above; observe-only, don't post.
 
-**Honest EV:** near-zero for a *bankable* gain beyond the re-roll. Hold remains the dominant play for
-the verified line; the parallel-draft overhead lever is the one bet that could move it without
-betting on the private prompt distribution. Spend **zero paid credits** until the free gates clear.
+**Honest EV:** the kernel lever (§3.2) is the first gate-safe path with *measured* headroom — pursue it
+first. The drafter (§3.1) is higher-ceiling but gated on the private prompt distribution. Hold 506.74
+remains the fallback if the kernel gap proves un-closable on the A10G.

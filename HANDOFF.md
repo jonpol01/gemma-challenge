@@ -22,8 +22,15 @@ adversarial sweep — board reframe, the one new gate-safe lever, the free pre-g
   result on the board is `w192`.
 - **The frontier is saturated at ~506 on the shared `osoi5` stack.** Since 506.74 we ran a full
   post-frontier R&D campaign (config knobs, coarser quant, calibrated re-bake, drafter retrain) plus a
-  fresh 32-lever adversarial sweep (2026-06-23). **All of it is dead or negative.** Details in §3–4
-  and the [research sweep](docs/RESEARCH-2026-06-23-speed-levers.md).
+  fresh 32-lever adversarial sweep (2026-06-23). Almost all dead/negative — **with one re-opened lead.**
+  Details in §3–4 and the [research sweep](docs/RESEARCH-2026-06-23-speed-levers.md).
+- **🔧 Re-opened lever (best gate-safe lead): the int4 GEMV kernel.** An sm_86 spike (2026-06-23, RTX-3080)
+  *measured* vLLM's Marlin W4A16 GEMV at only **~77% of the bandwidth roofline at M=1** (vs ~90% for a
+  cuBLAS fp16 GEMV) — Marlin is a GEMM/tensor-core kernel starved at M=1. The body GEMM is ~65% of decode,
+  so closing 77%→~90% ≈ **+10% ≈ +50 tok/s, and it's prompt-invariant + greedy-identical → survives the
+  private gate.** Open item: an **A10G GemLite-vs-Marlin M=1 benchmark** to confirm a GEMV-tuned kernel
+  closes the gap (couldn't test on the 3080 — no compiler for Triton/GemLite). This overturns the earlier
+  "custom kernels are dead" verdict. See research doc §3.2.
 - **The only lever with real leverage left is a fundamentally different drafter architecture
   (PARD / EAGLE-3).** High EV, high risk, multi-session — and now *quantified* as a coin-flip: Gemma-4
   EAGLE-3 has a **64% cross-task acceptance spread vs a ±5% private gate**. Everything else is spent.
