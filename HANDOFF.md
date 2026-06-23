@@ -27,8 +27,11 @@ adversarial sweep — board reframe, the one new gate-safe lever, the free pre-g
 - **The only lever with real leverage left is a fundamentally different drafter architecture
   (PARD / EAGLE-3).** High EV, high risk, multi-session — and now *quantified* as a coin-flip: Gemma-4
   EAGLE-3 has a **64% cross-task acceptance spread vs a ±5% private gate**. Everything else is spent.
-  The one **new** gate-safe sliver: fuse the K=7 sequential MTP draft passes into one parallel pass
-  (~+15–23 tok/s, prompt-invariant) — blocked only on an sm_86 kernel validation. See §5 + research doc.
+  An sm_86 spike (2026-06-23) characterized the **parallel-draft (PARD)** lever: the speed prize is
+  real (~400 µs ≈ 10–20% of the token budget) and **vLLM is already wired for it** (`Gemma4Proposer`
+  inherits `parallel_drafting`; no engine surgery) — but it needs a **PARD/mask-token drafter retrain**,
+  and the prize is **NOT prompt-invariant** (predict-K-from-1 makes acceptance prompt-sensitive), so it
+  rides the same private gate. Decided by the free acceptance-variance pre-gate. See §5 + research doc.
 
 If you're here to "beat 506" with a config tweak or a quant trick: **don't** — read §4 first, it's
 already been falsified empirically. The cheapest legitimate climb is the §6 variance re-roll.

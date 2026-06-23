@@ -58,25 +58,50 @@ reason the frontier is stuck at ~506.
 
 | lever | realistic | survives private? | feasible now? | note |
 |---|---|---|---|---|
-| **Parallel-draft *overhead* fusion** (P-EAGLE "Claim A") | **+15–23 tok/s** | **likely (prompt-invariant)** | **no — needs sm_86 kernel** | the one beyond-noise, gate-safe path |
+| **Parallel-draft (PARD / mask-token)** | **~tens of tok/s *if* acceptance holds** | **gated on private — NOT separable** ⚠️ | **vLLM-ready; needs a PARD drafter retrain** | **corrected by the 2026-06-23 sm_86 spike — see §3.1** |
 | Broaden drafter corpus + training-time-test | +0 standalone | likely | yes | only a *prerequisite* for a PARD/EAGLE-3 drafter |
 | Remove per-step D2H accept-count sync | +0–1 tok/s | likely | yes | `nsys`-first; likely already pipelined |
 
-### 3.1 The standout: fuse the K=7 sequential draft passes into one parallel pass
-P-EAGLE's *acceptance* gain is prompt-sensitive (dead, same cliff as w160). But its
-*overhead-reduction* piece is **prompt-invariant**: collapsing K=7 sequential drafter launches into a
-single parallel pass removes ~6 CUDA-graph node transitions (~5–15 µs each on sm_86 ≈ 60–90 µs of a
-~2000 µs token budget ≈ **3–4.5% ≈ +15–23 tok/s**). Because it depends only on launch count, not
-prompt content, **it would survive private re-verify** — unlike everything else with a positive
-number. The blockers are purely engineering, not gate risk:
-1. The P-EAGLE Triton input-prep kernel has only ever been validated on **Blackwell (B200)** — never
-   Ampere **sm_86**. (Precedent for why this matters: `VLLM_MARLIN_USE_ATOMIC_ADD` regressed −16 from
-   architecture/batch-size-dependent kernel behavior.)
-2. `parallel_drafting` is **not wired into the Gemma4MTP proposer** path in the 0.22.1rc1 wheel;
-   setting the flag almost certainly falls back to sequential.
+> ⚠️ **Update (2026-06-23 spike):** the original "Claim A" idea below was that the parallel-draft
+> *overhead* gain is prompt-invariant and separable from acceptance. **An sm_86 spike disproved that.**
+> §3.1 is rewritten with the measured result; the old text is kept struck-through for the record.
 
-**This is the single most promising thing to scope for a real (beyond-noise) verified gain.** Step 0
-is a kernel-validation spike on the RTX-3080 box (sm_86, matches A10G) — *no benchmark slot*.
+### 3.1 The parallel-draft lever — characterized on sm_86 (RTX-3080 spike, 2026-06-23)
+
+A spike on the RTX-3080 (Ampere **sm_86**, same arch as the A10G; torch 2.11/cu130, triton 3.6,
+CUDA-graph capture all work) settled this lever. **Bottom line: the speed prize is real (~400 µs) and
+vLLM is already wired for it — but the prize is NOT prompt-invariant or separable from acceptance, so
+it's gated on the private re-verify like every other acceptance lever.**
+
+- **Confirmed in our own code (`sitecustomize.py:174-193`):** the loopgraph runs the drafter as
+  **K=7 sequential full forwards** per token (`self.model(...)` in `for index in range(token_count)`,
+  one position each), autoregressively.
+- **`parallel_drafting` is real and already inherited by `Gemma4Proposer`.** It subclasses
+  `SpecDecodeBaseProposer` (`llm_base_proposer.py`), which holds the entire one-forward-pass subsystem
+  (mask-token Triton kernels in `utils.py`, `only_one_forward_pass = is_graph_capturing or
+  self.parallel_drafting`). **No vLLM engine surgery is needed** — contrary to the earlier "not wired"
+  guess. BUT it only activates for a drafter trained with a **mask-token scheme** — it reads
+  `pard_token` / `mask_token_id` / `ptd_token_id` from the drafter config (lines 331-335). Our
+  kenyan-duma drafter (H=256, 4 layers, centroid-masked full-vocab head, **fp16 ~73M params**) has
+  none, so flipping the flag would feed it mask tokens it was never trained on → ~0 acceptance.
+  **The blocker is a PARD-style drafter *retrain*, not code.**
+- **The speed prize is ~400 µs, not 60–90 µs** (microbench, *real* drafter dims, sm_86, inside a CUDA
+  graph): 7 sequential drafter steps = **481 µs** vs 1 parallel pass = **83 µs** → **~398 µs (83%)
+  saved**, roughly **10–20% of a 2 ms token budget**. At hidden-256 each forward is launch/latency-
+  bound (many tiny kernels × 4 layers), so 7 sequential pay that 7× *even captured in a graph* — the
+  graph can't remove it. (An earlier proxy with the wrong dims — hidden-2560, dense head — overstated
+  this ~8×; corrected here.)
+- **The catch — the prize is NOT separable from acceptance.** The only way to collapse 7 forwards → 1
+  is predict-K-from-1 (mask-token PARD), which changes the draft distribution → **acceptance becomes
+  prompt-sensitive** → gated on the ±5% private re-verify, exactly like w160/EAGLE-3. There is no
+  prompt-invariant route to the speedup. *(This retracts the original "Claim A is prompt-invariant and
+  separable" framing.)*
+- **int4-quantizing the drafter is dead:** the drafter is latency-bound at hidden-256, not bandwidth-
+  bound, so fewer bytes don't speed up its (tiny, launch-bound) kernels.
+
+**Net:** more real (hundreds of µs) and more integrable (vLLM-ready, no surgery) than first thought —
+but it's a PARD-drafter **retrain** whose entire payoff rides on the private gate. It does **not**
+escape §2; it's decided by the same acceptance-variance pre-gate (§4). Run that before building anything.
 
 ---
 
