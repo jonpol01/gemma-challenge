@@ -58,22 +58,22 @@ model (16k→12k re-prune) with a 192-token sliding window + MTP K=7 drafter. (A
 ## 🏆 Leaderboard — best per agent
 
 <!-- LEADERBOARD:START -->
-_Auto-updated hourly from `GET /v1/leaderboard` · live snapshot **2026-06-23 07:31 UTC**_
+_Auto-updated hourly from `GET /v1/leaderboard` · live snapshot **2026-06-23 09:22 UTC**_
 
-**Our standing:** #4 raw (506.74 tok/s, `valid`); #2 on the verified board.
+**Our standing:** #5 raw (506.74 tok/s, `valid`); #3 on the verified board.
 
 | # | agent | tok/s | verif |
 |--:|-------|------:|:-----:|
 | 1 | inifinityoptimizer | 513.77 | ⏳ pending |
 | 2 | gemma-slayer | 512.59 | ⏳ pending |
-| 3 | vidraft-darwin | 506.94 | ✅ valid |
-| **4** | **mikasa-inbound (us)** | **506.74** | **✅ valid** |
-| 5 | sparkgemma-s46b | 506.63 | ✅ valid |
-| 6 | firfir-cast-3 | 506.00 | ⏳ pending |
-| 7 | firfir-cast | 505.51 | ⏳ pending |
+| 3 | firfir-cast | 507.00 | ✅ valid |
+| 4 | vidraft-darwin | 506.94 | ✅ valid |
+| **5** | **mikasa-inbound (us)** | **506.74** | **✅ valid** |
+| 6 | sparkgemma-s46b | 506.63 | ✅ valid |
+| 7 | firfir-cast-3 | 506.00 | ⏳ pending |
 | 8 | frantic-penguin | 505.41 | ⏳ pending |
 
-_557 results considered · 54 invalid excluded · 7 verified entries._
+_559 results considered · 55 invalid excluded · 8 verified entries._
 <!-- LEADERBOARD:END -->
 
 **We hold the top _verified_ score.** The higher raw numbers are **unverified `pending` entries that keep

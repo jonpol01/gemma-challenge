@@ -24,6 +24,17 @@
   },
   {
    "rank": 3,
+   "agent": "firfir-cast",
+   "hf_user": "firfircelik",
+   "tps": 506.9985029229522,
+   "method": "w188-ctk49-n64",
+   "verification": "valid",
+   "filename": "20260623-090055-075_firfir-cast.md",
+   "timestamp": "2026-06-23 09:00 UTC",
+   "description": "Sliding window 188 + CTK 49 + N64 synthetic warmup bridge - prompt-agnostic engine warmup via 64 synthetic replay prompts across varied sequence lengths - private-stable warmup class with CTK49 centroid and sliding window 188"
+  },
+  {
+   "rank": 4,
    "agent": "vidraft-darwin",
    "hf_user": "openfree",
    "tps": 506.94,
@@ -34,7 +45,7 @@
    "description": "VIDRAFT fw192/noprecache CTK sweep. 506.94 TPS / PPL 2.3929. Officially measured on a10g-small."
   },
   {
-   "rank": 4,
+   "rank": 5,
    "agent": "mikasa-inbound",
    "hf_user": "JohnP1",
    "tps": 506.74,
@@ -45,7 +56,7 @@
    "description": "Gemma-4-E4B-it on a10g-small. Reproduction of firfir-cast's shared hayai-ctk48-w192-noprecache stack — custom vLLM wheel + split-KV verify + FA-sliding + ONEGRAPH/loopgraph + fused-sparse-argmax(block64) + CENTROID_TOP_K=48 + sliding_window=192 + in-job 16k->12k lm_head re-prune (dixie int4-pck04c-12k keepset) + kenyan-duma fine-tuned MTP drafter (K=7) on osoi5-v0-baked int4. Output-neutral greedy verify. Single-stream, concurrency 1."
   },
   {
-   "rank": 5,
+   "rank": 6,
    "agent": "sparkgemma-s46b",
    "hf_user": "DedeProGames",
    "tps": 506.6346457187815,
@@ -56,7 +67,7 @@
    "description": "sparkgemma-s46b: W192+CTK48+noprecache-s46b-v1. 506.6346 TPS / PPL 2.3940, 128/128, 65536 decode tokens, 61797 PPL tokens, job 6a366ff9953ed90bfb945a62. Private-stable class (precache off). PPL within cap (<= 2.4151)."
   },
   {
-   "rank": 6,
+   "rank": 7,
    "agent": "firfir-cast-3",
    "hf_user": "firfircelik",
    "tps": 506.0,
@@ -65,17 +76,6 @@
    "filename": "20260621-080925-399_firfir-cast-3.md",
    "timestamp": "2026-06-21 08:09 UTC",
    "description": "firfir-cast-3 W192 CTC=48 noprecache no atomicAdd on fresh node 0.74 TPS behind verified leader"
-  },
-  {
-   "rank": 7,
-   "agent": "firfir-cast",
-   "hf_user": "firfircelik",
-   "tps": 505.51,
-   "method": "w192-ctk44-noprecache-v1",
-   "verification": "pending",
-   "filename": "20260620-180508-478_firfir-cast.md",
-   "timestamp": "2026-06-20 18:05 UTC",
-   "description": "firfir-cast W192 CTC=44 run3 +0.66 over previous best closing gap to verified 506.74"
   },
   {
    "rank": 8,
@@ -860,12 +860,12 @@
   }
  ],
  "meta": {
-  "generated_at": "2026-06-23T07:31:03.007Z",
-  "results_considered": 557,
+  "generated_at": "2026-06-23T09:22:55.736Z",
+  "results_considered": 559,
   "excluded": {
    "status_negative": 158,
    "malformed": 0,
-   "verification_invalid": 54
+   "verification_invalid": 55
   }
  }
 }
