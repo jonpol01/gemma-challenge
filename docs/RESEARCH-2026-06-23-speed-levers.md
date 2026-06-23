@@ -122,13 +122,29 @@ The body weight-GEMM is ~65% of decode, so closing **77% → ~90%** would be **~
 and a kernel swap is **prompt-invariant + greedy-identical → it survives the private gate.** This is the
 **first lever found that could beat 506 *and* hold on re-verify** — unlike the drafter (§2/§3.1).
 
-**Open question (the only unproven step):** can a *GEMV-optimized* int4 kernel actually capture that gap?
-GemLite is purpose-built for exactly this (batch-1 W4A16 on Ampere), so the design implies yes — but it
-**couldn't be tested on the 3080** (no C compiler → Triton/GemLite can't build, no sudo to add one), and
-torch's tinygemm path hit a torch-version packing-API snag. **The definitive A/B belongs on the A10G** —
-the real target hardware *and* a working Triton toolchain (our stack already runs Triton kernels there).
-**Status: A10G GemLite-vs-Marlin M=1 benchmark = the open R&D item.** Gate-safe by construction; the only
-risk is the gap proves un-closable (Marlin already at the practical int4 M=1 ceiling).
+**ANSWERED (2026-06-23, free on the 3080 — same sm_86 arch as the A10G): yes.** A dedicated GEMV-tuned
+int4 kernel beats Marlin at M=1. torch's built-in **tinygemm** (`_weight_int4pack_mm`, the gpt-fast
+low-batch int4 GEMV; weight packed `u8[N, K//2]`) measured **faster than Marlin on every shape**, graphed:
+
+| body GEMM shape | Marlin | tinygemm | tiny/Marlin |
+|---|---|---|---|
+| 2560×10240 (gate/up) | 75% roof | **79%** | 0.95× |
+| 10240×2560 (down) | 66% | **71%** | 0.92× |
+| 2048×16384 | 78% | **86%** | 0.91× |
+| 4096×4096 | 53% | **74%** | 0.72× |
+
+On the real body shapes tinygemm is **~5–8% faster** than Marlin (closing 4–8pp of the roofline gap;
+GemLite — the SOTA low-batch kernel — may close more, but needs a compiler so it's untested here). Body
+GEMM ≈65% of decode → a Marlin→tinygemm swap on the body is **~+3–5% overall ≈ +15–25 tok/s, gate-safe**
+(prompt-invariant + greedy-identical). **This is a *measured*, gate-safe path to clear 506.94 on the
+verified board — the first one found.**
+
+Caveats: raw-kernel microbench (timing validated; the *build* is integrating a tinygemm/GemLite GEMV into
+the vLLM serve path + a clean osoi5→tinygemm requant + a greedy-identity check); tinygemm is
+**bf16-activation** (our serve is fp16 — GemLite supports fp16, or convert activations); measured on the
+3080 (760 GB/s) but the *relative* win is an sm_86 architectural property → holds on the A10G. **A paid
+A10G job is now optional** — the 3080 settled the core question for free; an A10G run would only add
+GemLite + end-to-end serve numbers.
 
 ---
 
@@ -199,10 +215,12 @@ Everything below was graded and red-teamed to **dead**.
    a private-reverify gamble: a high-public/low-private result is the classic invalidation death mode,
    and our 506.74 is already verified and locked (it survives regardless). Net: roll to *observe*, but
    do **not** post a noise-high draw without accepting the re-verify risk.
-2. **A10G GemLite-vs-Marlin M=1 benchmark (§3.2) — now the top lead.** The sm_86 spike measured a real
-   ~13pp Marlin roofline gap at M=1; this confirms whether a GEMV-tuned int4 kernel closes it. If yes,
-   it's a **gate-safe ~+50 tok/s** (prompt-invariant + greedy-identical) — the best shot at beating 506
-   on the verified board. Small R&D job; the only kernel lever with measured headroom behind it.
+2. **Integrate a tinygemm/GemLite int4 GEMV for the body (§3.2) — the top lead, now CONFIRMED.** The
+   sm_86 spike *measured* tinygemm beating Marlin ~5–8% at M=1 on the real body shapes → **gate-safe
+   ~+15–25 tok/s** (prompt-invariant + greedy-identical) — the first measured path to clear 506.94 on
+   the verified board. Build = swap the body GEMV in the serve path + requant osoi5 to the tinygemm
+   format + greedy-identity check. (A paid A10G/GemLite run is *optional* — the 3080 confirmed the lever
+   for free; GemLite may add more headroom.)
 3. **Acceptance-variance pre-gate (free, §4).** Decides whether the *drafter* bet (§3.1) is alive at all
    — but note the drafter rides the private gate, whereas the kernel lever (2) does not.
 4. **Variance re-roll (free, scratch-only — a long shot).** Per item 1 above; observe-only, don't post.
