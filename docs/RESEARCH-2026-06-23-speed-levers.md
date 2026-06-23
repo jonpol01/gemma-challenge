@@ -137,10 +137,14 @@ Everything below was graded and red-teamed to **dead**.
 
 ## 6. Recommended sequence
 
-1. **Variance re-roll (free, zero-risk, now).** Re-run the exact `vllm-hayai-repro-v1` stack through
-   the **free org bench** (scratch bucket, not auto-promoted). Single-shot scoring has ~1 tok/s of
-   spread; if any roll clears **506.94**, promote *that* artifact to reclaim verified #1. Worst case:
-   nothing spent.
+1. **Variance re-roll (free, scratch-only — a long shot, not a free bump).** Re-running the *exact*
+   `vllm-hayai-repro-v1` stack through the free org bench is zero-cost and zero-risk *as an
+   observation* (scratch bucket, not auto-promoted). But the real cross-job spread on this infra is
+   **~3%, not ~0.2%** — measured: identical-stack re-runs drew **491–498 tok/s**, and 506.74 was a
+   *favorable* historical draw — so clearing **506.94** is unlikely. And **promoting** a high draw is
+   a private-reverify gamble: a high-public/low-private result is the classic invalidation death mode,
+   and our 506.74 is already verified and locked (it survives regardless). Net: roll to *observe*, but
+   do **not** post a noise-high draw without accepting the re-verify risk.
 2. **Acceptance-variance pre-gate (free, §4).** Decides whether the drafter bet is alive at all.
 3. **Only if (2) clears: the parallel-draft *overhead* kernel spike (§3.1)** on the sm_86 box — the
    only path to a real, gate-safe, beyond-noise verified gain.
