@@ -35,9 +35,27 @@ Prompt-sensitive levers fail the private re-verify, so the layer includes **only
 | fused-sparse-argmax / split-KV / DIXIE accept | ✅ have | fixed kernels | fuse the cheap steps |
 | FA-sliding window | ✅ have | window is structural | sliding-window attention kernel |
 | tcmalloc / orjson / DETOK_ENDONLY | ✅ have | host-side | serving/detok overhead |
-| **synthetic warmup bridge** (N=64, pre-JIT all kernels) | ✅ **built** ([`vllm-warmup-w188-ctk49-v1`](../submissions)) | **synthetic prompts → identical public/private** | removes cold-JIT/autotune from the timed window (+ stability → verifies) |
-| **config: w188 + ctk49** | ✅ built | ctk = pure compute knob; w188 verified | best current draw |
+| **synthetic warmup bridge** (N=64, pre-JIT all kernels) | ✅ firfir's, repro'd verbatim (§2.1) | **synthetic prompts → identical public/private** | removes cold-JIT/autotune from the timed window (+ stability → verifies) |
+| **config: w188 + ctk49** | ✅ firfir's | ctk = pure compute knob; w188 verified | best current draw |
 | **host-overhead / D2H-sync elimination** | ⬜ **not built** | fixed per-step cost | the only unbuilt brick — see §3 |
+
+### 2.1 Provenance — our 507.00 is firfir's stack, reproduced verbatim (a tie, not a beat)
+
+Our `vllm-warmup-w188-ctk49-v1` (the 507.00 draw) is **not a different or better stack than firfir-cast's**
+— it is firfir's verified `w188-ctk49-n64` copied **byte-for-byte**. Checksum (2026-06-23, our copy vs
+firfir's original):
+
+| files | vs firfir |
+|---|---|
+| `serve.py`, `sitecustomize.py`, `serve_patch_warmup_bridge.py`, `fa_sliding_patch.py`, `splitkv_verify_patch.py`, `serve_patch_pck04.py`, `serve_patch_precache.py`, `detok_endonly.py`, `lsk_patch.py`, `steptime_patch.py` | **byte-identical (10/10)** |
+| `manifest.json` | differs **only** in `name` + `description` (cosmetic); the `env` block (w188, ctk49, `WARMUP_*`, weights/drafter buckets) is identical |
+
+So our **507.00 ties firfir at the verified top by *reproducing* their stack** — exactly as our 506.74
+already reproduced their hayai stack. This is legitimate (the challenge is collaborative: reproduce shared
+frontier stacks, don't re-invent), but it is **reproduction, not innovation** — we are not ahead of
+firfir, we are running their exact config and drawing the same number. **To be genuinely ahead** requires
+a brick firfir doesn't have: the unbuilt host-overhead/D2H piece (§3, marginal) or — the real one — the
+substrate-change PPL-headroom prune (§4).
 
 **Explicitly OUT (falsified — do not add):** tinygemm/GemLite kernel swap (no win vs Marlin),
 sub-4-bit/quant changes (Ampere-blocked / PPL), drafter/PARD changes (gate-doomed), `w160` (busts
