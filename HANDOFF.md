@@ -7,7 +7,8 @@ left, and how to operate**. Companion docs: [`docs/SCORING.md`](docs/SCORING.md)
 actually works), [`docs/ROADMAP.md`](docs/ROADMAP.md) (forward-looking lever analysis),
 [`docs/RESEARCH-2026-06-23-speed-levers.md`](docs/RESEARCH-2026-06-23-speed-levers.md) (latest 32-lever
 adversarial sweep — board reframe, the one new gate-safe lever, the free pre-gate),
-[`README.md`](README.md) (public-facing standing).
+[`docs/THIN-LAYER.md`](docs/THIN-LAYER.md) (the hardware-limit analysis + the gate-safe "thin frontier
+layer" composition + what's built vs unbuilt), [`README.md`](README.md) (public-facing standing).
 
 ---
 
