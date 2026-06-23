@@ -860,8 +860,8 @@
   }
  ],
  "meta": {
-  "generated_at": "2026-06-23T17:46:47.958Z",
-  "results_considered": 568,
+  "generated_at": "2026-06-23T18:54:54.555Z",
+  "results_considered": 570,
   "excluded": {
    "status_negative": 161,
    "malformed": 0,
