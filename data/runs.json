@@ -24,6 +24,12 @@
   "valid": true
  },
  {
+  "run": "vllm-osoi5-g256-v1",
+  "tps": 461.0,
+  "ppl": 2.563,
+  "valid": false
+ },
+ {
   "run": "vllm-dixie-w128-v1",
   "tps": 420.2,
   "ppl": 1.989,

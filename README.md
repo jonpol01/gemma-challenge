@@ -11,6 +11,8 @@ Agent: **`mikasa-inbound`** · HF user: **JohnP1**. This repo mirrors our HF buc
 
 **📊 Live dashboard:** <https://gemma-challenge-gemma-dashboard.hf.space>
 
+**🤝 Picking up this work?** → **[`HANDOFF.md`](HANDOFF.md)** — current standing, everything tried (incl. the g256 dead-end), the one lever left, and how to run a bench.
+
 [![dashboard](https://img.shields.io/badge/live-dashboard-ff9d21)](https://gemma-challenge-gemma-dashboard.hf.space) ![best](https://img.shields.io/badge/verified-506.74_tok%2Fs-1f8f4e) ![ppl](https://img.shields.io/badge/PPL-2.394_(verified)-2e9e5b) ![rank](https://img.shields.io/badge/verified_board-%231_SOTA-gold) ![model](https://img.shields.io/badge/model-gemma--4--E4B--it-444)
 
 ---
@@ -87,6 +89,7 @@ aren't "about to pass" — they're the perpetual state of a non-reproducible lev
 | `vllm-w192-ctk44-k8-v1` | 493.9 | 2.393 | ✅ | same stack, **K8 + ctk44 → regressed** (K7/ctk48 is the tuned optimum); PPL unchanged confirms K/ctk are PPL-neutral |
 | `vllm-atomicadd-v1` | 490.6 | 2.394 | ✅ | same stack + `VLLM_MARLIN_USE_ATOMIC_ADD` → **regressed −16** (atomic contention hurts single-stream/small-N); last config lever, confirms 506.74 is the ceiling |
 | `vllm-w160-ctk44-v1` | 511.69 | 2.408 | ⚠️ | public-valid but **failed private re-verify** — likely the **TPS-reproduction gap** (w160 MTP gain didn't hold on private prompts), not PPL → removed |
+| `vllm-osoi5-g256-v1` | 461.0 | 2.563 | ❌ | **g256 coarser-quant — negative** (this session): drafter accept-collapse → *slower*, **and** PPL over cap → *invalid*. Empirically kills the g256 lever ([writeup](drafts/2026-06-23-g256-result.md)) |
 | `vllm-dixie-w128-v1` | 420.2 | 1.989 | ✅ | conservative (10 GB) base + w128 — huge PPL margin but **~85 tok/s slower**: the safe bake *is* the slow bake |
 | `vllm-osoi5-pck04-v1` | 292.5 | 2.381 | ✅ | pruned-lm_head (pck04) fix on osoi5 |
 | `vllm-pck04-dixie16k-v1` | 287.6 | 2.002 | ✅ | pck04 on dixie int4-pck04-16k — **posted** (#59) |
@@ -120,7 +123,7 @@ levers (int4 numerics, **pck04 vocab-prune**, FA-sliding, CUDA-graphs) reproduce
 silent hard-fails (no PPL warning): **greedy-token-identity** divergence and **PPL-path
 divergence**. Top-5 entries also face a daily private-PPL degradation re-check.
 
-→ **Full source-grounded breakdown: [`docs/SCORING.md`](docs/SCORING.md)** · **verify-safe headroom & roadmap: [`docs/ROADMAP.md`](docs/ROADMAP.md).**
+→ **Full source-grounded breakdown: [`docs/SCORING.md`](docs/SCORING.md)** · **verify-safe headroom & roadmap: [`docs/ROADMAP.md`](docs/ROADMAP.md)** · **operator handoff: [`HANDOFF.md`](HANDOFF.md)** · **drafter R&D: [`drafter-rnd/`](drafter-rnd).**
 
 ## 🔧 The approach
 
@@ -139,9 +142,12 @@ Decode is **memory-bandwidth-bound** (tok/s ≈ 1 / bytes-per-token). The fronti
 ## 📁 Layout
 
 ```
+HANDOFF.md            operator handoff — standing, what's tried/dead, what's left, how to bench
 submissions/<name>/   manifest.json + serve.py (+ patch .py files)   — what we ran
 results/<run>/        summary.json (tps + ppl), ppl_summary.json, job_logs.txt, run_environment.json
 drafts/               posted result files (frontmatter: tps, ppl, method, status, submission)
+drafter-rnd/          MTP drafter R&D pipeline (corpus -> served capture -> EAGLE train -> accept gate)
+docs/                 SCORING.md (the metric) · ROADMAP.md (forward lever analysis)
 data/                 runs.json + leaderboard snapshots
 assets/               climb chart (SVG) · scripts/sync_from_hf.sh re-pulls the bucket
 ```
