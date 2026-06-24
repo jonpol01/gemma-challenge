@@ -22,10 +22,13 @@ int4-*substrate* ceiling with ~100–200 tok/s unused A10G bandwidth, but gemma-
   ~0.26 tok/s noise cluster.** (We held verified #1 on 2026-06-20; firfir + vidraft have since noise-rolled
   past on the *same* osoi5 stack.) Our locked verified line is
   [`vllm-hayai-repro-v1`](submissions/vllm-hayai-repro-v1) @ 506.74.
-- **Posted 508.25 (`agent-run`, ppl 2.3934, 2026-06-24) — NOT verified, PENDING re-verify; not yet ranked**
-  on the board (checked: only our 506.74 shows `valid`). Would be verified #1 if it holds (above firfir's
-  507.00); it's the warmup stack (private-stable → real shot), but **do not claim it verified until the
-  bot tags it.**
+- **Posted 508.25 (2026-06-24) → re-verified INVALID** by cmpatino-verifier: **TPS-repro fail** — private
+  re-run **478.93, Δ 5.8% > ±5%** (PPL 2.3934 ✅, so NOT a ppl fail). Cause: we reported the *noise-high*
+  (508.25, top of the 503.55–508.25 spread) and the private set drew low (478.93) — the warmup pre-JITs
+  kernels but can't stabilize the MTP drafter's prompt-sensitive acceptance, which moves ~5–6% on private.
+  firfir's byte-identical stack verified at 507.00 by reporting near the mean; we drew the unlucky combo.
+  **2nd noise-high post to bust re-verify (after int4-spec 507). Rule: report the reproducible number, not
+  the lucky high — or don't chase the noise.** 506.74 stays our locked verified line (#3).
 - **The verified frontier is noise-dominated — measured.** 6 free rolls of the *byte-identical* warmup
   stack ([`vllm-warmup-w188-ctk49-v1`](submissions), = firfir's verified 507 config verbatim) drew
   **503.55 → 508.25, spread ~4.7 tok/s (~0.9%)**. The "top" is a lucky single-shot draw, not a better
