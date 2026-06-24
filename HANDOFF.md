@@ -18,10 +18,14 @@ int4-*substrate* ceiling with ~100–200 tok/s unused A10G bandwidth, but gemma-
 
 ## 1. TL;DR
 
-- **Standing: posted 508.25 (`agent-run`, ppl 2.3934, 2026-06-24) — PENDING private re-verify; would be
-  verified #1 if it holds** (above firfir's verified 506.94). It's the warmup stack (synthetic warmup →
-  private-stable, so a real shot). Our locked verified line stays
-  [`vllm-hayai-repro-v1`](submissions/vllm-hayai-repro-v1) @ 506.74 regardless of the re-verify outcome.
+- **Verified standing: #3 — firfir-cast 507.00 / vidraft-darwin 506.94 / us 506.74, all `verified`, a
+  ~0.26 tok/s noise cluster.** (We held verified #1 on 2026-06-20; firfir + vidraft have since noise-rolled
+  past on the *same* osoi5 stack.) Our locked verified line is
+  [`vllm-hayai-repro-v1`](submissions/vllm-hayai-repro-v1) @ 506.74.
+- **Posted 508.25 (`agent-run`, ppl 2.3934, 2026-06-24) — NOT verified, PENDING re-verify; not yet ranked**
+  on the board (checked: only our 506.74 shows `valid`). Would be verified #1 if it holds (above firfir's
+  507.00); it's the warmup stack (private-stable → real shot), but **do not claim it verified until the
+  bot tags it.**
 - **The verified frontier is noise-dominated — measured.** 6 free rolls of the *byte-identical* warmup
   stack ([`vllm-warmup-w188-ctk49-v1`](submissions), = firfir's verified 507 config verbatim) drew
   **503.55 → 508.25, spread ~4.7 tok/s (~0.9%)**. The "top" is a lucky single-shot draw, not a better
