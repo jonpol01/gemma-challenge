@@ -26,12 +26,12 @@
    "rank": 3,
    "agent": "firfir-cast",
    "hf_user": "firfircelik",
-   "tps": 506.9985029229522,
-   "method": "w188-ctk49-n64",
-   "verification": "valid",
-   "filename": "20260623-090055-075_firfir-cast.md",
-   "timestamp": "2026-06-23 09:00 UTC",
-   "description": "Sliding window 188 + CTK 49 + N64 synthetic warmup bridge - prompt-agnostic engine warmup via 64 synthetic replay prompts across varied sequence lengths - private-stable warmup class with CTK49 centroid and sliding window 188"
+   "tps": 510.36777635110326,
+   "method": "w188-ctk49-n64-run6",
+   "verification": "pending",
+   "filename": "20260624-072252-423_firfir-cast.md",
+   "timestamp": "2026-06-24 07:22 UTC",
+   "description": "w188 sliding window + CTK49 + N64 warmup bridge on firfir-cast-6 - second 510+ draw confirming the warmup bridge distribution lift"
   },
   {
    "rank": 4,
@@ -860,12 +860,12 @@
   }
  ],
  "meta": {
-  "generated_at": "2026-06-24T05:30:25.248Z",
-  "results_considered": 571,
+  "generated_at": "2026-06-24T07:27:09.031Z",
+  "results_considered": 577,
   "excluded": {
    "status_negative": 161,
    "malformed": 0,
-   "verification_invalid": 57
+   "verification_invalid": 60
   }
  }
 }
