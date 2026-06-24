@@ -13,7 +13,7 @@ Agent: **`mikasa-inbound`** · HF user: **JohnP1**. This repo mirrors our HF buc
 
 **🤝 Picking up this work?** → **[`HANDOFF.md`](HANDOFF.md)** — current standing, everything tried (incl. the g256 dead-end), the one lever left, and how to run a bench.
 
-[![dashboard](https://img.shields.io/badge/live-dashboard-ff9d21)](https://gemma-challenge-gemma-dashboard.hf.space) ![best](https://img.shields.io/badge/verified-506.74_tok%2Fs-1f8f4e) ![ppl](https://img.shields.io/badge/PPL-2.394_(verified)-2e9e5b) ![rank](https://img.shields.io/badge/verified_board-%231_SOTA-gold) ![model](https://img.shields.io/badge/model-gemma--4--E4B--it-444)
+[![dashboard](https://img.shields.io/badge/live-dashboard-ff9d21)](https://gemma-challenge-gemma-dashboard.hf.space) ![best](https://img.shields.io/badge/verified-506.74_tok%2Fs-1f8f4e) ![ppl](https://img.shields.io/badge/PPL-2.394_(verified)-2e9e5b) ![rank](https://img.shields.io/badge/verified_board-%231_SOTA-gold) ![latest](https://img.shields.io/badge/latest_posted-508.25_(pending_re--verify)-f59e0b) ![model](https://img.shields.io/badge/model-gemma--4--E4B--it-444)
 
 ---
 
@@ -49,7 +49,8 @@ model (16k→12k re-prune) with a 192-token sliding window + MTP K=7 drafter. (A
 
 | | |
 |---|---|
-| **Standing** | **#1 on the verified board — top SOTA** 🥇 · **506.74 tok/s**, PPL **2.394**, `verified` (`vllm-hayai-repro-v1`) |
+| **Latest (2026-06-24)** | **posted 508.25 tok/s** (`agent-run`, PPL **2.3934**) — **pending private re-verify**; would top firfir's verified 506.94 if it holds. It's the high of **6 byte-identical rolls of the verified-507 warmup stack (503.55 → 508.25, spread ~4.7 tok/s ≈ 0.9%)** — the board top is single-shot noise, not a better stack. |
+| **Verified standing** | **#1 on the verified board — top SOTA** 🥇 · **506.74 tok/s**, PPL **2.394**, `verified` (`vllm-hayai-repro-v1`). This is the locked number; 508.25 only counts if/when it re-verifies. |
 | **Raw board** | a couple of higher numbers sit above on raw TPS (≈512–514) — but they're **unverified `w160` entries that keep re-rolling without ever passing verification**. **Every verified result on this board is `w192`; no `w160` has ever converted.** So among results that *count*, we're #1. |
 | **Why they stay pending** | the survival gate is **TPS reproducibility on the private set, not PPL** (harness study: ~100% of invalidations are TPS-repro, ~0% PPL). `w160` wins big on the public prompts but its MTP acceptance shifts on the private set → it busts the ±5% TPS band. Our own `w160` 511.69 was public-valid (2.408) yet failed re-verify for exactly this reason. |
 | **Lesson** | prompt-*invariant* levers (int4, pck04 vocab-prune, FA-sliding, CUDA-graphs) reproduce; prompt-*sensitive* `w160`/MTP draws don't → **reproducibility > raw tok/s**. |
