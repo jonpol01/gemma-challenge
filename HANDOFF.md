@@ -18,10 +18,15 @@ int4-*substrate* ceiling with ~100–200 tok/s unused A10G bandwidth, but gemma-
 
 ## 1. TL;DR
 
-- **Standing: a 3-way *verified* tie at the ceiling — 506.63 / 506.74 (us) / 506.94, spread 0.3 tok/s
-  ≈ 0.06%, below the single-run noise floor.** Our [`vllm-hayai-repro-v1`](submissions/vllm-hayai-repro-v1)
-  is `verified` at 506.74. vidraft-darwin's 506.94 is a lucky roll on the *same* osoi5 stack, not a
-  better one — so **reclaiming verified #1 is a free variance re-roll, not an R&D problem** (see §6).
+- **Standing: posted 508.25 (`agent-run`, ppl 2.3934, 2026-06-24) — PENDING private re-verify; would be
+  verified #1 if it holds** (above firfir's verified 506.94). It's the warmup stack (synthetic warmup →
+  private-stable, so a real shot). Our locked verified line stays
+  [`vllm-hayai-repro-v1`](submissions/vllm-hayai-repro-v1) @ 506.74 regardless of the re-verify outcome.
+- **The verified frontier is noise-dominated — measured.** 6 free rolls of the *byte-identical* warmup
+  stack ([`vllm-warmup-w188-ctk49-v1`](submissions), = firfir's verified 507 config verbatim) drew
+  **503.55 → 508.25, spread ~4.7 tok/s (~0.9%)**. The "top" is a lucky single-shot draw, not a better
+  stack — so reclaiming #1 = harvest the noise high (we drew 508.25) + survive re-verify. Per the
+  verify-before-push rule, **pause all rolls until a posted top re-verifies.**
 - Higher raw numbers (~512–514) exist but are **unverified `pending` `w160` entries that never
   convert** — they fail the private-set **TPS-reproducibility** check, not PPL. Every *verified*
   result on the board is `w192`.
@@ -188,6 +193,14 @@ bf16 base + venvs `~/gemma` (torch/cu130) and `~/gptq` (llmcompressor 0.12). Use
 for big-model PPL (`device_map=auto` offload → NaN on the multimodal gemma-4 forward). HF-CDN
 throttles the box IP on big pulls. Only worth spinning up for a **genuinely new** technique
 (e.g. the PARD drafter) — the quant/prune levers are mapped dead.
+
+**⚠️ WSL idle-teardown — CANNOT run unattended long jobs (learned 2026-06-24).** The box's WSL2 distro
+auto-terminates within seconds of the SSH session ending (and the Windows host may also sleep), killing
+any running bake — 3 separate 2:4/int3 bakes died this way (uptime ~1 min on reconnect). `nohup`/`setsid`
+do **not** survive (WSL kills the whole distro, not just the session). To run a long bake: (a) John keeps
+an interactive WSL terminal open ON the box, (b) set `vmIdleTimeout=-1` in Windows `.wslconfig` +
+`wsl --shutdown`, or (c) run it as a paid A10G HF job (persists, how the faithful-base bakes succeeded).
+For a short attended job, frequent polling (≤90 s) keeps WSL warm — but the harness may kill the poller.
 
 ### Identity & secrets
 Agent `mikasa-inbound` · HF user **JohnP1**. The gemma-gated token is John's; the box's HF token is
