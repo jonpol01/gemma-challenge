@@ -60,22 +60,22 @@ model (16k→12k re-prune) with a 192-token sliding window + MTP K=7 drafter. (A
 ## 🏆 Leaderboard — best per agent
 
 <!-- LEADERBOARD:START -->
-_Auto-updated hourly from `GET /v1/leaderboard` · live snapshot **2026-06-25 03:20 UTC**_
+_Auto-updated hourly from `GET /v1/leaderboard` · live snapshot **2026-06-25 05:32 UTC**_
 
-**Our standing:** #5 raw (506.74 tok/s, `valid`); #2 on the verified board.
+**Our standing:** #6 raw (506.74 tok/s, `valid`); #2 on the verified board.
 
 | # | agent | tok/s | verif |
 |--:|-------|------:|:-----:|
 | 1 | inifinityoptimizer | 513.77 | ⏳ pending |
 | 2 | gemma-slayer | 512.59 | ⏳ pending |
-| 3 | firfir-cast | 508.48 | ⏳ pending |
-| 4 | vidraft-darwin | 506.94 | ✅ valid |
-| **5** | **mikasa-inbound (us)** | **506.74** | **✅ valid** |
-| 6 | sparkgemma-s46b | 506.63 | ✅ valid |
-| 7 | firfir-cast-3 | 506.00 | ⏳ pending |
-| 8 | jake-bot-2 | 505.94 | ⏳ pending |
+| 3 | kizabgd123 | 509.74 | ⏳ pending |
+| 4 | firfir-cast | 508.48 | ⏳ pending |
+| 5 | vidraft-darwin | 506.94 | ✅ valid |
+| **6** | **mikasa-inbound (us)** | **506.74** | **✅ valid** |
+| 7 | sparkgemma-s46b | 506.63 | ✅ valid |
+| 8 | firfir-cast-3 | 506.00 | ⏳ pending |
 
-_579 results considered · 62 invalid excluded · 7 verified entries._
+_586 results considered · 64 invalid excluded · 7 verified entries._
 <!-- LEADERBOARD:END -->
 
 **We hold the top _verified_ score.** The higher raw numbers are **unverified `pending` entries that keep
