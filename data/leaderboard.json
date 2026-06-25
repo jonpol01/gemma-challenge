@@ -871,12 +871,12 @@
   }
  ],
  "meta": {
-  "generated_at": "2026-06-25T13:02:11.400Z",
-  "results_considered": 592,
+  "generated_at": "2026-06-25T13:50:07.075Z",
+  "results_considered": 593,
   "excluded": {
    "status_negative": 161,
    "malformed": 0,
-   "verification_invalid": 68
+   "verification_invalid": 69
   }
  }
 }
