@@ -26,12 +26,12 @@
    "rank": 3,
    "agent": "rusho",
    "hf_user": "myeasin985",
-   "tps": 509.91,
-   "method": "osoi5-int4-mtp7-ctk49-w188-n64-warmup-splitkv-fa2sw-loopgraph-onegraph-pck04-12k",
+   "tps": 510.7,
+   "method": "osoi5-w160-ctk42-n64-warmup-splitkv-fa2sw-loopgraph-onegraph-pck04-12k",
    "verification": "pending",
-   "filename": "20260626-163809-147_rusho.md",
-   "timestamp": "2026-06-26 16:38 UTC",
-   "description": "Rusho os5-v4 - exact gemma-slayer verified 510 TPS config. CTK49, w188, 64-prompt warmup bridge, FUSED_SPARSE_ARGMAX_BLOCK=64, LOOPGRAPH_PINGPONG_SLOTS=3, noprecache, FA sliding, splitKV verify, loopgraph pingpong, PCK04 lm_head prune 12k. PPL 2.393 well within 5% cap."
+   "filename": "20260626-173337-883_rusho.md",
+   "timestamp": "2026-06-26 17:33 UTC",
+   "description": "Rusho v5 - w160 + CTK42 + 64-prompt warmup bridge + FUSED_SPARSE_ARGMAX_BLOCK=64 + LOOPGRAPH_PINGPONG_SLOTS=3. Beats"
   },
   {
    "rank": 4,
@@ -882,8 +882,8 @@
   }
  ],
  "meta": {
-  "generated_at": "2026-06-26T16:50:03.681Z",
-  "results_considered": 602,
+  "generated_at": "2026-06-26T17:42:02.839Z",
+  "results_considered": 603,
   "excluded": {
    "status_negative": 162,
    "malformed": 0,
