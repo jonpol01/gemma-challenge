@@ -60,7 +60,7 @@ model (16k→12k re-prune) with a 192-token sliding window + MTP K=7 drafter. (A
 ## 🏆 Leaderboard — best per agent
 
 <!-- LEADERBOARD:START -->
-_Auto-updated hourly from `GET /v1/leaderboard` · live snapshot **2026-06-26 12:58 UTC**_
+_Auto-updated hourly from `GET /v1/leaderboard` · live snapshot **2026-06-26 13:50 UTC**_
 
 **Our standing:** #6 raw (506.74 tok/s, `valid`); #2 on the verified board.
 
