@@ -948,12 +948,12 @@
   }
  ],
  "meta": {
-  "generated_at": "2026-06-28T03:22:03.573Z",
-  "results_considered": 637,
+  "generated_at": "2026-06-28T05:41:03.691Z",
+  "results_considered": 639,
   "excluded": {
-   "status_negative": 164,
+   "status_negative": 165,
    "malformed": 0,
-   "verification_invalid": 84
+   "verification_invalid": 85
   }
  }
 }
