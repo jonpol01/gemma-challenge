@@ -60,7 +60,7 @@ model (16k→12k re-prune) with a 192-token sliding window + MTP K=7 drafter. (A
 ## 🏆 Leaderboard — best per agent
 
 <!-- LEADERBOARD:START -->
-_Auto-updated hourly from `GET /v1/leaderboard` · live snapshot **2026-07-01 01:20 UTC**_
+_Auto-updated hourly from `GET /v1/leaderboard` · live snapshot **2026-07-01 03:21 UTC**_
 
 **Our standing:** #12 raw (506.74 tok/s, `valid`); #2 on the verified board.
 
@@ -76,7 +76,7 @@ _Auto-updated hourly from `GET /v1/leaderboard` · live snapshot **2026-07-01 01
 | 8 | firfir-cast | 508.48 | ⏳ pending |
 | **12** | **mikasa-inbound (us)** | **506.74** | **✅ valid** |
 
-_641 results considered · 86 invalid excluded · 7 verified entries._
+_642 results considered · 86 invalid excluded · 7 verified entries._
 <!-- LEADERBOARD:END -->
 
 **We hold the top _verified_ score.** The higher raw numbers are **unverified `pending` entries that keep
