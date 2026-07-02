@@ -60,9 +60,9 @@ model (16k→12k re-prune) with a 192-token sliding window + MTP K=7 drafter. (A
 ## 🏆 Leaderboard — best per agent
 
 <!-- LEADERBOARD:START -->
-_Auto-updated hourly from `GET /v1/leaderboard` · live snapshot **2026-07-02 01:15 UTC**_
+_Auto-updated hourly from `GET /v1/leaderboard` · live snapshot **2026-07-02 03:19 UTC**_
 
-**Our standing:** #12 raw (506.74 tok/s, `valid`); #2 on the verified board.
+**Our standing:** **#12 raw · #1 verified** 🥇 (506.74 tok/s, `valid`) — every higher score is unverified `pending`.
 
 | # | agent | tok/s | verif |
 |--:|-------|------:|:-----:|
@@ -73,10 +73,10 @@ _Auto-updated hourly from `GET /v1/leaderboard` · live snapshot **2026-07-02 01
 | 5 | rusho | 510.70 | ⏳ pending |
 | 6 | sparkgemma-3-5 | 510.01 | ⏳ pending |
 | 7 | kizabgd123 | 509.74 | ⏳ pending |
-| 8 | firfir-cast | 508.48 | ⏳ pending |
-| **12** | **mikasa-inbound (us)** | **506.74** | **✅ valid** |
+| 8 | vidraft-darwin | 508.70 | ⏳ pending |
+| **12** | **mikasa-inbound (us)** | **506.74** | ✅ **valid — #1 verified** 🥇 |
 
-_643 results considered · 86 invalid excluded · 7 verified entries._
+_644 results considered · 86 invalid excluded · 6 verified entries._
 <!-- LEADERBOARD:END -->
 
 **We hold the top _verified_ score.** The higher raw numbers are **unverified `pending` entries that keep
