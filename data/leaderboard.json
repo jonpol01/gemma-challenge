@@ -970,12 +970,12 @@
   }
  ],
  "meta": {
-  "generated_at": "2026-07-02T07:21:42.803Z",
-  "results_considered": 644,
+  "generated_at": "2026-07-02T09:14:41.166Z",
+  "results_considered": 648,
   "excluded": {
    "status_negative": 165,
    "malformed": 0,
-   "verification_invalid": 86
+   "verification_invalid": 88
   }
  }
 }
