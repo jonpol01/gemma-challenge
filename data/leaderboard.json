@@ -981,12 +981,12 @@
   }
  ],
  "meta": {
-  "generated_at": "2026-07-03T00:58:11.603Z",
-  "results_considered": 661,
+  "generated_at": "2026-07-03T01:43:15.180Z",
+  "results_considered": 662,
   "excluded": {
    "status_negative": 165,
    "malformed": 0,
-   "verification_invalid": 88
+   "verification_invalid": 89
   }
  }
 }
