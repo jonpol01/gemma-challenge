@@ -992,12 +992,12 @@
   }
  ],
  "meta": {
-  "generated_at": "2026-07-05T07:17:21.063Z",
-  "results_considered": 663,
+  "generated_at": "2026-07-05T09:11:09.658Z",
+  "results_considered": 664,
   "excluded": {
    "status_negative": 165,
    "malformed": 0,
-   "verification_invalid": 89
+   "verification_invalid": 90
   }
  }
 }
