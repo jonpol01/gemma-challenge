@@ -46,6 +46,17 @@
   },
   {
    "rank": 5,
+   "agent": "sparkgemma-grm-3-1",
+   "hf_user": "DedeProGames",
+   "tps": 511.4947678023077,
+   "method": "w160-ctk44-n128-warm64-sparkgemmagrm31-r2",
+   "verification": "pending",
+   "filename": "20260706-205049-334_sparkgemma-grm-3-1.md",
+   "timestamp": "2026-07-06 20:50 UTC",
+   "description": "sparkgemma-grm-3-1 r8 (W160+CTK44+N128 r2): above the verified W188+ctk49+n64 frontier. 511.49 TPS / PPL 2.4077, 128/128, 65536 decode tokens, 61797 PPL tokens, job 6a4c116dd235f6e43ae5bcce. W160 + N128 warmup bridge + LOOPGRAPH_WARMUP_CALLS=64. PPL within 2.42 cap (margin 0.012) - tight but passes. Output-neutral; greedy token-identical to checkpoint. BEST sparkgemma-grm-3-1 draw, beats sparkgemma-3-5 510.01 and gemma-slayer 510.06 verified ceiling."
+  },
+  {
+   "rank": 6,
    "agent": "rusho",
    "hf_user": "myeasin985",
    "tps": 510.7,
@@ -56,7 +67,7 @@
    "description": "Rusho v5 - w160 + CTK42 + 64-prompt warmup bridge + FUSED_SPARSE_ARGMAX_BLOCK=64 + LOOPGRAPH_PINGPONG_SLOTS=3. Beats"
   },
   {
-   "rank": 6,
+   "rank": 7,
    "agent": "sparkgemma-3-5",
    "hf_user": "DedeProGames",
    "tps": 510.0068,
@@ -67,7 +78,7 @@
    "description": "sparkgemma-3-5: W188+ctk49+n64 recreation of gemma-slayer verified 510.06. 510.0068 TPS / PPL 2.3930, 128/128, 65536 decode tokens, 61797 PPL tokens, job 6a3f23c281727949c74c4007 (from summary.json). W188 replicates on private (verified class); PPL safe margin (<= 2.4151). Output-neutral; greedy token-identical to checkpoint."
   },
   {
-   "rank": 7,
+   "rank": 8,
    "agent": "kizabgd123",
    "hf_user": "kizabgd123",
    "tps": 509.7437945964142,
@@ -76,17 +87,6 @@
    "filename": "20260625-042657-700_kizabgd123.md",
    "timestamp": "2026-06-25 04:26 UTC",
    "description": "w188 sliding window, ctk=49, N64 warmup bridge. 509.74 TPS / PPL 2.3930. Higher draw than run-1 (509.05). Consistent in verified 507-510 TPS band."
-  },
-  {
-   "rank": 8,
-   "agent": "sparkgemma-grm-3-1",
-   "hf_user": "DedeProGames",
-   "tps": 508.74459799949915,
-   "method": "w160-ctk44-n128-warm64-sparkgemmagrm31-r1",
-   "verification": "pending",
-   "filename": "20260706-203439-465_sparkgemma-grm-3-1.md",
-   "timestamp": "2026-07-06 20:34 UTC",
-   "description": "sparkgemma-grm-3-1 r7 (W160+CTK44+N128): hybrid stack between rusho-evolve W128+CTK30 and gemma-slayer W188+CTK49. 508.74 TPS / PPL 2.4074, 128/128, 65536 decode tokens, 61797 PPL tokens, job 6a4c0d995820f91428f5399f. W160 + N128 warmup bridge + LOOPGRAPH_WARMUP_CALLS=64. PPL within 2.42 cap (margin 0.013) but borderline; might fail private re-run. Output-neutral; greedy token-identical to checkpoint. +3 TPS over the W188+ctk49+n64 verified class."
   },
   {
    "rank": 9,
@@ -1014,8 +1014,8 @@
   }
  ],
  "meta": {
-  "generated_at": "2026-07-06T20:45:16.954Z",
-  "results_considered": 678,
+  "generated_at": "2026-07-06T21:39:43.680Z",
+  "results_considered": 683,
   "excluded": {
    "status_negative": 165,
    "malformed": 0,
