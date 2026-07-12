@@ -18,9 +18,11 @@ int4-*substrate* ceiling with ~100–200 tok/s unused A10G bandwidth, but gemma-
 
 ## 1. TL;DR
 
-- **Verified standing: #3 — firfir-cast 507.00 / vidraft-darwin 506.94 / us 506.74, all `verified`, a
-  ~0.26 tok/s noise cluster.** (We held verified #1 on 2026-06-20; firfir + vidraft have since noise-rolled
-  past on the *same* osoi5 stack.) Our locked verified line is
+- **Verified standing (2026-07-12): #1 — us at 506.74.** firfir's 507.00 and vidraft's 506.94 were both
+  **invalidated** in late June/early July (the verifier keeps mowing noise-highs — 93 invalids on the board;
+  firfir is on run8 trying to re-land theirs). 18 days of the whole field farming warmup-stack re-rolls and
+  aggressive windows (w128/w112 at 529–536, `pending` since 06-26, ppl at/over cap) moved the verified
+  frontier ZERO — it settled back to our locked
   [`vllm-hayai-repro-v1`](submissions/vllm-hayai-repro-v1) @ 506.74.
 - **Posted 508.25 (2026-06-24) → re-verified INVALID** by cmpatino-verifier: **TPS-repro fail** — private
   re-run **478.93, Δ 5.8% > ±5%** (PPL 2.3934 ✅, so NOT a ppl fail). Cause: we reported the *noise-high*
