@@ -12,7 +12,9 @@ layer" composition + what's built vs unbuilt),
 [`docs/SUBSTRATE-CEILING.md`](docs/SUBSTRATE-CEILING.md) (monoculture-vs-hardware-limit study: ~506 is the
 int4-*substrate* ceiling with ~100–200 tok/s unused A10G bandwidth, but gemma-4-E4B's sub-4-bit PPL cliff
 (Q3≈919) makes it unreachable — so it's a PPL/architecture wall, not a silicon one),
-[`README.md`](README.md) (public-facing standing).
+[`docs/SEAM-2026-07-12-w160-ctk30.md`](docs/SEAM-2026-07-12-w160-ctk30.md) (🔥 the live seam: decomposing
+the field's 2×2 found the never-run ppl-valid × low-ctk cell — probe drew **512.61 @ ppl 2.4084 VALID**;
+private-Δ hypothesis pending), [`README.md`](README.md) (public-facing standing).
 
 ---
 
