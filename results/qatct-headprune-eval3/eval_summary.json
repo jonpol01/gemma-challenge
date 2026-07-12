@@ -1,0 +1,60 @@
+{
+  "base_url": "http://127.0.0.1:8000",
+  "decoding": {
+    "max_tokens": null,
+    "seed": null,
+    "temperature": 1.0,
+    "top_k": 64,
+    "top_p": 0.95
+  },
+  "gpqa_accuracy": 0.5,
+  "gpqa_epochs": 1,
+  "gpqa_scored": 80,
+  "gpqa_stderr": 0.05625439504630119,
+  "log_dir": "/state/eval_logs",
+  "max_connections": 16,
+  "mmlu_pro_accuracy": 0.5933333333333334,
+  "mmlu_pro_epochs": 1,
+  "mmlu_pro_scored": 150,
+  "mmlu_pro_stderr": 0.04024162665739062,
+  "model": "gemma-4-e4b-it",
+  "output_file": "/state/eval_results.jsonl",
+  "tasks": [
+    {
+      "accuracy": 0.5,
+      "completed_samples": 80,
+      "epochs": 1,
+      "metrics": {
+        "accuracy": 0.5,
+        "stderr": 0.05625439504630119
+      },
+      "model": "openai/gemma-4-e4b-it",
+      "raw_correct": 40,
+      "raw_scored": 80,
+      "reducer": null,
+      "scorer": "answer",
+      "status": "success",
+      "stderr": 0.05625439504630119,
+      "task": "gpqa_diamond",
+      "total_samples": 80
+    },
+    {
+      "accuracy": 0.5933333333333334,
+      "completed_samples": 150,
+      "epochs": 1,
+      "metrics": {
+        "accuracy": 0.5933333333333334,
+        "stderr": 0.04024162665739062
+      },
+      "model": "openai/gemma-4-e4b-it",
+      "raw_correct": 89,
+      "raw_scored": 150,
+      "reducer": null,
+      "scorer": "answer",
+      "status": "success",
+      "stderr": 0.04024162665739062,
+      "task": "mmlu_pro",
+      "total_samples": 150
+    }
+  ]
+}

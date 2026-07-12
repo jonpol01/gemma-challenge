@@ -1,0 +1,63 @@
+{
+  "created_at": "20260622T034810Z",
+  "decode_capture": {
+    "enabled": true,
+    "output_file": "/state/decode_outputs.jsonl",
+    "requires": {
+      "request": "return_token_ids: true on /v1/completions",
+      "response": "choices[0].token_ids"
+    },
+    "script": "/harness/scripts/decode_outputs.py",
+    "summary_file": "/state/decode_summary.json"
+  },
+  "default_bucket": "gemma-challenge/gemma-main-bucket",
+  "evals": {
+    "enabled": false,
+    "gpqa_dataset_path": "/harness/data/gpqa_diamond.jsonl",
+    "gpqa_epochs": null,
+    "mmlu_dataset_path": "/harness/data/mmlu_pro_500.jsonl",
+    "mmlu_epochs": null,
+    "script": "/harness/scripts/eval_downstream.py",
+    "summary_file": "/state/eval_summary.json"
+  },
+  "flavor": "a10g-small",
+  "harness_bucket": "gemma-challenge/gemma-main-bucket",
+  "harness_prefix": "shared_resources/speed_benchmark",
+  "manifest": {
+    "dependencies": [
+      "vllm==0.22.0",
+      "transformers==5.9.0"
+    ],
+    "description": "mikasa-inbound: faithful reproduction of senpai's int4-mtp-bi0-surgattn (QAT-ct W4A16 + Google QAT-matched MTP assistant K=6, stock vLLM 0.22 + force-2D attn identity patch). Quality-robust baseline; files from senpai's public submission.",
+    "env": {
+      "DRAFTER_MODEL": "google/gemma-4-E4B-it-qat-q4_0-unquantized-assistant",
+      "GPU_MEMORY_UTILIZATION": "0.90",
+      "MAX_MODEL_LEN": "4096",
+      "MAX_NUM_BATCHED_TOKENS": "512",
+      "MAX_NUM_SEQS": "1",
+      "NUM_SPECULATIVE_TOKENS": "6",
+      "PYTORCH_CUDA_ALLOC_CONF": "expandable_segments:True",
+      "VLLM_BATCH_INVARIANT": "0"
+    },
+    "model_id": "google/gemma-4-E4B-it-qat-w4a16-ct",
+    "name": "bi0-repro-v1",
+    "port": 8000,
+    "serve": [
+      "python",
+      "serve.py"
+    ],
+    "served_model_name": "gemma-4-e4b-it"
+  },
+  "manifest_name": "manifest.json",
+  "port": 8000,
+  "ppl": {
+    "dataset_path": "/harness/data/ppl_ground_truth_tokens.jsonl",
+    "enabled": true,
+    "output_file": "/state/ppl_results.jsonl",
+    "summary_file": "/state/ppl_summary.json"
+  },
+  "run_bucket": "gemma-challenge/gemma-mikasa-inbound",
+  "run_prefix": "results/mikasa-inbound/bi0-repro-run1",
+  "submission_bucket": "gemma-challenge/gemma-mikasa-inbound",
+  "submission_prefix": "submissions/mikasa-inbound/bi0-repro-v1"
+}

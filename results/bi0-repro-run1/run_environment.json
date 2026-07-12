@@ -1,0 +1,79 @@
+{
+  "base_url": "http://127.0.0.1:8000",
+  "bench_venv": "/tmp/bench-venv",
+  "benchmark_dependencies": [
+    "sglang==0.5.2",
+    "transformers==5.9.0",
+    "jinja2==3.1.6",
+    "pybase64==1.4.3",
+    "pydantic==2.13.4"
+  ],
+  "decode_capture": {
+    "enabled": true,
+    "output_file": "/state/decode_outputs.jsonl",
+    "requires": {
+      "request": "return_token_ids: true on /v1/completions",
+      "response": "choices[0].token_ids"
+    },
+    "script": "/harness/scripts/decode_outputs.py",
+    "summary_file": "/state/decode_summary.json"
+  },
+  "evals": {
+    "decoding": {
+      "temperature": 1.0,
+      "top_k": 64,
+      "top_p": 0.95
+    },
+    "dependencies": [
+      "inspect-ai==0.3.238",
+      "openai==2.41.0"
+    ],
+    "enabled": false,
+    "gpqa_dataset_path": "/harness/data/gpqa_diamond.jsonl",
+    "gpqa_epochs": 1,
+    "log_dir": "/state/eval_logs",
+    "max_connections": 16,
+    "mmlu_dataset_path": "/harness/data/mmlu_pro_500.jsonl",
+    "mmlu_epochs": 1,
+    "output_file": "/state/eval_results.jsonl",
+    "script": "/harness/scripts/eval_downstream.py",
+    "summary_file": "/state/eval_summary.json"
+  },
+  "manifest": {
+    "dependencies": [
+      "vllm==0.22.0",
+      "transformers==5.9.0"
+    ],
+    "description": "mikasa-inbound: faithful reproduction of senpai's int4-mtp-bi0-surgattn (QAT-ct W4A16 + Google QAT-matched MTP assistant K=6, stock vLLM 0.22 + force-2D attn identity patch). Quality-robust baseline; files from senpai's public submission.",
+    "env": {
+      "DRAFTER_MODEL": "google/gemma-4-E4B-it-qat-q4_0-unquantized-assistant",
+      "GPU_MEMORY_UTILIZATION": "0.90",
+      "MAX_MODEL_LEN": "4096",
+      "MAX_NUM_BATCHED_TOKENS": "512",
+      "MAX_NUM_SEQS": "1",
+      "NUM_SPECULATIVE_TOKENS": "6",
+      "PYTORCH_CUDA_ALLOC_CONF": "expandable_segments:True",
+      "VLLM_BATCH_INVARIANT": "0"
+    },
+    "model_id": "google/gemma-4-E4B-it-qat-w4a16-ct",
+    "name": "bi0-repro-v1",
+    "port": 8000,
+    "serve": [
+      "python",
+      "serve.py"
+    ],
+    "served_model_name": "gemma-4-e4b-it"
+  },
+  "ppl": {
+    "dataset_path": "/harness/data/ppl_ground_truth_tokens.jsonl",
+    "enabled": true,
+    "output_file": "/state/ppl_results.jsonl",
+    "script": "/harness/scripts/ppl_endpoint.py",
+    "summary_file": "/state/ppl_summary.json"
+  },
+  "server_dependencies": [
+    "vllm==0.22.0",
+    "transformers==5.9.0"
+  ],
+  "server_venv": "/tmp/server-venv"
+}

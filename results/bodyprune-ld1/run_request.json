@@ -1,0 +1,76 @@
+{
+  "created_at": "20260622T132710Z",
+  "decode_capture": {
+    "enabled": true,
+    "output_file": "/state/decode_outputs.jsonl",
+    "requires": {
+      "request": "return_token_ids: true on /v1/completions",
+      "response": "choices[0].token_ids"
+    },
+    "script": "/harness/scripts/decode_outputs.py",
+    "summary_file": "/state/decode_summary.json"
+  },
+  "default_bucket": "gemma-challenge/gemma-main-bucket",
+  "evals": {
+    "enabled": false,
+    "gpqa_dataset_path": "/harness/data/gpqa_diamond.jsonl",
+    "gpqa_epochs": null,
+    "mmlu_dataset_path": "/harness/data/mmlu_pro_500.jsonl",
+    "mmlu_epochs": null,
+    "script": "/harness/scripts/eval_downstream.py",
+    "summary_file": "/state/eval_summary.json"
+  },
+  "flavor": "a10g-small",
+  "harness_bucket": "gemma-challenge/gemma-main-bucket",
+  "harness_prefix": "shared_resources/speed_benchmark",
+  "manifest": {
+    "dependencies": [
+      "https://wheels.vllm.ai/3e8afdf78598afc8be999a6a049be3a5fe182e48/vllm-0.22.1rc1.dev307%2Bg3e8afdf78.cu129-cp38-abi3-manylinux_2_28_x86_64.whl",
+      "transformers==5.9.0",
+      "jinja2==3.1.6",
+      "MarkupSafe==3.0.3",
+      "orjson==3.10.18",
+      "safetensors",
+      "torch",
+      "huggingface_hub"
+    ],
+    "description": "Body-layer prune: faithful QAT-ct minus early sliding layers {2,3,4} (39L) + 12k in-memory head. Capability-gated push past the head-prune toward 300+.",
+    "env": {
+      "DIXIE_FUSED_ACCEPT_PREP": "1",
+      "DRAFTER_MODEL": "google/gemma-4-E4B-it-qat-q4_0-unquantized-assistant",
+      "DROP_LAYERS": "27,31,35",
+      "FUSED_SPARSE_ARGMAX": "1",
+      "FUSED_SPARSE_ARGMAX_BLOCK": "64",
+      "GPU_MEMORY_UTILIZATION": "0.90",
+      "LOOPGRAPH_PINGPONG_SLOTS": "3",
+      "LOOPGRAPH_REQUIRE_CAPTURE": "0",
+      "LOOPGRAPH_WARMUP_CALLS": "20",
+      "MAX_MODEL_LEN": "4096",
+      "MAX_NUM_BATCHED_TOKENS": "512",
+      "MAX_NUM_SEQS": "1",
+      "NUM_SPECULATIVE_TOKENS": "6",
+      "ONEGRAPH": "1",
+      "PYTORCH_CUDA_ALLOC_CONF": "expandable_segments:True"
+    },
+    "model_id": "google/gemma-4-E4B-it-qat-w4a16-ct",
+    "name": "qatct-bodyprune",
+    "port": 8000,
+    "serve": [
+      "python",
+      "serve.py"
+    ],
+    "served_model_name": "gemma-4-e4b-it"
+  },
+  "manifest_name": "manifest.json",
+  "port": 8000,
+  "ppl": {
+    "dataset_path": "/harness/data/ppl_ground_truth_tokens.jsonl",
+    "enabled": true,
+    "output_file": "/state/ppl_results.jsonl",
+    "summary_file": "/state/ppl_summary.json"
+  },
+  "run_bucket": "gemma-challenge/gemma-mikasa-inbound",
+  "run_prefix": "results/mikasa-inbound/bodyprune-ld1",
+  "submission_bucket": "gemma-challenge/gemma-mikasa-inbound",
+  "submission_prefix": "submissions/mikasa-inbound/qatct-bodyprune"
+}

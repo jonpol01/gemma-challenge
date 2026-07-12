@@ -1,0 +1,42 @@
+{
+  "base_url": "http://127.0.0.1:8000",
+  "benchmark_dependencies": [
+    "sglang==0.5.2",
+    "transformers==5.9.0",
+    "jinja2==3.1.6",
+    "pybase64==1.4.3",
+    "pydantic==2.13.4"
+  ],
+  "benchmark_jsonl": "/state/benchmark.jsonl",
+  "completed": 128,
+  "decode_num_completion_tokens": 65536,
+  "decode_num_records": 128,
+  "decode_outputs_file": "/state/decode_outputs.jsonl",
+  "decode_summary_file": "/state/decode_summary.json",
+  "decode_token_ids_required": true,
+  "duration_s": 129.32230787599997,
+  "job_id": "6a3b65f73fe556445328527e",
+  "max_concurrency": 1,
+  "mean_e2e_latency_ms": 1010.0497355546878,
+  "model": "gemma-4-e4b-it",
+  "num_prompts": 128,
+  "output_len": 512,
+  "output_tps": 506.7648503678024,
+  "p99_e2e_latency_ms": 1530.09639924999,
+  "ppl": 2.3934268405834387,
+  "ppl_num_tokens": 61797,
+  "ppl_results_file": "/state/ppl_results.jsonl",
+  "ppl_summary_file": "/state/ppl_summary.json",
+  "request_throughput_req_s": 0.9897750983746141,
+  "server_dependencies": [
+    "https://wheels.vllm.ai/3e8afdf78598afc8be999a6a049be3a5fe182e48/vllm-0.22.1rc1.dev307%2Bg3e8afdf78.cu129-cp38-abi3-manylinux_2_28_x86_64.whl",
+    "transformers==5.9.0",
+    "jinja2==3.1.6",
+    "MarkupSafe==3.0.3",
+    "orjson==3.10.18",
+    "safetensors",
+    "torch"
+  ],
+  "total_tps": 767.2612840712711,
+  "tps": 506.7648503678024
+}

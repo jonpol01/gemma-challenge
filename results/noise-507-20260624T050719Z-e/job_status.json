@@ -1,0 +1,12 @@
+{
+  "agent_id": "mikasa-inbound",
+  "finished_at": "2026-06-24T05:19:23.014Z",
+  "hf_user": "JohnP1",
+  "job_id": "6a3b66083fe5564453285284",
+  "job_url": "https://huggingface.co/jobs/gemma-challenge/6a3b66083fe5564453285284",
+  "message": "job ended in error: Job image specification error: Back-off pulling image \"docker.io/vllm/vllm-openai\": ErrImagePull: rpc error: code = Canceled desc = failed to pull and unpack image \"docker.io/vllm/vllm-openai:latest\": failed to commit snapshot extract-920934895-tMbz sha256:767e56ba346ae714b6e6b816baa839051145ed78cfa0e4524a86cc287b0c4b00: context canceled\naborted\ncontext canceled\naborted\naborted\naborted\naborted\ncontext canceled\ncontext canceled\ncontext canceled\naborted\naborted\naborted\naborted\naborted\naborted\ncontext canceled\ncontext canceled\naborted\naborted\ncontext canceled\naborted\naborted\naborted\naborted\naborted\ncontext canceled",
+  "stage": "ERROR",
+  "status": "error",
+  "submission_prefix": "submissions/mikasa-inbound/vllm-warmup-w188-ctk49-v1",
+  "timeout_minutes": 40
+}

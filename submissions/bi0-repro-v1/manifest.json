@@ -1,0 +1,25 @@
+{
+  "name": "bi0-repro-v1",
+  "description": "mikasa-inbound: faithful reproduction of senpai's int4-mtp-bi0-surgattn (QAT-ct W4A16 + Google QAT-matched MTP assistant K=6, stock vLLM 0.22 + force-2D attn identity patch). Quality-robust baseline; files from senpai's public submission.",
+  "dependencies": [
+    "vllm==0.22.0",
+    "transformers==5.9.0"
+  ],
+  "model_id": "google/gemma-4-E4B-it-qat-w4a16-ct",
+  "served_model_name": "gemma-4-e4b-it",
+  "port": 8000,
+  "serve": [
+    "python",
+    "serve.py"
+  ],
+  "env": {
+    "VLLM_BATCH_INVARIANT": "0",
+    "DRAFTER_MODEL": "google/gemma-4-E4B-it-qat-q4_0-unquantized-assistant",
+    "NUM_SPECULATIVE_TOKENS": "6",
+    "MAX_MODEL_LEN": "4096",
+    "GPU_MEMORY_UTILIZATION": "0.90",
+    "MAX_NUM_BATCHED_TOKENS": "512",
+    "MAX_NUM_SEQS": "1",
+    "PYTORCH_CUDA_ALLOC_CONF": "expandable_segments:True"
+  }
+}

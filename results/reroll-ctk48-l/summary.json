@@ -1,0 +1,33 @@
+{
+  "base_url": "http://127.0.0.1:8000",
+  "benchmark_dependencies": [
+    "sglang==0.5.2",
+    "transformers==5.9.0",
+    "jinja2==3.1.6",
+    "pybase64==1.4.3",
+    "pydantic==2.13.4"
+  ],
+  "benchmark_jsonl": "/state/benchmark.jsonl",
+  "completed": 128,
+  "duration_s": 130.52635809000003,
+  "job_id": "6a393629953ed90bfb948347",
+  "max_concurrency": 1,
+  "mean_e2e_latency_ms": 1019.4595189140605,
+  "model": "gemma-4-e4b-it",
+  "num_prompts": 128,
+  "output_len": 512,
+  "output_tps": 502.09015986496667,
+  "p99_e2e_latency_ms": 1557.1871870999648,
+  "request_throughput_req_s": 0.980644843486263,
+  "server_dependencies": [
+    "https://wheels.vllm.ai/3e8afdf78598afc8be999a6a049be3a5fe182e48/vllm-0.22.1rc1.dev307%2Bg3e8afdf78.cu129-cp38-abi3-manylinux_2_28_x86_64.whl",
+    "transformers==5.9.0",
+    "jinja2==3.1.6",
+    "MarkupSafe==3.0.3",
+    "orjson==3.10.18",
+    "safetensors",
+    "torch"
+  ],
+  "total_tps": 760.1836246100075,
+  "tps": 502.09015986496667
+}

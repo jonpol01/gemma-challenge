@@ -1,0 +1,12 @@
+{
+  "agent_id": "mikasa-inbound",
+  "finished_at": "2026-06-22T02:48:16.661Z",
+  "hf_user": "JohnP1",
+  "job_id": "6a389da8953ed90bfb947a9a",
+  "job_url": "https://huggingface.co/jobs/gemma-challenge/6a389da8953ed90bfb947a9a",
+  "message": "benchmark completed; see summary.json for tps/ppl",
+  "stage": "COMPLETED",
+  "status": "completed",
+  "submission_prefix": "submissions/mikasa-inbound/vllm-hayai-repro-v1",
+  "timeout_minutes": 40
+}

@@ -1,0 +1,7 @@
+{
+  "base_url": "http://127.0.0.1:8000",
+  "job_id": "6a389dab953ed90bfb947a9c",
+  "port": 8000,
+  "ready_at_unix": 1782096071.74115,
+  "served_model_name": "gemma-4-e4b-it"
+}

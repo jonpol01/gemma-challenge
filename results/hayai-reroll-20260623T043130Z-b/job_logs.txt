@@ -1,0 +1,809 @@
+Creating participant server venv at /tmp/server-venv
+Running: /usr/local/bin/uv venv /tmp/server-venv --python 3.12
+Using CPython 3.12.13 interpreter at: /usr/bin/python3.12
+Creating virtual environment at: /tmp/server-venv
+Running: /usr/local/bin/uv pip install --python /tmp/server-venv/bin/python https://wheels.vllm.ai/3e8afdf78598afc8be999a6a049be3a5fe182e48/vllm-0.22.1rc1.dev307%2Bg3e8afdf78.cu129-cp38-abi3-manylinux_2_28_x86_64.whl transformers==5.9.0 jinja2==3.1.6 MarkupSafe==3.0.3 orjson==3.10.18 safetensors torch
+Using Python 3.12.13 environment at: /tmp/server-venv
+Resolved 193 packages in 2.52s
+Downloading nvidia-cuda-cupti (10.2MiB)
+Downloading pillow (6.8MiB)
+Downloading sympy (6.0MiB)
+Downloading cryptography (4.5MiB)
+Downloading hf-xet (4.3MiB)
+Downloading tokenizers (3.1MiB)
+Downloading opencv-python-headless (57.6MiB)
+Downloading z3-solver (27.9MiB)
+Downloading nvidia-cuda-cccl-cu12 (3.0MiB)
+Downloading uvloop (4.2MiB)
+Downloading cuda-core (4.9MiB)
+Downloading numpy (15.8MiB)
+Downloading nvidia-cusparse (139.2MiB)
+Downloading numba (3.6MiB)
+Downloading nvidia-cuda-nvcc-cu12 (38.7MiB)
+Downloading nvidia-nvjitlink (38.8MiB)
+Downloading nvidia-cusolver (191.6MiB)
+Downloading transformers (10.3MiB)
+Downloading cuda-bindings (6.3MiB)
+Downloading nvidia-curand (56.8MiB)
+Downloading nvidia-cuda-nvrtc (86.0MiB)
+Downloading pycountry (7.7MiB)
+Downloading nvidia-cuda-nvrtc-cu12 (85.4MiB)
+Downloading llvmlite (53.7MiB)
+Downloading nvidia-nvshmem-cu13 (57.6MiB)
+Downloading nvidia-cuda-runtime-cu12 (3.3MiB)
+Downloading xgrammar (42.5MiB)
+Downloading triton (179.5MiB)
+Downloading mistral-common (6.2MiB)
+Downloading nvidia-cufft (204.2MiB)
+Downloading nvidia-cudnn-frontend (3.3MiB)
+Downloading openai-harmony (2.8MiB)
+Downloading torchvision (7.2MiB)
+Downloading ml-dtypes (4.8MiB)
+Downloading flashinfer-python (13.3MiB)
+Downloading tokenspeed-triton (81.9MiB)
+Downloading nvidia-cuda-nvcc (42.0MiB)
+Downloading torch (506.1MiB)
+Downloading nvidia-cuda-tileiras (35.3MiB)
+Downloading nvidia-nvvm (61.3MiB)
+Downloading grpcio (6.5MiB)
+Downloading nvidia-cutlass-dsl-libs-base (71.1MiB)
+Downloading tilelang (43.3MiB)
+Downloading nvidia-cusparselt-cu13 (162.0MiB)
+Downloading flashinfer-cubin (426.8MiB)
+Downloading llguidance (2.9MiB)
+Downloading nvidia-cudnn-cu13 (349.1MiB)
+Downloading nvidia-nccl-cu13 (187.4MiB)
+Downloading nvidia-cublas (403.5MiB)
+Downloading vllm (476.9MiB)
+ Downloaded openai-harmony
+Downloading outlines-core (2.2MiB)
+ Downloaded llguidance
+Downloading apache-tvm-ffi (2.2MiB)
+ Downloaded tokenizers
+Downloading nvidia-cuda-runtime (2.1MiB)
+ Downloaded nvidia-cudnn-frontend
+Downloading pydantic-core (2.0MiB)
+ Downloaded nvidia-cuda-runtime-cu12
+Downloading networkx (2.0MiB)
+ Downloaded numba
+Downloading fastsafetensors (1.8MiB)
+ Downloaded nvidia-cuda-cccl-cu12
+Downloading aiohttp (1.7MiB)
+ Downloaded uvloop
+Downloading torchaudio (1.7MiB)
+ Downloaded hf-xet
+Downloading sentencepiece (1.3MiB)
+ Downloaded cryptography
+Downloading openai (1.3MiB)
+ Downloaded ml-dtypes
+Downloading pygments (1.2MiB)
+ Downloaded outlines-core
+ Downloaded nvidia-cuda-runtime
+Downloading nvidia-cufile (1.2MiB)
+Downloading tiktoken (1.1MiB)
+ Downloaded pydantic-core
+Downloading setuptools (1.0MiB)
+ Downloaded cuda-core
+ Downloaded apache-tvm-ffi
+ Downloaded fastsafetensors
+ Downloaded sentencepiece
+ Downloaded networkx
+ Downloaded aiohttp
+ Downloaded torchaudio
+ Downloaded sympy
+ Downloaded pygments
+ Downloaded mistral-common
+ Downloaded tiktoken
+ Downloaded nvidia-cufile
+ Downloaded cuda-bindings
+ Downloaded grpcio
+ Downloaded pillow
+ Downloaded torchvision
+ Downloaded setuptools
+ Downloaded pycountry
+ Downloaded nvidia-cuda-cupti
+ Downloaded openai
+ Downloaded transformers
+ Downloaded numpy
+ Downloaded flashinfer-python
+ Downloaded z3-solver
+ Downloaded nvidia-cuda-tileiras
+ Downloaded nvidia-nvjitlink
+ Downloaded nvidia-cuda-nvcc-cu12
+ Downloaded nvidia-cuda-nvcc
+ Downloaded xgrammar
+ Downloaded nvidia-curand
+ Downloaded llvmlite
+ Downloaded opencv-python-headless
+ Downloaded nvidia-nvshmem-cu13
+ Downloaded nvidia-nvvm
+ Downloaded tilelang
+ Downloaded nvidia-cutlass-dsl-libs-base
+ Downloaded tokenspeed-triton
+ Downloaded nvidia-cuda-nvrtc-cu12
+ Downloaded nvidia-cuda-nvrtc
+ Downloaded nvidia-cusparse
+ Downloaded nvidia-cusparselt-cu13
+ Downloaded nvidia-nccl-cu13
+ Downloaded vllm
+ Downloaded nvidia-cusolver
+ Downloaded nvidia-cufft
+ Downloaded triton
+ Downloaded nvidia-cudnn-cu13
+ Downloaded nvidia-cublas
+ Downloaded flashinfer-cubin
+ Downloaded torch
+Prepared 193 packages in 1m 03s
+Installed 193 packages in 7.71s
+ + aiohappyeyeballs==2.6.2
+ + aiohttp==3.14.1
+ + aiosignal==1.4.0
+ + annotated-doc==0.0.4
+ + annotated-types==0.7.0
+ + anthropic==0.111.0
+ + anyio==4.14.0
+ + apache-tvm-ffi==0.1.9
+ + astor==0.8.1
+ + attrs==26.1.0
+ + blake3==1.0.9
+ + cachetools==7.1.4
+ + cbor2==6.1.2
+ + certifi==2026.6.17
+ + cffi==2.0.0
+ + charset-normalizer==3.4.7
+ + click==8.4.1
+ + cloudpickle==3.1.2
+ + compressed-tensors==0.17.0
+ + cryptography==49.0.0
+ + cuda-bindings==13.3.1
+ + cuda-core==1.0.1
+ + cuda-pathfinder==1.5.5
+ + cuda-python==13.3.1
+ + cuda-tile==1.3.0
+ + cuda-toolkit==13.0.2
+ + depyf==0.20.0
+ + detect-installer==0.1.0
+ + dill==0.4.1
+ + diskcache==5.6.3
+ + distro==1.9.0
+ + dnspython==2.8.0
+ + docstring-parser==0.18.0
+ + einops==0.8.2
+ + email-validator==2.3.0
+ + fastapi==0.138.0
+ + fastapi-cli==0.0.27
+ + fastapi-cloud-cli==0.20.0
+ + fastar==0.11.0
+ + fastsafetensors==0.3.2
+ + filelock==3.29.4
+ + flashinfer-cubin==0.6.12
+ + flashinfer-python==0.6.12
+ + frozenlist==1.8.0
+ + fsspec==2026.6.0
+ + gguf==0.19.0
+ + googleapis-common-protos==1.75.0
+ + grpcio==1.81.1
+ + h11==0.16.0
+ + hf-xet==1.5.1
+ + httpcore==1.0.9
+ + httptools==0.8.0
+ + httpx==0.28.1
+ + httpx-sse==0.4.3
+ + huggingface-hub==1.20.1
+ + humming-kernels==0.1.4
+ + idna==3.18
+ + ijson==3.5.0
+ + interegular==0.3.3
+ + jinja2==3.1.6
+ + jiter==0.15.0
+ + jmespath==1.1.0
+ + jsonschema==4.26.0
+ + jsonschema-specifications==2025.9.1
+ + lark==1.2.2
+ + llguidance==1.7.6
+ + llvmlite==0.47.0
+ + lm-format-enforcer==0.11.3
+ + loguru==0.7.3
+ + markdown-it-py==4.2.0
+ + markupsafe==3.0.3
+ + mcp==1.28.0
+ + mdurl==0.1.2
+ + mistral-common==1.11.3
+ + ml-dtypes==0.5.4
+ + model-hosting-container-standards==0.1.16
+ + mpmath==1.3.0
+ + msgspec==0.21.1
+ + multidict==6.7.1
+ + networkx==3.6.1
+ + ninja==1.13.0
+ + numba==0.65.0
+ + numpy==2.3.5
+ + nvidia-cublas==13.1.0.3
+ + nvidia-cuda-cccl-cu12==12.9.27
+ + nvidia-cuda-crt==13.3.33
+ + nvidia-cuda-cupti==13.0.85
+ + nvidia-cuda-nvcc==13.2.78
+ + nvidia-cuda-nvcc-cu12==12.9.86
+ + nvidia-cuda-nvrtc==13.0.88
+ + nvidia-cuda-nvrtc-cu12==12.9.86
+ + nvidia-cuda-runtime==13.0.96
+ + nvidia-cuda-runtime-cu12==12.9.79
+ + nvidia-cuda-tileiras==13.2.78
+ + nvidia-cudnn-cu13==9.19.0.56
+ + nvidia-cudnn-frontend==1.25.0
+ + nvidia-cufft==12.0.0.61
+ + nvidia-cufile==1.15.1.6
+ + nvidia-curand==10.4.0.35
+ + nvidia-cusolver==12.0.4.66
+ + nvidia-cusparse==12.6.3.3
+ + nvidia-cusparselt-cu13==0.8.0
+ + nvidia-cutlass-dsl==4.5.2
+ + nvidia-cutlass-dsl-libs-base==4.5.2
+ + nvidia-ml-py==13.610.43
+ + nvidia-nccl-cu13==2.28.9
+ + nvidia-nvjitlink==13.0.88
+ + nvidia-nvshmem-cu13==3.4.5
+ + nvidia-nvtx==13.0.85
+ + nvidia-nvvm==13.2.78
+ + openai==2.43.0
+ + openai-harmony==0.0.8
+ + opencv-python-headless==4.13.0.92
+ + opentelemetry-api==1.42.1
+ + opentelemetry-exporter-otlp==1.42.1
+ + opentelemetry-exporter-otlp-proto-common==1.42.1
+ + opentelemetry-exporter-otlp-proto-grpc==1.42.1
+ + opentelemetry-exporter-otlp-proto-http==1.42.1
+ + opentelemetry-proto==1.42.1
+ + opentelemetry-sdk==1.42.1
+ + opentelemetry-semantic-conventions==0.63b1
+ + opentelemetry-semantic-conventions-ai==0.5.1
+ + orjson==3.10.18
+ + outlines-core==0.2.14
+ + packaging==26.2
+ + partial-json-parser==0.2.1.1.post7
+ + pillow==12.2.0
+ + prometheus-client==0.25.0
+ + prometheus-fastapi-instrumentator==8.0.1
+ + propcache==0.5.2
+ + protobuf==6.33.6
+ + psutil==7.2.2
+ + py-cpuinfo==9.0.0
+ + pybase64==1.4.3
+ + pycountry==26.2.16
+ + pycparser==3.0
+ + pydantic==2.13.4
+ + pydantic-core==2.46.4
+ + pydantic-extra-types==2.11.1
+ + pydantic-settings==2.14.2
+ + pyelftools==0.33
+ + pygments==2.20.0
+ + pyjwt==2.13.0
+ + python-dotenv==1.2.2
+ + python-json-logger==4.1.0
+ + python-multipart==0.0.32
+ + pyyaml==6.0.3
+ + pyzmq==27.1.0
+ + quack-kernels==0.5.0
+ + referencing==0.37.0
+ + regex==2026.5.9
+ + requests==2.34.2
+ + rich==15.0.0
+ + rich-toolkit==0.20.1
+ + rignore==0.7.6
+ + rpds-py==2026.5.1
+ + safetensors==0.8.0
+ + sentencepiece==0.2.1
+ + sentry-sdk==2.63.0
+ + setproctitle==1.3.7
+ + setuptools==80.10.2
+ + shellingham==1.5.4
+ + six==1.17.0
+ + sniffio==1.3.1
+ + sse-starlette==3.4.5
+ + starlette==1.3.1
+ + supervisor==4.3.0
+ + sympy==1.14.0
+ + tabulate==0.10.0
+ + tiktoken==0.13.0
+ + tilelang==0.1.9
+ + tokenizers==0.22.2
+ + tokenspeed-mla==0.1.2
+ + tokenspeed-triton==3.7.10.post20260531
+ + torch==2.11.0
+ + torch-c-dlpack-ext==0.1.5
+ + torchaudio==2.11.0
+ + torchvision==0.26.0
+ + tqdm==4.68.3
+ + transformers==5.9.0
+ + triton==3.6.0
+ + typer==0.25.1
+ + typing-extensions==4.15.0
+ + typing-inspection==0.4.2
+ + urllib3==2.7.0
+ + uvicorn==0.49.0
+ + uvloop==0.22.1
+ + vllm==0.22.1rc1.dev307+g3e8afdf78.cu129 (from https://wheels.vllm.ai/3e8afdf78598afc8be999a6a049be3a5fe182e48/vllm-0.22.1rc1.dev307%2Bg3e8afdf78.cu129-cp38-abi3-manylinux_2_28_x86_64.whl)
+ + watchfiles==1.2.0
+ + websockets==16.0
+ + xgrammar==0.2.2
+ + yarl==1.24.2
+ + z3-solver==4.15.4.0
+Creating pinned benchmark venv at /tmp/bench-venv
+Running: /usr/local/bin/uv venv /tmp/bench-venv --python 3.12
+Using CPython 3.12.13 interpreter at: /usr/bin/python3.12
+Creating virtual environment at: /tmp/bench-venv
+Running: /usr/local/bin/uv pip install --python /tmp/bench-venv/bin/python sglang==0.5.2 transformers==5.9.0 jinja2==3.1.6 pybase64==1.4.3 pydantic==2.13.4
+Using Python 3.12.13 environment at: /tmp/bench-venv
+Resolved 63 packages in 162ms
+Downloading jedi (4.7MiB)
+Downloading numpy (15.9MiB)
+Downloading sglang (2.1MiB)
+ Downloaded sglang
+ Downloaded numpy
+ Downloaded jedi
+Prepared 17 packages in 1.41s
+Installed 63 packages in 2.44s
+ + aiohappyeyeballs==2.6.2
+ + aiohttp==3.14.1
+ + aiosignal==1.4.0
+ + annotated-doc==0.0.4
+ + annotated-types==0.7.0
+ + anyio==4.14.0
+ + asttokens==3.0.1
+ + attrs==26.1.0
+ + certifi==2026.6.17
+ + charset-normalizer==3.4.7
+ + click==8.4.1
+ + decorator==5.3.1
+ + executing==2.2.1
+ + filelock==3.29.4
+ + frozenlist==1.8.0
+ + fsspec==2026.6.0
+ + h11==0.16.0
+ + hf-xet==1.5.1
+ + httpcore==1.0.9
+ + httpx==0.28.1
+ + huggingface-hub==1.20.1
+ + idna==3.18
+ + ipython==9.14.1
+ + ipython-pygments-lexers==1.1.1
+ + jedi==0.20.0
+ + jinja2==3.1.6
+ + markdown-it-py==4.2.0
+ + markupsafe==3.0.3
+ + matplotlib-inline==0.2.2
+ + mdurl==0.1.2
+ + multidict==6.7.1
+ + numpy==2.5.0
+ + packaging==26.2
+ + parso==0.8.7
+ + pexpect==4.9.0
+ + prompt-toolkit==3.0.52
+ + propcache==0.5.2
+ + psutil==7.2.2
+ + ptyprocess==0.7.0
+ + pure-eval==0.2.3
+ + pybase64==1.4.3
+ + pydantic==2.13.4
+ + pydantic-core==2.46.4
+ + pygments==2.20.0
+ + pyyaml==6.0.3
+ + regex==2026.5.9
+ + requests==2.34.2
+ + rich==15.0.0
+ + safetensors==0.8.0
+ + setproctitle==1.3.7
+ + sglang==0.5.2
+ + shellingham==1.5.4
+ + stack-data==0.6.3
+ + tokenizers==0.22.2
+ + tqdm==4.68.3
+ + traitlets==5.15.1
+ + transformers==5.9.0
+ + typer==0.25.1
+ + typing-extensions==4.15.0
+ + typing-inspection==0.4.2
+ + urllib3==2.7.0
+ + wcwidth==0.8.1
+ + yarl==1.24.2
+Starting participant server: /tmp/server-venv/bin/python serve.py
+[server] ERROR: ld.so: object '/usr/lib/x86_64-linux-gnu/libtcmalloc_minimal.so.4' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+[server] [serve] benchmark venv already has jinja2
+[server] [serve] syncing weights hf://buckets/gemma-challenge/gemma-chiku-inu/weights/osoi5-v0-baked -> /tmp/osoi5-v0-baked
+[server] ERROR: ld.so: object '/usr/lib/x86_64-linux-gnu/libtcmalloc_minimal.so.4' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+[server] Sync plan: hf://buckets/gemma-challenge/gemma-chiku-inu/weights/osoi5-v0-baked -> /tmp/osoi5-v0-baked
+[server]   Uploads: 0
+[server]   Downloads: 10
+[server]   Deletes: 0
+[server]   Skips: 0
+[server] Syncing...
+[server] 
+[server] 
+[server] Downloading bucket files:   0%|          | 0.00/9.13G [00:00<?, ?B/s][A
+[server] 
+[server] Downloading bucket files:   0%|          | 32.8M/9.13G [00:01<04:45, 31.8MB/s][A
+[server] 
+[server] Downloading bucket files:   3%|▎         | 303M/9.13G [00:02<00:54, 161MB/s]  [A
+[server] 
+[server] Downloading bucket files:   8%|▊         | 729M/9.13G [00:03<00:30, 277MB/s][A
+[server] 
+[server] Downloading bucket files:  13%|█▎        | 1.22G/9.13G [00:04<00:21, 360MB/s][A
+[server] 
+[server] Downloading bucket files:  20%|██        | 1.86G/9.13G [00:05<00:17, 409MB/s][A
+[server] 
+[server] Downloading bucket files:  25%|██▌       | 2.31G/9.13G [00:06<00:17, 384MB/s][A
+[server] 
+[server] Downloading bucket files:  32%|███▏      | 2.96G/9.13G [00:11<00:28, 217MB/s][A
+[server] 
+[server] Downloading bucket files:  41%|████▏     | 3.78G/9.13G [00:15<00:25, 208MB/s][A
+[server] 
+[server] Downloading bucket files:  45%|████▍     | 4.08G/9.13G [00:16<00:23, 217MB/s][A
+[server] 
+[server] Downloading bucket files:  48%|████▊     | 4.35G/9.13G [00:18<00:22, 213MB/s][A
+[server] 
+[server] Downloading bucket files:  50%|█████     | 4.60G/9.13G [00:19<00:22, 205MB/s][A
+[server] 
+[server] Downloading bucket files:  53%|█████▎    | 4.83G/9.13G [00:21<00:22, 192MB/s][A
+[server] 
+[server] Downloading bucket files:  55%|█████▌    | 5.05G/9.13G [00:22<00:22, 179MB/s][A
+[server] 
+[server] Downloading bucket files:  58%|█████▊    | 5.26G/9.13G [00:24<00:22, 173MB/s][A
+[server] 
+[server] Downloading bucket files:  60%|█████▉    | 5.44G/9.13G [00:25<00:21, 171MB/s][A
+[server] 
+[server] Downloading bucket files:  62%|██████▏   | 5.63G/9.13G [00:26<00:20, 173MB/s][A
+[server] 
+[server] Downloading bucket files:  64%|██████▍   | 5.83G/9.13G [00:27<00:19, 167MB/s][A
+[server] 
+[server] Downloading bucket files:  66%|██████▌   | 6.03G/9.13G [00:28<00:18, 170MB/s][A
+[server] 
+[server] Downloading bucket files:  68%|██████▊   | 6.23G/9.13G [00:29<00:17, 168MB/s][A
+[server] 
+[server] Downloading bucket files:  70%|███████   | 6.40G/9.13G [00:30<00:16, 165MB/s][A
+[server] 
+[server] Downloading bucket files:  72%|███████▏  | 6.57G/9.13G [00:32<00:15, 163MB/s][A
+[server] 
+[server] Downloading bucket files:  74%|███████▍  | 6.75G/9.13G [00:33<00:14, 167MB/s][A
+[server] 
+[server] Downloading bucket files:  76%|███████▌  | 6.93G/9.13G [00:34<00:12, 171MB/s][A
+[server] 
+[server] Downloading bucket files:  78%|███████▊  | 7.15G/9.13G [00:35<00:10, 182MB/s][A
+[server] 
+[server] Downloading bucket files:  80%|████████  | 7.34G/9.13G [00:36<00:09, 187MB/s][A
+[server] 
+[server] Downloading bucket files:  83%|████████▎ | 7.54G/9.13G [00:37<00:08, 183MB/s][A
+[server] 
+[server] Downloading bucket files:  85%|████████▍ | 7.75G/9.13G [00:38<00:07, 190MB/s][A
+[server] 
+[server] Downloading bucket files:  87%|████████▋ | 7.95G/9.13G [00:39<00:06, 193MB/s][A
+[server] 
+[server] Downloading bucket files:  89%|████████▉ | 8.14G/9.13G [00:40<00:05, 195MB/s][A
+[server] 
+[server] Downloading bucket files:  91%|█████████▏| 8.35G/9.13G [00:41<00:03, 197MB/s][A
+[server] 
+[server] Downloading bucket files:  94%|█████████▎| 8.55G/9.13G [00:42<00:03, 193MB/s][A
+[server] 
+[server] Downloading bucket files:  96%|█████████▌| 8.76G/9.13G [00:43<00:01, 198MB/s][A
+[server] 
+[server] Downloading bucket files:  98%|█████████▊| 8.96G/9.13G [00:44<00:00, 188MB/s][A
+[server] Downloading bucket files: 100%|██████████| 9.13G/9.13G [00:45<00:00, 201MB/s]
+[server] Sync completed.
+[server] [lmhead-prune] copying keepset hf://buckets/gemma-challenge/gemma-dixie-flatline/weights/int4-pck04c-12k
+[server] ERROR: ld.so: object '/usr/lib/x86_64-linux-gnu/libtcmalloc_minimal.so.4' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+[server] 
+[server] 
+[server] Downloading bucket files:   0%|          | 0.00/131k [00:00<?, ?B/s][A
+[server] Downloading bucket files: 100%|██████████| 131k/131k [00:00<00:00, 306kB/s]
+[server] [32m✓ Downloaded[0m
+[server]   src: hf://buckets/gemma-challenge/gemma-dixie-flatline/weights/int4-pck04c-12k/pck04_keepset.json
+[server]   dst: /tmp/lmhead-keepset-12k/pck04_keepset.json
+[server] [lmhead-prune] pruning /tmp/osoi5-v0-baked -> /tmp/osoi5-12k-baked (keepset /tmp/lmhead-keepset-12k/pck04_keepset.json)
+[server] [lmhead-prune] row-sliced lm_head 16384->12288 rows (full_vocab=262144)
+[server] [lmhead-prune] active dst=/tmp/osoi5-12k-baked keepset=/tmp/osoi5-12k-baked/pck04_keepset.json
+[server] [serve] installing libtcmalloc-minimal4 via apt-get
+[server] [serve] tcmalloc installed: /usr/lib/x86_64-linux-gnu/libtcmalloc_minimal.so.4
+[server] [serve] LD_PRELOAD already set: /usr/lib/x86_64-linux-gnu/libtcmalloc_minimal.so.4
+[server] [serve] syncing drafter hf://buckets/gemma-challenge/gemma-kenyan-duma/weights/drafter-ft/ft-v1-epoch_001 -> /tmp/qat-assistant
+[server] Sync plan: hf://buckets/gemma-challenge/gemma-kenyan-duma/weights/drafter-ft/ft-v1-epoch_001 -> /tmp/qat-assistant
+[server]   Uploads: 0
+[server]   Downloads: 5
+[server]   Deletes: 0
+[server]   Skips: 0
+[server] Syncing...
+[server] 
+[server] 
+[server] Downloading bucket files:   0%|          | 0.00/191M [00:00<?, ?B/s][A
+[server] 
+[server] Downloading bucket files:  17%|█▋        | 32.2M/191M [00:01<00:05, 31.2MB/s][A
+[server] Downloading bucket files: 100%|██████████| 191M/191M [00:01<00:00, 153MB/s]
+[server] Sync completed.
+[server] [serve] drafter model.safetensors sha256=ed159e334999fd6b5f2d0dbad026346d4efac89eb7c6f55c5cdb042eca5dd18e
+[server] [serve] centroid_intermediate_top_k: 32 -> 48
+[server] [serve] patched /tmp/server-venv/lib/python3.12/site-packages/vllm/model_executor/models/gemma4.py
+[server] [serve] patched /tmp/server-venv/lib/python3.12/site-packages/vllm/model_executor/model_loader/utils.py
+[server] [serve] patched /tmp/server-venv/lib/python3.12/site-packages/vllm/v1/sample/rejection_sampler.py
+[server] [serve] patched /tmp/server-venv/lib/python3.12/site-packages/vllm/entrypoints/openai/chat_completion/api_router.py
+[server] [feopt] patched api_router for orjson JSON response
+[server] [serve] PYTHONPATH sitecustomize prefix: /submission
+[server] [serve] launching: /tmp/server-venv/bin/python -m vllm.entrypoints.openai.api_server --model /tmp/osoi5-12k-baked --served-model-name gemma-4-e4b-it --host 0.0.0.0 --port 8000 --dtype bfloat16 --max-model-len 4096 --gpu-memory-utilization 0.90 --max-num-seqs 1 --performance-mode interactivity --trust-remote-code --no-enable-log-requests --disable-uvicorn-access-log --max-num-batched-tokens 512 --speculative-config {"method":"mtp","model":"/tmp/qat-assistant","num_speculative_tokens":7} --generation-config vllm --override-generation-config {"temperature":0.0,"top_p":1.0,"top_k":0} --uvicorn-log-level warning --hf-overrides {"text_config": {"sliding_window": 192}} --disable-log-stats
+[server] [fa-sliding] finder registered (v1)
+[server] [splitkv-verify] armed (SPLITKV_VERIFY=1, max_q<=64)
+[server] (APIServer pid=240) INFO 06-23 04:38:17 [api_utils.py:339]
+[server] (APIServer pid=240) INFO 06-23 04:38:17 [api_utils.py:339]        █     █     █▄   ▄█
+[server] (APIServer pid=240) INFO 06-23 04:38:17 [api_utils.py:339]  ▄▄ ▄█ █     █     █ ▀▄▀ █  version 0.22.1rc1.dev307+g3e8afdf78
+[server] (APIServer pid=240) INFO 06-23 04:38:17 [api_utils.py:339]   █▄█▀ █     █     █     █  model   /tmp/osoi5-12k-baked
+[server] (APIServer pid=240) INFO 06-23 04:38:17 [api_utils.py:339]    ▀▀  ▀▀▀▀▀ ▀▀▀▀▀ ▀     ▀
+[server] (APIServer pid=240) INFO 06-23 04:38:17 [api_utils.py:339]
+[server] (APIServer pid=240) INFO 06-23 04:38:17 [api_utils.py:273] non-default args: {'host': '0.0.0.0', 'uvicorn_log_level': 'warning', 'disable_uvicorn_access_log': True, 'model': '/tmp/osoi5-12k-baked', 'trust_remote_code': True, 'dtype': 'bfloat16', 'max_model_len': 4096, 'served_model_name': ['gemma-4-e4b-it'], 'hf_overrides': {'text_config': {'sliding_window': 192}}, 'generation_config': 'vllm', 'override_generation_config': {'temperature': 0.0, 'top_p': 1.0, 'top_k': 0}, 'gpu_memory_utilization': 0.9, 'max_num_batched_tokens': 512, 'max_num_seqs': 1, 'speculative_config': {'method': 'mtp', 'model': '/tmp/qat-assistant', 'num_speculative_tokens': 7}, 'performance_mode': 'interactivity', 'disable_log_stats': True}
+[server] (APIServer pid=240) WARNING 06-23 04:38:17 [envs.py:2103] Unknown vLLM environment variable detected: VLLM_BUILD_COMMIT
+[server] (APIServer pid=240) WARNING 06-23 04:38:17 [envs.py:2103] Unknown vLLM environment variable detected: VLLM_BUILD_PIPELINE
+[server] (APIServer pid=240) WARNING 06-23 04:38:17 [envs.py:2103] Unknown vLLM environment variable detected: VLLM_BUILD_URL
+[server] (APIServer pid=240) WARNING 06-23 04:38:17 [envs.py:2103] Unknown vLLM environment variable detected: VLLM_IMAGE_TAG
+[server] (APIServer pid=240) [fa-sliding] Attention.__init__ wrapper active (v1)
+[server] (APIServer pid=240) INFO 06-23 04:38:33 [model.py:611] Resolved architecture: Gemma4ForConditionalGeneration
+[server] (APIServer pid=240) INFO 06-23 04:38:33 [model.py:1745] Using max model len 4096
+[server] (APIServer pid=240) INFO 06-23 04:38:53 [model.py:611] Resolved architecture: Gemma4MTPModel
+[server] (APIServer pid=240) INFO 06-23 04:38:53 [model.py:1745] Using max model len 131072
+[server] (APIServer pid=240) WARNING 06-23 04:38:53 [speculative.py:722] Enabling num_speculative_tokens > 1 will run multiple times of forward on same MTP layer,which may result in lower acceptance rate
+[server] (APIServer pid=240) INFO 06-23 04:38:53 [speculative.py:885] Overriding draft model max model len from 131072 to 4096
+[server] (APIServer pid=240) INFO 06-23 04:38:53 [scheduler.py:239] Chunked prefill is enabled with max_num_batched_tokens=512.
+[server] (APIServer pid=240) INFO 06-23 04:38:53 [vllm.py:854] Performance mode set to 'interactivity'.
+[server] (APIServer pid=240) INFO 06-23 04:38:53 [config.py:100] Gemma4 model has heterogeneous head dimensions (head_dim=256, global_head_dim=512). Forcing TRITON_ATTN backend to prevent mixed-backend numerical divergence.
+[server] (APIServer pid=240) INFO 06-23 04:38:53 [vllm.py:999] Asynchronous scheduling is enabled.
+[server] (APIServer pid=240) INFO 06-23 04:38:53 [kernel.py:270] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'])
+[server] (APIServer pid=240) WARNING 06-23 04:38:53 [vllm.py:1597] max_num_scheduled_tokens is set to 512 based on the speculative decoding settings. This may lead to suboptimal performance. Consider increasing max_num_batched_tokens to accommodate the additional draft token slots, or decrease num_speculative_tokens or max_num_seqs.
+[server] (APIServer pid=240) [detok-endonly] patched IncrementalDetokenizer.from_new_request (shadow=False, ctx=8, pid 240); anchors verified fail-closed.
+[server] (APIServer pid=240) [fastrender] installed wrapper on vllm.renderers.hf.safe_apply_chat_template
+[server] (APIServer pid=240) [pck04] patched Gemma4ForCausalLM.__init__ + compute_logits in pid 240 (K=12288, full_vocab=262144, keepset='/tmp/osoi5-12k-baked/pck04_keepset.json')
+[server] [fa-sliding] finder registered (v1)
+[server] [fa-sliding] finder registered (v1)
+[server] [splitkv-verify] armed (SPLITKV_VERIFY=1, max_q<=64)
+[server] [splitkv-verify] armed (SPLITKV_VERIFY=1, max_q<=64)
+[server] [fa-sliding] Attention.__init__ wrapper active (v1)
+[server] (EngineCore pid=887) INFO 06-23 04:39:36 [core.py:113] Initializing a V1 LLM engine (v0.22.1rc1.dev307+g3e8afdf78) with config: model='/tmp/osoi5-12k-baked', speculative_config=SpeculativeConfig(method='mtp', model='/tmp/qat-assistant', num_spec_tokens=7), tokenizer='/tmp/osoi5-12k-baked', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=4096, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=False, quantization=compressed-tensors, quantization_config=None, enforce_eager=False, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False), seed=0, served_model_name=gemma-4-e4b-it, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none'], 'ir_enable_torch_wrap': True, 'splitting_ops': ['vllm::unified_attention_with_output', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::linear_attention', 'vllm::plamo2_mamba_mixer', 'vllm::qwen_gdn_attention_core', 'vllm::gdn_attention_core_xpu', 'vllm::olmo_hybrid_gdn_full_forward', 'vllm::kda_attention', 'vllm::sparse_attn_indexer', 'vllm::rocm_aiter_sparse_attn_indexer', 'vllm::deepseek_v4_attention', 'vllm::unified_kv_cache_update', 'vllm::unified_mla_kv_cache_update'], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_vision_items_per_batch': 0, 'encoder_cudagraph_max_frames_per_batch': None, 'compile_sizes': [], 'compile_ranges_endpoints': [512], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'size_asserts': False, 'alignment_asserts': False, 'scalar_asserts': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False, 'fuse_rope_kvcache_cat_mla': False, 'fuse_act_padding': False}, 'max_cudagraph_capture_size': 16, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': False, 'static_all_moe_layers': []}, kernel_config=KernelConfig(ir_op_priority=IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native']), enable_flashinfer_autotune=True, moe_backend='auto', linear_backend='auto')
+[server] (EngineCore pid=887) [pck04] patched Gemma4ForCausalLM.__init__ + compute_logits in pid 887 (K=12288, full_vocab=262144, keepset='/tmp/osoi5-12k-baked/pck04_keepset.json')
+[server] (EngineCore pid=887) INFO 06-23 04:39:39 [parallel_state.py:1568] world_size=1 rank=0 local_rank=0 distributed_init_method=tcp://10.113.126.200:54703 backend=nccl
+[server] (EngineCore pid=887) INFO 06-23 04:39:39 [parallel_state.py:1903] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, EP rank N/A, EPLB rank N/A
+[server] (EngineCore pid=887) INFO 06-23 04:39:40 [rejection_sampler.py:868] lastchance prewarmed greedy rejection kernel
+[server] (EngineCore pid=887) [splitkv-verify] wrapped unified_attention (redirect 1<M<=64 verify batches to 3D split-KV)
+[server] (EngineCore pid=887) [dixie-fused-accept] patched SpecDecodeBaseProposer.prepare_next_token_ids_padded in pid 887 (enabled=True)
+[server] (EngineCore pid=887) [pupa-loopgraph] patched Gemma4Proposer.propose in pid 887 (warmup_calls=20, require_capture=True, onegraph=True)
+[server] (EngineCore pid=887) [pupa-loopgraph] patched GPUModelRunner draft-token copy events in pid 887 (slots=3)
+[server] (EngineCore pid=887) INFO 06-23 04:39:42 [topk_topp_sampler.py:55] Using FlashInfer for top-p & top-k sampling.
+[server] (EngineCore pid=887) WARNING 06-23 04:39:42 [__init__.py:204] min_p and logit_bias parameters won't work with speculative decoding.
+[server] (EngineCore pid=887) INFO 06-23 04:39:53 [gpu_model_runner.py:5092] Starting to load model /tmp/osoi5-12k-baked...
+[server] (EngineCore pid=887) INFO 06-23 04:39:54 [vllm.py:854] Performance mode set to 'interactivity'.
+[server] (EngineCore pid=887) INFO 06-23 04:39:54 [vllm.py:999] Asynchronous scheduling is enabled.
+[server] (EngineCore pid=887) INFO 06-23 04:39:54 [kernel.py:270] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'])
+[server] (EngineCore pid=887) WARNING 06-23 04:39:54 [vllm.py:1597] max_num_scheduled_tokens is set to 512 based on the speculative decoding settings. This may lead to suboptimal performance. Consider increasing max_num_batched_tokens to accommodate the additional draft token slots, or decrease num_speculative_tokens or max_num_seqs.
+[server] (EngineCore pid=887) INFO 06-23 04:39:54 [compressed_tensors_wNa16.py:112] Using MarlinLinearKernel for CompressedTensorsWNA16
+[server] (EngineCore pid=887) INFO 06-23 04:39:54 [cuda.py:318] Using AttentionBackendEnum.TRITON_ATTN backend.
+[server] (EngineCore pid=887) INFO 06-23 04:39:54 [cuda.py:318] Using AttentionBackendEnum.TRITON_ATTN backend.
+[server] (EngineCore pid=887) Exception in thread Thread-1 (_report_usage_worker):
+[server] (EngineCore pid=887) Traceback (most recent call last):
+[server] (EngineCore pid=887)   File "/usr/lib/python3.12/threading.py", line 1075, in _bootstrap_inner
+[server] (EngineCore pid=887)     self.run()
+[server] (EngineCore pid=887)   File "/usr/lib/python3.12/threading.py", line 1012, in run
+[server] (EngineCore pid=887)     self._target(*self._args, **self._kwargs)
+[server] (EngineCore pid=887)   File "/tmp/server-venv/lib/python3.12/site-packages/vllm/usage/usage_lib.py", line 173, in _report_usage_worker
+[server] (EngineCore pid=887)     self._report_usage_once(model_architecture, usage_context, extra_kvs)
+[server] (EngineCore pid=887)   File "/tmp/server-venv/lib/python3.12/site-packages/vllm/usage/usage_lib.py", line 217, in _report_usage_once
+[server] (EngineCore pid=887)     info = cpuinfo.get_cpu_info()
+[server] (EngineCore pid=887)            ^^^^^^^^^^^^^^^^^^^^^^
+[server] (EngineCore pid=887)   File "/tmp/server-venv/lib/python3.12/site-packages/cpuinfo/cpuinfo.py", line 2762, in get_cpu_info
+[server] (EngineCore pid=887)     output = json.loads(output, object_hook = _utf_to_str)
+[server] (EngineCore pid=887)              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[server] (EngineCore pid=887)   File "/usr/lib/python3.12/json/__init__.py", line 359, in loads
+[server] (EngineCore pid=887)     return cls(**kw).decode(s)
+[server] (EngineCore pid=887)            ^^^^^^^^^^^^^^^^^^^
+[server] (EngineCore pid=887)   File "/usr/lib/python3.12/json/decoder.py", line 338, in decode
+[server] (EngineCore pid=887)     obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+[server] (EngineCore pid=887)                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[server] (EngineCore pid=887)   File "/usr/lib/python3.12/json/decoder.py", line 356, in raw_decode
+[server] (EngineCore pid=887)     raise JSONDecodeError("Expecting value", s, err.value) from None
+[server] (EngineCore pid=887) json.decoder.JSONDecodeError: Expecting value: line 1 column 2 (char 1)
+[server] (EngineCore pid=887) [pck04] rebuilt lm_head: ParallelLMHead(num_embeddings=12288, embedding_dim=2560, org_num_embeddings=12288, prefix='language_model.lm_head') — replaced full-vocab head (was 262144 rows) in pid 887
+[server] (EngineCore pid=887) INFO 06-23 04:39:55 [weight_utils.py:922] Filesystem type for checkpoints: OVERLAY. Checkpoint size: 8.47 GiB. Available RAM: 8.94 GiB.
+[server] (EngineCore pid=887) INFO 06-23 04:39:55 [weight_utils.py:952] Auto-prefetch is disabled because the filesystem (OVERLAY) is not a recognized network FS (NFS/Lustre) and the checkpoint size (8.47 GiB) exceeds 90% of available RAM (8.94 GiB).
+[server] (EngineCore pid=887)
+[server] (EngineCore pid=887)
+[server] Loading safetensors checkpoint shards:   0% Completed | 0/1 [00:00<?, ?it/s]
+[server] (EngineCore pid=887) [A
+[server] (EngineCore pid=887)
+[server] Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:26<00:00, 26.81s/it]
+[server] (EngineCore pid=887) [A
+[server] Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:26<00:00, 26.81s/it]
+[server] (EngineCore pid=887)
+[server] (EngineCore pid=887) INFO 06-23 04:40:22 [default_loader.py:397] Loading weights took 26.86 seconds
+[server] (EngineCore pid=887) INFO 06-23 04:40:22 [utils.py:150] Folding Gemma4 PLE embed_scale_per_layer
+[server] (EngineCore pid=887) INFO 06-23 04:40:22 [gemma4.py:887] Folded Gemma4 PLE embed scale 16.0 into weight
+[server] (EngineCore pid=887) INFO 06-23 04:40:22 [gpu_model_runner.py:5116] Loading drafter model...
+[server] (EngineCore pid=887) INFO 06-23 04:40:22 [kernel.py:270] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'])
+[server] (EngineCore pid=887) INFO 06-23 04:40:22 [kernel.py:270] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'])
+[server] (EngineCore pid=887) [pupa-fused-sparse-argmax] patched Gemma4MTPMaskedEmbedder top-token path in pid 887 (enabled=True, require=True, block=64)
+[server] (EngineCore pid=887) INFO 06-23 04:40:22 [gemma4_mtp.py:545] Gemma4 MTP: centroids masking enabled (num_centroids=2048, top_k=48, active_tokens=6144/262144).
+[server] (EngineCore pid=887) INFO 06-23 04:40:22 [weight_utils.py:922] Filesystem type for checkpoints: OVERLAY. Checkpoint size: 0.15 GiB. Available RAM: 9.12 GiB.
+[server] (EngineCore pid=887) INFO 06-23 04:40:22 [weight_utils.py:945] Auto-prefetch is disabled because the filesystem (OVERLAY) is not a recognized network FS (NFS/Lustre). If you want to force prefetching, start vLLM with --safetensors-load-strategy=prefetch.
+[server] (EngineCore pid=887)
+[server] (EngineCore pid=887)
+[server] Loading safetensors checkpoint shards:   0% Completed | 0/1 [00:00<?, ?it/s]
+[server] (EngineCore pid=887) [A
+[server] Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:00<00:00,  3.39it/s]
+[server] (EngineCore pid=887)
+[server] (EngineCore pid=887) INFO 06-23 04:40:23 [default_loader.py:397] Loading weights took 0.30 seconds
+[server] (EngineCore pid=887) INFO 06-23 04:40:23 [utils.py:134] Skipping Gemma4 PLE embed_scale_per_layer fold for non-target model /tmp/qat-assistant
+[server] (EngineCore pid=887) WARNING 06-23 04:40:23 [llm_base_proposer.py:1231] Draft model does not support multimodal inputs, falling back to text-only mode
+[server] (EngineCore pid=887) INFO 06-23 04:40:23 [llm_base_proposer.py:1347] Detected MTP model. Sharing target model embedding weights with the draft model.
+[server] (EngineCore pid=887) INFO 06-23 04:40:23 [gemma4.py:176] Gemma4 MTP: keeping draft model's own lm_head (draft_dim != backbone_dim).
+[server] (EngineCore pid=887) INFO 06-23 04:40:23 [gemma4.py:335] Gemma4 MTP: draft layer 0 (sliding_attention) -> language_model.model.layers.19.self_attn.attn
+[server] (EngineCore pid=887) INFO 06-23 04:40:23 [gemma4.py:335] Gemma4 MTP: draft layer 1 (sliding_attention) -> language_model.model.layers.19.self_attn.attn
+[server] (EngineCore pid=887) INFO 06-23 04:40:23 [gemma4.py:335] Gemma4 MTP: draft layer 2 (sliding_attention) -> language_model.model.layers.19.self_attn.attn
+[server] (EngineCore pid=887) INFO 06-23 04:40:23 [gemma4.py:335] Gemma4 MTP: draft layer 3 (full_attention) -> language_model.model.layers.20.self_attn.attn
+[server] (EngineCore pid=887) INFO 06-23 04:40:24 [gemma4.py:142] Gemma4 MTP: captured centroids CUDA graphs for sizes [1, 2, 4, 8, 16, 32, 64].
+[server] (EngineCore pid=887) INFO 06-23 04:40:25 [gpu_model_runner.py:5187] Model loading took 8.85 GiB memory and 30.717967 seconds
+[server] (EngineCore pid=887) INFO 06-23 04:40:25 [gpu_model_runner.py:6200] Encoder cache will be initialized with a budget of 2496 tokens, and profiled with 1 video items of the maximum feature size.
+[server] (EngineCore pid=887) INFO 06-23 04:40:39 [backends.py:1089] Using cache directory: /root/.cache/vllm/torch_compile_cache/8a67b91255/rank_0_0/backbone for vLLM's torch.compile
+[server] (EngineCore pid=887) INFO 06-23 04:40:39 [backends.py:1148] Dynamo bytecode transform time: 13.46 s
+[server] (EngineCore pid=887) INFO 06-23 04:40:46 [backends.py:378] Cache the graph of compile range (1, 512) for later use
+[server] (EngineCore pid=887) INFO 06-23 04:41:07 [backends.py:393] Compiling a graph for compile range (1, 512) takes 26.96 s
+[server] (EngineCore pid=887) INFO 06-23 04:41:16 [decorators.py:708] saved AOT compiled function to /root/.cache/vllm/torch_compile_cache/torch_aot_compile/0f1eeb9aa9446e9625dc63c63ade4afe36ab20bfee136b620e2e78ab88ba68db/rank_0_0/model
+[server] (EngineCore pid=887) INFO 06-23 04:41:16 [monitor.py:53] torch.compile took 50.03 s in total
+[server] (EngineCore pid=887) INFO 06-23 04:41:16 [monitor.py:81] Initial profiling/warmup run took 0.38 s
+[server] (EngineCore pid=887) INFO 06-23 04:41:18 [backends.py:1089] Using cache directory: /root/.cache/vllm/torch_compile_cache/8a67b91255/rank_0_0/eagle_head for vLLM's torch.compile
+[server] (EngineCore pid=887) INFO 06-23 04:41:18 [backends.py:1148] Dynamo bytecode transform time: 1.60 s
+[server] (EngineCore pid=887) INFO 06-23 04:41:24 [backends.py:393] Compiling a graph for compile range (1, 512) takes 6.17 s
+[server] (EngineCore pid=887) INFO 06-23 04:41:24 [decorators.py:708] saved AOT compiled function to /root/.cache/vllm/torch_compile_cache/torch_aot_compile/14a2388e606586375ea9ef376173f69f7ad4b08be8fa8eda4b7397f60ff8c97c/rank_0_0/model
+[server] (EngineCore pid=887) INFO 06-23 04:41:24 [monitor.py:53] torch.compile took 8.24 s in total
+[server] (EngineCore pid=887) INFO 06-23 04:41:25 [monitor.py:81] Initial profiling/warmup run took 0.14 s
+[server] (EngineCore pid=887) [pck04] allocated scatter buffers on cuda:0: template=[1, 262144] full_vocab, keep_idx=[12288] (pid 887)
+[server] (EngineCore pid=887) WARNING 06-23 04:42:57 [kv_cache_utils.py:1174] Add 3 padding layers, may waste at most 17.65% KV cache memory
+[server] (EngineCore pid=887) INFO 06-23 04:42:57 [gpu_model_runner.py:6412] Profiling CUDA graph memory: PIECEWISE=2 (largest=16), FULL=1 (largest=8)
+[server] (EngineCore pid=887) [splitkv-verify] verify batch M=8 q_rows=8 -> 3D split-KV (n=1)
+[server] (EngineCore pid=887) [splitkv-verify] verify batch M=8 q_rows=8 -> 3D split-KV (n=2)
+[server] (EngineCore pid=887) [splitkv-verify] verify batch M=8 q_rows=8 -> 3D split-KV (n=3)
+[server] (EngineCore pid=887) [splitkv-verify] verify batch M=8 q_rows=8 -> 3D split-KV (n=4)
+[server] (EngineCore pid=887) [splitkv-verify] verify batch M=8 q_rows=8 -> 3D split-KV (n=5)
+[server] (EngineCore pid=887) INFO 06-23 04:43:01 [gpu_model_runner.py:6517] Estimated CUDA graph memory: 0.06 GiB total
+[server] (EngineCore pid=887) INFO 06-23 04:43:02 [gpu_worker.py:480] Available KV cache memory: 9.67 GiB
+[server] (EngineCore pid=887) INFO 06-23 04:43:02 [gpu_worker.py:495] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.9000 is equivalent to --gpu-memory-utilization=0.8975 without CUDA graph memory profiling. To maintain the same effective KV cache size as before, increase --gpu-memory-utilization to 0.9025. To disable, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=0.
+[server] (EngineCore pid=887) WARNING 06-23 04:43:02 [kv_cache_utils.py:1174] Add 3 padding layers, may waste at most 17.65% KV cache memory
+[server] (EngineCore pid=887) INFO 06-23 04:43:02 [kv_cache_utils.py:1744] GPU KV cache size: 437,477 tokens
+[server] (EngineCore pid=887) INFO 06-23 04:43:02 [kv_cache_utils.py:1745] Maximum concurrency for 4,096 tokens per request: 106.81x
+[server] (EngineCore pid=887)
+[server] (EngineCore pid=887)
+[server] Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/2 [00:00<?, ?it/s][A
+[server] Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 2/2 [00:00<00:00, 15.37it/s]
+[server] (EngineCore pid=887)
+[server] (EngineCore pid=887)
+[server] Capturing CUDA graphs (decode, FULL):   0%|          | 0/1 [00:00<?, ?it/s][A
+[server] Capturing CUDA graphs (decode, FULL): 100%|██████████| 1/1 [00:00<00:00, 16.03it/s]
+[server] (EngineCore pid=887) INFO 06-23 04:43:03 [gpu_model_runner.py:6585] Graph capturing finished in 1 secs, took 0.04 GiB
+[server] (EngineCore pid=887) INFO 06-23 04:43:03 [gpu_worker.py:639] CUDA graph pool memory: 0.04 GiB (actual), 0.06 GiB (estimated), difference: 0.01 GiB (31.8%).
+[server] (EngineCore pid=887) INFO 06-23 04:43:03 [jit_monitor.py:54] Kernel JIT monitor activated — Triton JIT compilations during inference will be logged as warnings.
+[server] (EngineCore pid=887) INFO 06-23 04:43:04 [core.py:306] init engine (profile, create kv cache, warmup model) took 158.86 s (compilation: 58.26 s)
+[server] (EngineCore pid=887) INFO 06-23 04:43:04 [kernel.py:270] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'])
+[server] (APIServer pid=240) INFO 06-23 04:43:04 [api_server.py:579] Supported tasks: ['generate']
+[server] (APIServer pid=240) INFO 06-23 04:43:06 [hf.py:548] Detected the chat template content format to be 'openai'. You can set `--chat-template-content-format` to override this.
+[server] (APIServer pid=240) [fastrender] probes PASSED - fast path ON
+[server] (APIServer pid=240) [fastrender] fast=1 slow=0
+[server] (APIServer pid=240) INFO 06-23 04:43:06 [base.py:227] Multi-modal warmup completed in 0.078s
+[server] (APIServer pid=240) INFO 06-23 04:43:06 [base.py:227] Readonly multi-modal warmup completed in 0.058s
+[server] (APIServer pid=240) INFO 06-23 04:43:06 [api_server.py:583] Starting vLLM server on http://0.0.0.0:8000
+[server] (APIServer pid=240) INFO 06-23 04:43:06 [launcher.py:37] Available routes are:
+[server] (APIServer pid=240) INFO 06-23 04:43:06 [launcher.py:46] Route: /openapi.json, Methods: HEAD, GET
+[server] (APIServer pid=240) INFO 06-23 04:43:06 [launcher.py:46] Route: /docs, Methods: HEAD, GET
+[server] (APIServer pid=240) INFO 06-23 04:43:06 [launcher.py:46] Route: /docs/oauth2-redirect, Methods: HEAD, GET
+[server] (APIServer pid=240) INFO 06-23 04:43:06 [launcher.py:46] Route: /redoc, Methods: HEAD, GET
+Server ready at http://127.0.0.1:8000
+Running: /tmp/bench-venv/bin/python -m sglang.bench_serving --backend vllm-chat --base-url http://127.0.0.1:8000 --model gemma-4-e4b-it --tokenizer google/gemma-4-E4B-it --dataset-name sharegpt --dataset-path /harness/data/eval_prompts_sharegpt.json --sharegpt-output-len 512 --num-prompts 128 --max-concurrency 1 --request-rate inf --warmup-requests 4 --seed 1 --extra-request-body {"ignore_eos": true} --output-file /state/benchmark.jsonl --output-details --disable-stream --disable-tqdm
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+benchmark_args=Namespace(backend='vllm-chat', base_url='http://127.0.0.1:8000', host='0.0.0.0', port=None, dataset_name='sharegpt', dataset_path='/harness/data/eval_prompts_sharegpt.json', model='gemma-4-e4b-it', tokenizer='google/gemma-4-E4B-it', num_prompts=128, sharegpt_output_len=512, sharegpt_context_len=None, random_input_len=1024, random_output_len=1024, random_range_ratio=0.0, random_image_num_images=1, random_image_resolution='1080p', request_rate=inf, use_trace_timestamps=False, max_concurrency=1, output_file='/state/benchmark.jsonl', output_details=True, disable_tqdm=True, disable_stream=True, return_logprob=False, seed=1, disable_ignore_eos=False, extra_request_body='{"ignore_eos": true}', apply_chat_template=False, profile=False, lora_name=None, prompt_suffix='', pd_separated=False, flush_cache=False, warmup_requests=4, tokenize_prompt=False, gsp_num_groups=64, gsp_prompts_per_group=16, gsp_system_prompt_len=2048, gsp_question_len=128, gsp_output_len=256, mooncake_slowdown_factor=1.0, mooncake_num_rounds=1, mooncake_workload='conversation')
+Fail to load tokenizer config with error=gemma-4-e4b-it is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'
+If this is a private repository, make sure to pass a token having permission to this repo either by logging in with `hf auth login` or by passing `token=<your_token>`
+
+WARNING It is recommended to use the `Chat` or `Instruct` model for benchmarking.
+Because when the tokenizer counts the output tokens, if there is gibberish, it might count incorrectly.
+
+Namespace(backend='vllm-chat', base_url='http://127.0.0.1:8000', host='0.0.0.0', port=30000, dataset_name='sharegpt', dataset_path='/harness/data/eval_prompts_sharegpt.json', model='gemma-4-e4b-it', tokenizer='google/gemma-4-E4B-it', num_prompts=128, sharegpt_output_len=512, sharegpt_context_len=None, random_input_len=1024, random_output_len=1024, random_range_ratio=0.0, random_image_num_images=1, random_image_resolution='1080p', request_rate=inf, use_trace_timestamps=False, max_concurrency=1, output_file='/state/benchmark.jsonl', output_details=True, disable_tqdm=True, disable_stream=True, return_logprob=False, seed=1, disable_ignore_eos=False, extra_request_body='{"ignore_eos": true}', apply_chat_template=False, profile=False, lora_name=None, prompt_suffix='', pd_separated=False, flush_cache=False, warmup_requests=4, tokenize_prompt=False, gsp_num_groups=64, gsp_prompts_per_group=16, gsp_system_prompt_len=2048, gsp_question_len=128, gsp_output_len=256, mooncake_slowdown_factor=1.0, mooncake_num_rounds=1, mooncake_workload='conversation')
+
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+config.json:   0%|          | 0.00/5.14k [00:00<?, ?B/s][Aconfig.json: 100%|██████████| 5.14k/5.14k [00:00<00:00, 30.7MB/s]
+
+tokenizer_config.json:   0%|          | 0.00/2.10k [00:00<?, ?B/s][Atokenizer_config.json: 100%|██████████| 2.10k/2.10k [00:00<00:00, 14.8MB/s]
+
+tokenizer.json:   0%|          | 0.00/32.2M [00:00<?, ?B/s][Atokenizer.json: 100%|██████████| 32.2M/32.2M [00:00<00:00, 80.2MB/s]
+
+chat_template.jinja:   0%|          | 0.00/17.3k [00:00<?, ?B/s][Achat_template.jinja: 100%|██████████| 17.3k/17.3k [00:00<00:00, 62.1MB/s]
+#Input tokens: 33688
+#Output tokens: 65536
+Starting warmup with 4 sequences...
+[server] (APIServer pid=240) [fastrender] fast=4 slow=0
+[server] (EngineCore pid=887) WARNING 06-23 04:43:17 [jit_monitor.py:103] Triton kernel JIT compilation during inference: _compute_slot_mapping_kernel. This causes a latency spike; consider extending warmup to cover this shape/config.
+[server] (EngineCore pid=887) WARNING 06-23 04:43:17 [jit_monitor.py:103] Triton kernel JIT compilation during inference: kernel_unified_attention. This causes a latency spike; consider extending warmup to cover this shape/config.
+[server] (EngineCore pid=887) WARNING 06-23 04:43:18 [jit_monitor.py:103] Triton kernel JIT compilation during inference: eagle_prepare_next_token_padded_kernel. This causes a latency spike; consider extending warmup to cover this shape/config.
+[server] (EngineCore pid=887) WARNING 06-23 04:43:21 [jit_monitor.py:103] Triton kernel JIT compilation during inference: reduce_segments. This causes a latency spike; consider extending warmup to cover this shape/config.
+[server] (EngineCore pid=887) WARNING 06-23 04:43:22 [jit_monitor.py:103] Triton kernel JIT compilation during inference: _get_fused_accept_prep_kernel.<locals>._dixie_fused_accept_prep_kernel. This causes a latency spike; consider extending warmup to cover this shape/config.
+[server] (EngineCore pid=887) [dixie-fused-accept] fused accept prep active (batch=1, max_spec_len=7)
+[server] (EngineCore pid=887) WARNING 06-23 04:43:22 [jit_monitor.py:103] Triton kernel JIT compilation during inference: eagle_prepare_inputs_padded_kernel. This causes a latency spike; consider extending warmup to cover this shape/config.
+[server] (APIServer pid=240) [detok-endonly] requests endonly=4 stock=0 final_fast=1 final_replay=0 (pid 240)
+[server] (EngineCore pid=887) [onegraph] captured K=7 width-1 propose graph at eligible call 21 with slots=3 (pid 887)
+Warmup completed with 4 sequences. Starting main benchmark run...
+[server] (APIServer pid=240) [detok-endonly] requests endonly=16 stock=0 final_fast=16 final_replay=0 (pid 240)
+[server] (APIServer pid=240) [detok-endonly] requests endonly=64 stock=0 final_fast=64 final_replay=0 (pid 240)
+[server] (APIServer pid=240) [fastrender] fast=128 slow=0
+
+============ Serving Benchmark Result ============
+Backend:                                 vllm-chat 
+Traffic request rate:                    inf       
+Max request concurrency:                 1         
+Successful requests:                     128       
+Benchmark duration (s):                  130.20    
+Total input tokens:                      33688     
+Total generated tokens:                  65536     
+Total generated tokens (retokenized):    54055     
+Request throughput (req/s):              0.98      
+Input token throughput (tok/s):          258.74    
+Output token throughput (tok/s):         503.34    
+Total token throughput (tok/s):          762.08    
+Concurrency:                             1.00      
+----------------End-to-End Latency----------------
+Mean E2E Latency (ms):                   1016.92   
+Median E2E Latency (ms):                 1012.49   
+---------------Time to First Token----------------
+Mean TTFT (ms):                          1016.92   
+Median TTFT (ms):                        1012.49   
+P99 TTFT (ms):                           1494.24   
+---------------Inter-Token Latency----------------
+Mean ITL (ms):                           0.00      
+Median ITL (ms):                         0.00      
+P95 ITL (ms):                            0.00      
+P99 ITL (ms):                            0.00      
+Max ITL (ms):                            0.00      
+==================================================
+
+Summary
+TPS=503.3401
+total_tps=762.0761
+completed=128
+Running: /tmp/bench-venv/bin/python /harness/scripts/decode_outputs.py --base-url http://127.0.0.1:8000 --model gemma-4-e4b-it --dataset-path /harness/data/eval_prompts_sharegpt.json --output-file /state/decode_outputs.jsonl --summary-file /state/decode_summary.json --tokenizer google/gemma-4-E4B-it --num-prompts 128 --output-len 512 --seed 1
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[server] (APIServer pid=240) [detok-endonly] requests endonly=256 stock=0 final_fast=256 final_replay=0 (pid 240)
+decode_records=128
+decode_completion_tokens=65536
+decode_summary_file=/state/decode_summary.json
+decode_records=128
+decode_completion_tokens=65536
+Running: /tmp/bench-venv/bin/python /harness/scripts/ppl_endpoint.py --base-url http://127.0.0.1:8000 --model gemma-4-e4b-it --dataset-path /harness/data/ppl_ground_truth_tokens.jsonl --output-file /state/ppl_results.jsonl --summary-file /state/ppl_summary.json
+{
+  "base_url": "http://127.0.0.1:8000",
+  "dataset_path": "/harness/data/ppl_ground_truth_tokens.jsonl",
+  "mean_record_ppl": 2.640384288357506,
+  "model": "gemma-4-e4b-it",
+  "neg_log_likelihood": 53907.48088005914,
+  "num_records": 128,
+  "num_tokens": 61797,
+  "output_file": "/state/ppl_results.jsonl",
+  "ppl": 2.3924828613443676,
+  "prompt_logprobs": 1
+}
+PPL=2.3925
+summary_file=/state/summary.json
+[server] (EngineCore pid=887) INFO 06-23 04:48:24 [core.py:1178] [shutdown] EngineCore: trigger received signal=SIGTERM
+[server] (APIServer pid=240) INFO 06-23 04:48:24 [launcher.py:100] [shutdown] API server: shutdown triggered
+[server] (APIServer pid=240) INFO 06-23 04:48:24 [launcher.py:116] [shutdown] API server: stopping engine client mode=abort timeout=0s
+[server] (EngineCore pid=887) INFO 06-23 04:48:24 [core.py:1297] [shutdown] EngineCore: start mode=abort timeout=0s
+[server] (EngineCore pid=887) INFO 06-23 04:48:24 [core.py:1328] [shutdown] EngineCore: request processing complete; starting resource teardown
+[server] (EngineCore pid=887) INFO 06-23 04:48:24 [core.py:1191] [shutdown] EngineCore: exiting busy loop
+[server] (APIServer pid=240) INFO 06-23 04:48:24 [core_client.py:652] [shutdown] MPClient: start timeout=0s
+[server] (APIServer pid=240) INFO 06-23 04:48:24 [core_client.py:654] [shutdown] MPClient: stopping engine manager
+[server] (APIServer pid=240) WARNING 06-23 04:48:24 [utils.py:607] [shutdown] Process manager: force killing remaining processes count=1
+[server] (APIServer pid=240) INFO 06-23 04:48:24 [core_client.py:656] [shutdown] MPClient: engine manager stopped
+[server] (APIServer pid=240) INFO 06-23 04:48:24 [core_client.py:657] [shutdown] MPClient: cleaning up background resources
+[server] (APIServer pid=240) INFO 06-23 04:48:24 [core_client.py:659] [shutdown] MPClient: complete
+[server] (APIServer pid=240) INFO 06-23 04:48:24 [launcher.py:125] [shutdown] API server: engine client stopped
+[server] (APIServer pid=240) INFO 06-23 04:48:24 [launcher.py:128] [shutdown] API server: signalling HTTP server shutdown
+[server] (APIServer pid=240) INFO 06-23 04:48:24 [launcher.py:149] [shutdown] API server: shutting down FastAPI HTTP server
+[server] /usr/lib/python3.12/multiprocessing/resource_tracker.py:279: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+[server]   warnings.warn('resource_tracker: There appear to be %d '
