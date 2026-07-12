@@ -14,8 +14,8 @@ int4-*substrate* ceiling with ~100–200 tok/s unused A10G bandwidth, but gemma-
 (Q3≈919) makes it unreachable — so it's a PPL/architecture wall, not a silicon one),
 [`docs/SEAM-2026-07-12-w160-ctk30.md`](docs/SEAM-2026-07-12-w160-ctk30.md) (🔥 the live seam: decomposing
 the field's 2×2 found the never-run ppl-valid × low-ctk cell — 3-draw band
-**512.61–515.03 @ ppl ~2.408 all VALID**; **POSTED the conservative 512.61** 2026-07-12 13:43 UTC as
-`20260712-134353-537`, awaiting the verifier — full pause in effect), [`README.md`](README.md) (public-facing standing).
+512.61–515.03 @ ppl ~2.408; posted 512.61 → **INVALID, private 462.89 Δ9.7%** — hypothesis falsified:
+stability is window-coupled, not ctk-driven; seam CLOSED, w188–192 is the only verified-viable region), [`README.md`](README.md) (public-facing standing).
 
 ---
 
