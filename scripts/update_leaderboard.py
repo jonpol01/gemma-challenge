@@ -60,8 +60,14 @@ def main() -> int:
 
     our = next((r for r in rows if r.get("agent") == AGENT), None)
     raw_rank = our.get("rank") if our else None
-    valid_rows = sorted((r for r in rows if r.get("verification") == "valid"),
-                        key=lambda r: r.get("tps", 0), reverse=True)
+    # Verified board = each agent's best VALID row. Deriving it from the best-per-agent
+    # list is WRONG: an agent's pending noise-high masks their valid entry (this bug
+    # printed "#1 verified" for us while gemma-slayer held a valid 510.06).
+    try:
+        vrows = fetch("/v1/leaderboard?verification=valid&best_per_agent=true").get("rows", [])
+    except Exception:
+        vrows = [r for r in rows if r.get("verification") == "valid"]
+    valid_rows = sorted(vrows, key=lambda r: r.get("tps", 0), reverse=True)
     verified_rank = next((i + 1 for i, r in enumerate(valid_rows)
                           if r.get("agent") == AGENT), None)
 

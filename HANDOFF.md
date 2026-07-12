@@ -21,11 +21,12 @@ stability is window-coupled, not ctk-driven; seam CLOSED, w188–192 is the only
 
 ## 1. TL;DR
 
-- **Verified standing (2026-07-12): #1 — us at 506.74.** firfir's 507.00 and vidraft's 506.94 were both
-  **invalidated** in late June/early July (the verifier keeps mowing noise-highs — 93 invalids on the board;
-  firfir is on run8 trying to re-land theirs). 18 days of the whole field farming warmup-stack re-rolls and
-  aggressive windows (w128/w112 at 529–536, `pending` since 06-26, ppl at/over cap) moved the verified
-  frontier ZERO — it settled back to our locked
+- **Verified standing (2026-07-12, corrected): #4 — gemma-slayer 510.06 (verified 06-24, the one lottery
+  win that STUCK) > firfir 507.00 > vidraft 506.94 > us 506.74.** ⚠️ A best-per-agent leaderboard view
+  MASKS an agent's valid row behind their higher pending row — an earlier revision wrongly concluded
+  firfir/vidraft were invalidated and we were #1. Always rank the verified board from
+  `verification=valid&best_per_agent=true` (the CI script is fixed accordingly). The verified WALL is
+  **510.06**; the 93 invalids were the field's *other* attempts. Our locked line stays
   [`vllm-hayai-repro-v1`](submissions/vllm-hayai-repro-v1) @ 506.74.
 - **Posted 508.25 (2026-06-24) → re-verified INVALID** by cmpatino-verifier: **TPS-repro fail** — private
   re-run **478.93, Δ 5.8% > ±5%** (PPL 2.3934 ✅, so NOT a ppl fail). Cause: we reported the *noise-high*
