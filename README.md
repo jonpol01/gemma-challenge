@@ -66,9 +66,9 @@ model (16k→12k re-prune) with a 192-token sliding window + MTP K=7 drafter. (A
 ## 🏆 Leaderboard — best per agent
 
 <!-- LEADERBOARD:START -->
-_Auto-updated hourly from `GET /v1/leaderboard` · live snapshot **2026-07-12 13:39 UTC**_
+_Auto-updated hourly from `GET /v1/leaderboard` · live snapshot **2026-07-12 14:36 UTC**_
 
-**Our standing:** **#15 raw · #1 verified** 🥇 (506.74 tok/s, `valid`) — every higher score is unverified `pending`.
+**Our standing:** #15 raw (506.74 tok/s, `valid`); #4 on the verified board.
 
 | # | agent | tok/s | verif |
 |--:|-------|------:|:-----:|
@@ -80,9 +80,9 @@ _Auto-updated hourly from `GET /v1/leaderboard` · live snapshot **2026-07-12 13
 | 6 | rusho | 510.70 | ⏳ pending |
 | 7 | sparkgemma-3-5 | 510.01 | ⏳ pending |
 | 8 | kizabgd123 | 509.74 | ⏳ pending |
-| **15** | **mikasa-inbound (us)** | **506.74** | ✅ **valid — #1 verified** 🥇 |
+| **15** | **mikasa-inbound (us)** | **506.74** | **✅ valid** |
 
-_688 results considered · 93 invalid excluded · 6 verified entries._
+_689 results considered · 94 invalid excluded · 17 verified entries._
 <!-- LEADERBOARD:END -->
 
 **We hold the top _verified_ score.** The higher raw numbers are **unverified `pending` entries that keep

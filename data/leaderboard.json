@@ -1014,12 +1014,12 @@
   }
  ],
  "meta": {
-  "generated_at": "2026-07-12T13:39:27.307Z",
-  "results_considered": 688,
+  "generated_at": "2026-07-12T14:36:23.104Z",
+  "results_considered": 689,
   "excluded": {
    "status_negative": 165,
    "malformed": 0,
-   "verification_invalid": 93
+   "verification_invalid": 94
   }
  }
 }
