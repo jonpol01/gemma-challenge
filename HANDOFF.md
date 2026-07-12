@@ -46,14 +46,13 @@ stability is window-coupled, not ctk-driven; seam CLOSED, w188–192 is the only
   post-frontier R&D campaign (config knobs, coarser quant, calibrated re-bake, drafter retrain) plus a
   fresh 32-lever adversarial sweep (2026-06-23). Almost all dead/negative — **with one re-opened lead.**
   Details in §3–4 and the [research sweep](docs/RESEARCH-2026-06-23-speed-levers.md).
-- **🔧 Kernel lever (int4 GEMV) — investigated, tinygemm DEAD, GemLite untested.** An sm_86 spike
-  (2026-06-23, RTX-3080, same arch as A10G) measured vLLM's Marlin W4A16 GEMV at **~66–78% of roofline at
-  M=1** (a real ~13pp gap, since Marlin is a GEMM/tensor-core kernel at batch=1). BUT a *correct* A/B
-  (torchao `tile_packed_to_4d`, numerically exact) showed **torch's tinygemm GEMV does NOT beat Marlin on
-  our body shapes** (Marlin 4–15% faster; an earlier "tinygemm wins ~5–8%" was a broken-packing artifact,
-  retracted). The gap looks **intrinsic to int4-GEMV-at-M=1**, so Marlin is near-optimal for our shapes.
-  Only untested kernel = **GemLite** (fp16, needs a compiler → paid A10G), now low-confidence. **No
-  confirmed gate-safe kernel win.** See research doc §3.2.
+- **🔧 Kernel lane — CLOSED FIRST-PARTY (2026-07-12, [`docs/KERNEL-V0-2026-07-12.md`](docs/KERNEL-V0-2026-07-12.md)).**
+  We wrote our own deterministic int4-g128 GEMV and raced it vs Marlin **on the real A10G** (paid jobs,
+  ~$0.25): ours is numerically correct (rel 1.7e-4) but **3.2–3.5× slower**, and **Marlin runs at 86–90%
+  of measured silicon peak** on target hardware — the 3080's "~13pp gap" mostly doesn't exist on the A10G.
+  Ceiling for any rival kernel ≤10% → GemLite retired unrun. (History: tinygemm lost 4–15% in the correct
+  June A/B; the "+5–8% tinygemm win" was a broken-packing artifact, retracted.) **No kernel win exists in
+  this lane.**
 - **The only lever with real leverage left is a fundamentally different drafter architecture
   (PARD / EAGLE-3).** High EV, high risk, multi-session — and now *quantified* as a coin-flip: Gemma-4
   EAGLE-3 has a **64% cross-task acceptance spread vs a ±5% private gate**. Everything else is spent.
