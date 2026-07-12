@@ -61,6 +61,15 @@ substrate-change PPL-headroom prune (§4).
 sub-4-bit/quant changes (Ampere-blocked / PPL), drafter/PARD changes (gate-doomed), `w160` (busts
 private), Marlin atomic-add (slower), megakernel (slower at batch=1).
 
+## 2.2 Thin-layer v2 (2026-07-12): warmup depth + pingpong4 — MEASURED, null
+
+Tested the last invariant knobs the field's variants suggested, on the w188-ctk49 class:
+`WARMUP_NUM_PROMPTS=256` + `WARMUP_MAX_TOKENS=4` (vs 64×1) + `LOOPGRAPH_PINGPONG_SLOTS=4` (vs 3).
+Two draws: **507.77 / 506.16 (mean 506.97)** vs the v1 band 503.55–508.25 (mean ~506.3) — **inside the
+band, no lift.** The N64 warmup already captures all the warmth; the residual ~5 tok/s spread is
+drafter-draw + infra noise, which no serve-side layer can absorb. Warmup-depth axis closed.
+(Submission: `vllm-thinlayer-v2`; runs `thinv2-20260712T145732Z-a/-b`.)
+
 ## 3. The host-overhead / D2H brick — MEASURED, dead (+0)
 
 We measured it instead of building blind, via the in-tree `STEPTIME=1` probe (`steptime_patch.py`) on a
