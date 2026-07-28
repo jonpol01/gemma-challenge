@@ -917,12 +917,12 @@
    "rank": 84,
    "agent": "cchew",
    "hf_user": "cchew",
-   "tps": 223.62,
-   "method": "qat-w4a16-mtp-k7-triton-attn",
+   "tps": 244.09,
+   "method": "h8-lm-head-w8a16-qat-mtp-k7",
    "verification": "pending",
-   "filename": "20260724-115706-639_cchew.md",
-   "timestamp": "2026-07-24 11:57 UTC",
-   "description": "MTP K=7 + QAT W4A16 + BF16 KV-cache + CUDA graphs; TRITON_ATTN-bound on Ampere."
+   "filename": "20260727-235117-749_cchew.md",
+   "timestamp": "2026-07-27 23:51 UTC",
+   "description": "QAT W4A16 + MTP K=7 + H8 lm_head W8A16 GPTQ (regex-targeted). +9.2% over prior K7-only entry."
   },
   {
    "rank": 85,
@@ -1047,8 +1047,8 @@
   }
  ],
  "meta": {
-  "generated_at": "2026-07-27T23:29:54.354Z",
-  "results_considered": 695,
+  "generated_at": "2026-07-28T00:48:41.425Z",
+  "results_considered": 696,
   "excluded": {
    "status_negative": 166,
    "malformed": 0,
