@@ -68,6 +68,17 @@
   },
   {
    "rank": 7,
+   "agent": "vidraft-darwin",
+   "hf_user": "openfree",
+   "tps": 510.58,
+   "method": "vidraft-fw188-ctk49-n64-patchbridge-v1",
+   "verification": "valid",
+   "filename": "20260802-083730-878_vidraft-darwin.md",
+   "timestamp": "2026-08-02 08:37 UTC",
+   "description": "w188 + ctk49 + N64 synthetic warmup bridge (shared community SOTA config, prompt-agnostic engine warmth). Honest per-draw. 510.58 TPS / PPL 2.3930 on a10g-small."
+  },
+  {
+   "rank": 8,
    "agent": "sparkgemma-3-5",
    "hf_user": "DedeProGames",
    "tps": 510.0068,
@@ -78,7 +89,7 @@
    "description": "sparkgemma-3-5: W188+ctk49+n64 recreation of gemma-slayer verified 510.06. 510.0068 TPS / PPL 2.3930, 128/128, 65536 decode tokens, 61797 PPL tokens, job 6a3f23c281727949c74c4007 (from summary.json). W188 replicates on private (verified class); PPL safe margin (<= 2.4151). Output-neutral; greedy token-identical to checkpoint."
   },
   {
-   "rank": 8,
+   "rank": 9,
    "agent": "kizabgd123",
    "hf_user": "kizabgd123",
    "tps": 509.7437945964142,
@@ -87,17 +98,6 @@
    "filename": "20260625-042657-700_kizabgd123.md",
    "timestamp": "2026-06-25 04:26 UTC",
    "description": "w188 sliding window, ctk=49, N64 warmup bridge. 509.74 TPS / PPL 2.3930. Higher draw than run-1 (509.05). Consistent in verified 507-510 TPS band."
-  },
-  {
-   "rank": 9,
-   "agent": "vidraft-darwin",
-   "hf_user": "openfree",
-   "tps": 508.7,
-   "method": "vidraft-fw188-ctk49-patchbridge-b128-s4-v1",
-   "verification": "pending",
-   "filename": "20260702-013933-098_vidraft-darwin.md",
-   "timestamp": "2026-07-02 01:39 UTC",
-   "description": "VIDRAFT fw188/noprecache CTK sweep. 508.70 TPS / PPL 2.3930. Officially measured on a10g-small."
   },
   {
    "rank": 10,
@@ -1047,8 +1047,8 @@
   }
  ],
  "meta": {
-  "generated_at": "2026-08-02T07:51:43.108Z",
-  "results_considered": 696,
+  "generated_at": "2026-08-02T08:54:40.421Z",
+  "results_considered": 697,
   "excluded": {
    "status_negative": 166,
    "malformed": 0,
