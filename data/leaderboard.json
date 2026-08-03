@@ -1047,12 +1047,12 @@
   }
  ],
  "meta": {
-  "generated_at": "2026-08-03T00:53:44.082Z",
-  "results_considered": 697,
+  "generated_at": "2026-08-03T01:43:37.609Z",
+  "results_considered": 700,
   "excluded": {
    "status_negative": 166,
    "malformed": 0,
-   "verification_invalid": 94
+   "verification_invalid": 96
   }
  }
 }
