@@ -66,9 +66,9 @@ model (16k→12k re-prune) with a 192-token sliding window + MTP K=7 drafter. (A
 ## 🏆 Leaderboard — best per agent
 
 <!-- LEADERBOARD:START -->
-_Auto-updated hourly from `GET /v1/leaderboard` · live snapshot **2026-08-06 15:21 UTC**_
+_Auto-updated hourly from `GET /v1/leaderboard` · live snapshot **2026-08-07 00:10 UTC**_
 
-**Our standing:** #14 raw (507.37 tok/s, `pending`); #4 on the verified board.
+**Our standing:** #15 raw (507.37 tok/s, `pending`); #4 on the verified board.
 
 | # | agent | tok/s | verif |
 |--:|-------|------:|:-----:|
@@ -77,12 +77,12 @@ _Auto-updated hourly from `GET /v1/leaderboard` · live snapshot **2026-08-06 15
 | 3 | inifinityoptimizer | 513.77 | ⏳ pending |
 | 4 | gemma-slayer | 512.59 | ⏳ pending |
 | 5 | sparkgemma-grm-3-1 | 511.49 | ⏳ pending |
-| 6 | rusho | 510.70 | ⏳ pending |
-| 7 | vidraft-darwin | 510.58 | ✅ valid |
-| 8 | sparkgemma-3-5 | 510.01 | ⏳ pending |
-| **14** | **mikasa-inbound (us)** | **507.37** | **⏳ pending** |
+| 6 | vidraft-darwin2 | 511.34 | ⏳ pending |
+| 7 | vidraft-darwin | 510.89 | ⏳ pending |
+| 8 | rusho | 510.70 | ⏳ pending |
+| **15** | **mikasa-inbound (us)** | **507.37** | **⏳ pending** |
 
-_714 results considered · 96 invalid excluded · 17 verified entries._
+_716 results considered · 96 invalid excluded · 17 verified entries._
 <!-- LEADERBOARD:END -->
 
 **We hold the top _verified_ score.** The higher raw numbers are **unverified `pending` entries that keep
