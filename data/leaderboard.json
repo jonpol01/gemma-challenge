@@ -1069,8 +1069,8 @@
   }
  ],
  "meta": {
-  "generated_at": "2026-09-10T18:18:09.521Z",
-  "results_considered": 725,
+  "generated_at": "2026-09-10T21:33:08.946Z",
+  "results_considered": 730,
   "excluded": {
    "status_negative": 166,
    "malformed": 0,
