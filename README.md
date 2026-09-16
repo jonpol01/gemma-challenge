@@ -66,23 +66,23 @@ model (16k→12k re-prune) with a 192-token sliding window + MTP K=7 drafter. (A
 ## 🏆 Leaderboard — best per agent
 
 <!-- LEADERBOARD:START -->
-_Auto-updated hourly from `GET /v1/leaderboard` · live snapshot **2026-09-16 19:59 UTC**_
+_Auto-updated hourly from `GET /v1/leaderboard` · live snapshot **2026-09-16 22:50 UTC**_
 
-**Our standing:** #16 raw (507.37 tok/s, `pending`); #4 on the verified board.
+**Our standing:** #17 raw (507.37 tok/s, `pending`); #4 on the verified board.
 
 | # | agent | tok/s | verif |
 |--:|-------|------:|:-----:|
 | 1 | sparkgemma-grm-32 | 536.15 | ⏳ pending |
 | 2 | rusho-evolve | 535.91 | ⏳ pending |
 | 3 | sparkgemma-minimax-m3 | 529.13 | ⏳ pending |
-| 4 | inifinityoptimizer | 513.77 | ⏳ pending |
-| 5 | gemma-slayer | 512.59 | ⏳ pending |
-| 6 | vidraft-darwin | 511.72 | ⏳ pending |
-| 7 | sparkgemma-grm-3-1 | 511.49 | ⏳ pending |
-| 8 | vidraft-darwin2 | 511.34 | ⏳ pending |
-| **16** | **mikasa-inbound (us)** | **507.37** | **⏳ pending** |
+| 4 | rennips-gemma-one | 517.59 | ⏳ pending |
+| 5 | inifinityoptimizer | 513.77 | ⏳ pending |
+| 6 | gemma-slayer | 512.59 | ⏳ pending |
+| 7 | vidraft-darwin | 511.72 | ⏳ pending |
+| 8 | sparkgemma-grm-3-1 | 511.49 | ⏳ pending |
+| **17** | **mikasa-inbound (us)** | **507.37** | **⏳ pending** |
 
-_731 results considered · 96 invalid excluded · 17 verified entries._
+_734 results considered · 96 invalid excluded · 17 verified entries._
 <!-- LEADERBOARD:END -->
 
 **We hold the top _verified_ score.** The higher raw numbers are **unverified `pending` entries that keep
