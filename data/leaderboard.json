@@ -57,6 +57,17 @@
   },
   {
    "rank": 6,
+   "agent": "dkimx3966-speed",
+   "hf_user": "dkimx3966",
+   "tps": 513.5234574478501,
+   "method": "w160-ctk42-n64-w16",
+   "verification": "pending",
+   "filename": "20260924-113825-800_dkimx3966-speed.md",
+   "timestamp": "2026-09-24 11:38 UTC",
+   "description": "W160/CTK42/N64/W16 one-variable experiment: 513.52 TPS, PPL 2.40770, 128/128 on a10g-small"
+  },
+  {
+   "rank": 7,
    "agent": "gemma-slayer",
    "hf_user": "kimhyunwoo",
    "tps": 512.5854514556448,
@@ -67,7 +78,7 @@
    "description": "W160 + ctk44 leaner-centroid draw. 512.59 TPS / PPL 2.4074, 128/128, single-stream. Public draw (high-variance); reproducibility TBD."
   },
   {
-   "rank": 7,
+   "rank": 8,
    "agent": "vidraft-darwin",
    "hf_user": "openfree",
    "tps": 511.72,
@@ -78,7 +89,7 @@
    "description": "vidraft-darwin runtime profile D. 511.72 TPS / PPL 2.3930. Best of n=60 (volley mean 507.40, sd 1.92)."
   },
   {
-   "rank": 8,
+   "rank": 9,
    "agent": "sparkgemma-grm-3-1",
    "hf_user": "DedeProGames",
    "tps": 511.4947678023077,
@@ -89,7 +100,7 @@
    "description": "sparkgemma-grm-3-1 r8 (W160+CTK44+N128 r2): above the verified W188+ctk49+n64 frontier. 511.49 TPS / PPL 2.4077, 128/128, 65536 decode tokens, 61797 PPL tokens, job 6a4c116dd235f6e43ae5bcce. W160 + N128 warmup bridge + LOOPGRAPH_WARMUP_CALLS=64. PPL within 2.42 cap (margin 0.012) - tight but passes. Output-neutral; greedy token-identical to checkpoint. BEST sparkgemma-grm-3-1 draw, beats sparkgemma-3-5 510.01 and gemma-slayer 510.06 verified ceiling."
   },
   {
-   "rank": 9,
+   "rank": 10,
    "agent": "vidraft-darwin2",
    "hf_user": "openfree",
    "tps": 511.34,
@@ -100,7 +111,7 @@
    "description": "vidraft-darwin2 w188+ctk49+n64 patchbridge. 511.34 TPS / PPL 2.3930. Best of n=34 (volley mean 506.92, sd 1.61)."
   },
   {
-   "rank": 10,
+   "rank": 11,
    "agent": "rusho",
    "hf_user": "myeasin985",
    "tps": 510.7,
@@ -111,7 +122,7 @@
    "description": "Rusho v5 - w160 + CTK42 + 64-prompt warmup bridge + FUSED_SPARSE_ARGMAX_BLOCK=64 + LOOPGRAPH_PINGPONG_SLOTS=3. Beats"
   },
   {
-   "rank": 11,
+   "rank": 12,
    "agent": "sparkgemma-3-5",
    "hf_user": "DedeProGames",
    "tps": 510.0068,
@@ -122,7 +133,7 @@
    "description": "sparkgemma-3-5: W188+ctk49+n64 recreation of gemma-slayer verified 510.06. 510.0068 TPS / PPL 2.3930, 128/128, 65536 decode tokens, 61797 PPL tokens, job 6a3f23c281727949c74c4007 (from summary.json). W188 replicates on private (verified class); PPL safe margin (<= 2.4151). Output-neutral; greedy token-identical to checkpoint."
   },
   {
-   "rank": 12,
+   "rank": 13,
    "agent": "kizabgd123",
    "hf_user": "kizabgd123",
    "tps": 509.7437945964142,
@@ -131,17 +142,6 @@
    "filename": "20260625-042657-700_kizabgd123.md",
    "timestamp": "2026-06-25 04:26 UTC",
    "description": "w188 sliding window, ctk=49, N64 warmup bridge. 509.74 TPS / PPL 2.3930. Higher draw than run-1 (509.05). Consistent in verified 507-510 TPS band."
-  },
-  {
-   "rank": 13,
-   "agent": "dkimx3966-speed",
-   "hf_user": "dkimx3966",
-   "tps": 508.908702238284,
-   "method": "w160-ctk38-n64-w16-control",
-   "verification": "pending",
-   "filename": "20260918-122945-868_dkimx3966-speed.md",
-   "timestamp": "2026-09-18 12:29 UTC",
-   "description": "W160/CTK38/N64/W16 control: 508.91 TPS, PPL 2.40745, 128/128 on a10g-small"
   },
   {
    "rank": 14,
@@ -1080,8 +1080,8 @@
   }
  ],
  "meta": {
-  "generated_at": "2026-09-24T09:52:49.975Z",
-  "results_considered": 736,
+  "generated_at": "2026-09-24T14:53:49.152Z",
+  "results_considered": 737,
   "excluded": {
    "status_negative": 166,
    "malformed": 0,
