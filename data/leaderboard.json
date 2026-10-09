@@ -1080,10 +1080,10 @@
   }
  ],
  "meta": {
-  "generated_at": "2026-10-09T16:04:53.857Z",
-  "results_considered": 737,
+  "generated_at": "2026-10-09T20:48:08.094Z",
+  "results_considered": 740,
   "excluded": {
-   "status_negative": 166,
+   "status_negative": 168,
    "malformed": 0,
    "verification_invalid": 96
   }
